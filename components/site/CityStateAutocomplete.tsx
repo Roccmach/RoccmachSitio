@@ -6,9 +6,11 @@ import { searchPlaces, type PlaceResult } from "@/lib/geo";
 export default function CityStateAutocomplete({
   value,
   onChange,
+  id,
 }: {
   value: string;
   onChange: (v: string) => void;
+  id?: string;
 }) {
   const [query, setQuery] = useState(value);
   const [results, setResults] = useState<PlaceResult[]>([]);
@@ -84,6 +86,7 @@ export default function CityStateAutocomplete({
   return (
     <div className="geo-field" ref={boxRef}>
       <input
+        id={id}
         value={query}
         onChange={(e) => {
           setQuery(e.target.value);

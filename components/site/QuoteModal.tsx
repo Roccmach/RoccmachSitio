@@ -126,11 +126,18 @@ export default function QuoteModal() {
           <div className="step on">
             <h3 className="display">¿Qué necesitas?</h3>
             <p className="lead">Elige el tipo de maquinaria que quieres comprar.</p>
-            <div className="opt-grid">
+            <div className="opt-grid" role="radiogroup" aria-label="Tipo de maquinaria">
               {CATS.map((c) => (
-                <div key={c.key} className={`opt${data.cat === c.key ? " sel" : ""}`} onClick={() => set("cat", c.key)}>
+                <button
+                  key={c.key}
+                  type="button"
+                  role="radio"
+                  aria-checked={data.cat === c.key}
+                  className={`opt${data.cat === c.key ? " sel" : ""}`}
+                  onClick={() => set("cat", c.key)}
+                >
                   {c.icon}<b>{c.key}</b>
-                </div>
+                </button>
               ))}
             </div>
           </div>
@@ -140,11 +147,18 @@ export default function QuoteModal() {
           <div className="step on">
             <h3 className="display">Modalidad</h3>
             <p className="lead">¿Cómo prefieres adquirirla?</p>
-            <div className="opt-grid">
+            <div className="opt-grid" role="radiogroup" aria-label="Modalidad de adquisición">
               {MODOS.map((m) => (
-                <div key={m.key} className={`opt${data.modo === m.key ? " sel" : ""}`} onClick={() => set("modo", m.key)}>
+                <button
+                  key={m.key}
+                  type="button"
+                  role="radio"
+                  aria-checked={data.modo === m.key}
+                  className={`opt${data.modo === m.key ? " sel" : ""}`}
+                  onClick={() => set("modo", m.key)}
+                >
                   {m.icon}<b>{m.key}</b>
-                </div>
+                </button>
               ))}
             </div>
           </div>
@@ -160,13 +174,13 @@ export default function QuoteModal() {
             )}
             <h3 className="display">Completa tu compra</h3>
             <p className="lead">Déjanos tus datos y coordinamos pago y entrega directo contigo.</p>
-            <div className="field"><label>Nombre</label><input value={data.name} onChange={(e) => set("name", e.target.value)} placeholder="Tu nombre" /></div>
-            <div className="field"><label>Empresa</label><input value={data.company} onChange={(e) => set("company", e.target.value)} placeholder="Nombre de tu empresa" /></div>
-            <div className="field"><label>WhatsApp / Teléfono</label><input type="tel" value={data.phone} onChange={(e) => set("phone", e.target.value)} placeholder="33 0000 0000" /></div>
-            <div className="field"><label>Correo</label><input type="email" value={data.email} onChange={(e) => set("email", e.target.value)} placeholder="tu@empresa.com" /></div>
+            <div className="field"><label htmlFor="qm-name">Nombre</label><input id="qm-name" name="name" autoComplete="name" value={data.name} onChange={(e) => set("name", e.target.value)} placeholder="Tu nombre" /></div>
+            <div className="field"><label htmlFor="qm-company">Empresa</label><input id="qm-company" name="organization" autoComplete="organization" value={data.company} onChange={(e) => set("company", e.target.value)} placeholder="Nombre de tu empresa" /></div>
+            <div className="field"><label htmlFor="qm-phone">WhatsApp / Teléfono</label><input id="qm-phone" name="tel" autoComplete="tel" type="tel" value={data.phone} onChange={(e) => set("phone", e.target.value)} placeholder="33 0000 0000" /></div>
+            <div className="field"><label htmlFor="qm-email">Correo</label><input id="qm-email" name="email" autoComplete="email" type="email" value={data.email} onChange={(e) => set("email", e.target.value)} placeholder="tu@empresa.com" /></div>
             <div className="field">
-              <label>Ciudad de entrega</label>
-              <CityStateAutocomplete value={data.city} onChange={(v) => set("city", v)} />
+              <label htmlFor="qm-city">Ciudad de entrega</label>
+              <CityStateAutocomplete id="qm-city" value={data.city} onChange={(v) => set("city", v)} />
             </div>
           </div>
         )}

@@ -796,7 +796,7 @@ section.magic{padding-bottom:clamp(220px,34vw,420px)}
 .step h3{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:2rem;margin-bottom:6px}
 .step p.lead{color:var(--cream);margin-bottom:22px}
 .opt-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.opt{border:1.5px solid var(--line);border-radius:12px;padding:16px;cursor:pointer;transition:.25s;display:flex;align-items:center;gap:12px;color:#fff}
+.opt{width:100%;background:none;font:inherit;text-align:left;border:1.5px solid var(--line);border-radius:12px;padding:16px;cursor:pointer;transition:.25s;display:flex;align-items:center;gap:12px;color:#fff}
 .opt:hover{border-color:var(--red);background:rgba(228,21,31,.08)}
 .opt.sel{border-color:var(--red);background:rgba(228,21,31,.14)}
 .opt svg{width:26px;height:26px;color:var(--red);flex:none}

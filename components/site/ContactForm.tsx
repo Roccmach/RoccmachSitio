@@ -27,15 +27,15 @@ export default function ContactForm() {
     <form className="form-card reveal" onSubmit={onSubmit}>
       <div className="fld">
         <label htmlFor="nombre">Nombre</label>
-        <input id="nombre" required value={f.nombre} onChange={set("nombre")} placeholder="Tu nombre" />
+        <input id="nombre" name="name" autoComplete="name" required value={f.nombre} onChange={set("nombre")} placeholder="Tu nombre" />
       </div>
       <div className="fld">
         <label htmlFor="empresa">Empresa</label>
-        <input id="empresa" value={f.empresa} onChange={set("empresa")} placeholder="Nombre de tu empresa" />
+        <input id="empresa" name="organization" autoComplete="organization" value={f.empresa} onChange={set("empresa")} placeholder="Nombre de tu empresa" />
       </div>
       <div className="fld">
         <label htmlFor="tel">WhatsApp / Teléfono</label>
-        <input id="tel" required type="tel" value={f.tel} onChange={set("tel")} placeholder="33 0000 0000" />
+        <input id="tel" name="tel" autoComplete="tel" required type="tel" value={f.tel} onChange={set("tel")} placeholder="33 0000 0000" />
       </div>
       <div className="fld">
         <label htmlFor="interes">¿Qué necesitas?</label>
