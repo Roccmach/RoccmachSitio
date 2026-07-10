@@ -517,19 +517,25 @@ footer.site{background:#070708;border-top:1px solid var(--line);padding:70px 0 3
 }
 
 /* ===== INNER PAGE HEADER ===== */
-.page-head{position:relative;padding:150px 0 56px;background:var(--ink);overflow:hidden}
+.page-head{position:relative;padding:108px 0 36px;background:var(--ink);overflow:hidden}
 .page-head .hero-bg{position:absolute;inset:0;z-index:0}
 .page-head .blade{opacity:.4}.page-head .grid-lines{opacity:.4}
 .page-head .inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:0 24px}
-.page-head h1{font-size:clamp(2.6rem,6vw,5rem);color:#fff;margin-top:12px}
+.page-head h1{font-size:clamp(2rem,4.2vw,3.2rem);color:#fff;margin-top:8px}
 .page-head h1 em{font-style:italic;color:var(--red)}
 .page-head-compact{padding:88px 0 14px}
 .page-head-compact .crumb{margin-bottom:4px}
 .page-head-compact h1{font-size:clamp(1.7rem,3.4vw,2.3rem);margin-top:4px}
 .page-head-compact h1 em{color:#fff}
 .page-head-compact p{margin-top:6px;font-size:.92rem}
-.page-head p{max-width:600px;margin-top:18px;color:var(--cream);font-size:1.1rem}
+.page-head p{max-width:600px;margin-top:12px;color:var(--cream);font-size:1rem}
+@media(max-width:760px){.page-head{padding:96px 0 28px}}
+/* la variante con foto (Nosotros) conserva el tamaño grande original — solo
+   se recorta la variante simple de texto (Contacto/Seguimiento) arriba */
 .page-head-photo{padding:170px 0 64px}
+.page-head-photo h1{font-size:clamp(2.6rem,6vw,5rem);margin-top:12px}
+.page-head-photo p{margin-top:18px;font-size:1.1rem}
+@media(max-width:760px){.page-head-photo{padding:170px 0 64px}}
 .page-head-bg{
   position:absolute;inset:0;z-index:1;background-size:cover;background-position:center 65%;
 }
