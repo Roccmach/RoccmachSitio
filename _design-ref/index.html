@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ROCCMACH · Maquinaria Industrial — Venta, Renta y Refacciones</title>
+<meta name="description" content="ROCCMACH Maquinaria Industrial. Montacargas, grúas, patines y plataformas. Venta, renta, refacciones y servicio en todo México. Cotiza tu maquinaria hoy." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:ital,wght@0,500;0,600;0,700;0,800;0,900;1,800;1,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --red:#E4151F;
+    --red-deep:#B00D14;
+    --red-glow:rgba(228,21,31,.45);
+    --ink:#0B0B0C;
+    --char:#161618;
+    --char-2:#1F1F22;
+    --steel:#8A9099;
+    --steel-d:#5B6168;
+    --concrete:#EDEDEE;
+    --concrete-2:#F5F5F6;
+    --white:#FFFFFF;
+    --orange:#F97316;
+    --hivis:#FFD200;
+    --line:rgba(255,255,255,.10);
+    --line-d:rgba(0,0,0,.10);
+    --radius:14px;
+    --ease:cubic-bezier(.16,1,.3,1);
+    --maxw:1240px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:var(--ink);
+    color:var(--white);
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+  }
+  ::selection{background:var(--red);color:#fff}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .display{font-family:'Saira Condensed',sans-serif;font-weight:900;line-height:.92;letter-spacing:-.01em;text-transform:uppercase}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{font-family:'Saira Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.32em;font-size:.78rem;color:var(--red)}
+  .btn{
+    display:inline-flex;align-items:center;gap:.6em;cursor:pointer;border:none;
+    font-family:'Saira Condensed',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;
+    font-size:1.02rem;padding:16px 30px;border-radius:10px;position:relative;overflow:hidden;
+    transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .25s;
+    will-change:transform;
+  }
+  .btn svg{width:18px;height:18px}
+  .btn-red{background:var(--red);color:#fff;box-shadow:0 10px 30px -8px var(--red-glow)}
+  .btn-red:hover{background:var(--red-deep);box-shadow:0 16px 40px -8px var(--red-glow);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:#fff;border:1.5px solid var(--line)}
+  .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+  .btn-dark{background:var(--ink);color:#fff}
+  .btn-dark:hover{background:var(--char);transform:translateY(-2px)}
+
+  /* ===== NAV ===== */
+  header.nav{position:fixed;top:0;left:0;right:0;z-index:60;transition:.4s var(--ease)}
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+    max-width:var(--maxw);margin:14px auto 0;padding:10px 14px 10px 22px;
+    background:rgba(11,11,12,.55);backdrop-filter:blur(16px);
+    border:1px solid var(--line);border-radius:16px;
+    transition:.4s var(--ease);
+  }
+  .scrolled .nav-inner{background:rgba(11,11,12,.86);box-shadow:0 18px 50px -20px rgba(0,0,0,.8)}
+  .logo{display:flex;align-items:center;gap:0;font-family:'Saira Condensed',sans-serif;font-weight:900;font-style:italic;font-size:1.8rem;letter-spacing:-.02em;line-height:1}
+  .logo .rocc{color:#fff}.logo .mach{color:var(--red)}
+  .logo small{display:block;font-style:normal;font-weight:700;font-size:.42rem;letter-spacing:.42em;color:var(--steel);margin-top:2px}
+  .logo-stack{display:flex;flex-direction:column}
+  nav.menu{display:flex;align-items:center;gap:4px}
+  nav.menu a{
+    font-family:'Saira Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+    font-size:.95rem;padding:11px 18px;border-radius:9px;color:#D6D6D8;transition:.25s;position:relative;
+  }
+  nav.menu a:hover{color:#fff;background:rgba(255,255,255,.06)}
+  nav.menu a.active{background:var(--red);color:#fff}
+  .nav-cta{display:flex;align-items:center;gap:12px}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+  .burger span{width:26px;height:2.5px;background:#fff;border-radius:3px;transition:.3s}
+
+  /* ===== HERO ===== */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--ink)}
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(120% 90% at 80% 10%, rgba(228,21,31,.20), transparent 55%),
+      radial-gradient(80% 60% at 10% 100%, rgba(249,115,22,.12), transparent 60%),
+      linear-gradient(180deg,#0B0B0C 0%, #131316 60%, #0B0B0C 100%);
+  }
+  /* diagonal hazard blade */
+  .blade{position:absolute;top:-10%;right:-8%;width:60%;height:130%;transform:skewX(-12deg);
+    background:repeating-linear-gradient(135deg,rgba(228,21,31,.10) 0 22px,transparent 22px 64px);
+    z-index:0;opacity:.6;animation:slide 16s linear infinite}
+  @keyframes slide{to{background-position:-300px 0}}
+  .grid-lines{position:absolute;inset:0;z-index:0;opacity:.5;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:64px 64px;mask-image:radial-gradient(ellipse 80% 70% at 50% 40%,#000 30%,transparent 75%)}
+  .hero-inner{position:relative;z-index:2;width:100%;padding-top:120px;padding-bottom:60px}
+  .hero h1{font-size:clamp(3.2rem,9vw,8.2rem);color:#fff}
+  .hero h1 .line{display:block;overflow:hidden}
+  .hero h1 .line span{display:block;transform:translateY(110%);animation:rise .9s var(--ease) forwards}
+  .hero h1 .line:nth-child(2) span{animation-delay:.12s}
+  .hero h1 .line:nth-child(3) span{animation-delay:.24s}
+  .hero h1 em{font-style:italic;color:var(--red);position:relative}
+  @keyframes rise{to{transform:translateY(0)}}
+  .hero-sub{max-width:520px;margin:26px 0 34px;color:#C7C8CC;font-size:1.12rem;opacity:0;animation:fade .8s .5s var(--ease) forwards}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fade .8s .68s var(--ease) forwards}
+  @keyframes fade{to{opacity:1}}
+  .hero-meta{display:flex;gap:38px;margin-top:54px;flex-wrap:wrap;opacity:0;animation:fade .8s .82s var(--ease) forwards}
+  .hero-meta .m b{font-family:'Saira Condensed',sans-serif;font-weight:900;font-size:2.6rem;color:#fff;line-height:1;display:block}
+  .hero-meta .m span{font-size:.82rem;color:var(--steel);text-transform:uppercase;letter-spacing:.14em;font-weight:600}
+  .hero-meta .m b i{color:var(--red);font-style:normal}
+  .scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--steel);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase}
+  .mouse{width:24px;height:38px;border:2px solid var(--steel-d);border-radius:14px;position:relative}
+  .mouse::after{content:"";position:absolute;top:7px;left:50%;transform:translateX(-50%);width:4px;height:7px;background:var(--red);border-radius:3px;animation:wheel 1.6s infinite}
+  @keyframes wheel{0%{opacity:1;top:7px}70%{opacity:0;top:18px}100%{opacity:0}}
+
+  /* floating forklift in hero */
+  .hero-rig{position:absolute;right:-2%;bottom:-2%;width:min(50vw,620px);z-index:1;opacity:0;animation:fade 1s .4s var(--ease) forwards,float 6s ease-in-out 1.2s infinite}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+  .hero-rig svg{filter:drop-shadow(0 30px 50px rgba(0,0,0,.6))}
+
+  /* ===== MARQUEE BRANDS ===== */
+  .marquee{background:var(--red);padding:18px 0;overflow:hidden;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+  .marquee .track{display:flex;gap:60px;width:max-content;animation:scrollx 26s linear infinite;align-items:center}
+  .marquee:hover .track{animation-play-state:paused}
+  .marquee b{font-family:'Saira Condensed',sans-serif;font-weight:800;font-style:italic;text-transform:uppercase;font-size:1.5rem;letter-spacing:.04em;color:#fff;display:flex;align-items:center;gap:60px;opacity:.92}
+  .marquee b::after{content:"";width:8px;height:8px;background:#fff;border-radius:2px;transform:rotate(45deg);opacity:.6}
+  @keyframes scrollx{to{transform:translateX(-50%)}}
+
+  /* ===== SECTION SHELL ===== */
+  section.block{position:relative;padding:clamp(70px,9vw,130px) 0}
+  .sec-head{max-width:720px;margin-bottom:54px}
+  .sec-head h2{font-size:clamp(2.4rem,5.5vw,4.6rem);margin-top:14px;color:#fff}
+  .sec-head.light h2{color:var(--ink)}
+  .sec-head p{margin-top:18px;color:var(--steel);font-size:1.08rem}
+  .sec-head.light p{color:var(--steel-d)}
+
+  .reveal{opacity:0;transform:translateY(38px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal[data-d="1"]{transition-delay:.08s}
+  .reveal[data-d="2"]{transition-delay:.16s}
+  .reveal[data-d="3"]{transition-delay:.24s}
+
+  /* ===== QUÉ HACEMOS ===== */
+  .services{background:var(--char);border-top:1px solid var(--line)}
+  /* sticky card-stack layout (efecto deck en CSS puro) */
+  .svc-layout{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(40px,6vw,80px);align-items:start}
+  .svc-intro{position:sticky;top:120px;align-self:start}
+  .svc-stack{display:flex;flex-direction:column;gap:26px;padding-bottom:10px}
+  .svc-stack .svc:nth-child(1){top:118px}
+  .svc-stack .svc:nth-child(2){top:182px}
+  .svc-stack .svc:nth-child(3){top:246px}
+  .svc-stack .svc:nth-child(4){top:310px}
+  .svc{background:linear-gradient(180deg,var(--char-2),#141416);border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px 34px;position:sticky;overflow:hidden;transition:transform .4s var(--ease),border-color .4s var(--ease),background .4s var(--ease);box-shadow:0 -1px 0 rgba(0,0,0,.5),0 26px 50px -28px rgba(0,0,0,.95)}
+  .svc::before{content:"";position:absolute;left:0;top:0;height:4px;width:0;background:var(--red);transition:width .5s var(--ease)}
+  .svc:hover{transform:translateY(-8px);border-color:rgba(228,21,31,.4);background:linear-gradient(180deg,#202024,#161618)}
+  .svc:hover::before{width:100%}
+  .svc .ic{width:54px;height:54px;border-radius:12px;background:rgba(228,21,31,.12);display:grid;place-items:center;margin-bottom:22px;color:var(--red)}
+  .svc .ic svg{width:28px;height:28px}
+  .svc h3{font-family:'Saira Condensed',sans-serif;font-weight:800;text-transform:uppercase;font-size:1.5rem;letter-spacing:.01em;margin-bottom:10px}
+  .svc p{color:var(--steel);font-size:.96rem}
+  .svc .num{position:absolute;right:18px;top:14px;font-family:'Saira Condensed',sans-serif;font-weight:900;font-size:3.4rem;color:rgba(255,255,255,.05);line-height:1}
+
+  /* ===== CATEGORÍAS strip ===== */
+  .cats{background:var(--concrete-2);color:var(--ink)}
+  .cat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-radius:18px;overflow:hidden;box-shadow:0 30px 70px -30px rgba(0,0,0,.25);border:1px solid var(--line-d)}
+  .cat{position:relative;padding:46px 30px 50px;background:#9A9A9E;color:#fff;cursor:pointer;overflow:hidden;transition:.45s var(--ease);min-height:230px;display:flex;flex-direction:column;justify-content:flex-end}
+  .cat:nth-child(odd){background:#88888C}
+  .cat::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.18));opacity:0;transition:.45s}
+  .cat .cic{position:absolute;top:34px;left:30px;color:#fff;opacity:.9;transition:.45s var(--ease)}
+  .cat .cic svg{width:62px;height:62px;stroke-width:1.6}
+  .cat h4{font-family:'Saira Condensed',sans-serif;font-weight:800;text-transform:uppercase;font-size:1.85rem;letter-spacing:.01em;position:relative;z-index:2}
+  .cat span{font-size:.86rem;opacity:.85;position:relative;z-index:2;display:flex;align-items:center;gap:6px;margin-top:4px;font-weight:500}
+  .cat .arrow{transform:translateX(-6px);opacity:0;transition:.4s var(--ease)}
+  .cat:hover{background:var(--red);transform:scaleY(1.04);z-index:3;box-shadow:0 24px 50px -18px var(--red-glow)}
+  .cat:hover .cic{transform:translateY(-6px) scale(1.06)}
+  .cat:hover .arrow{transform:none;opacity:1}
+
+  /* ===== CATÁLOGO con lógica de precio ===== */
+  .catalog{background:var(--concrete);color:var(--ink)}
+  .cat-filter{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:38px}
+  .cat-filter button{font-family:'Saira Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:.95rem;padding:11px 22px;border-radius:30px;border:1.5px solid var(--line-d);background:#fff;color:var(--steel-d);cursor:pointer;transition:.25s}
+  .cat-filter button.on,.cat-filter button:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .card{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line-d);transition:.4s var(--ease);display:flex;flex-direction:column;position:relative}
+  .card:hover{transform:translateY(-8px);box-shadow:0 28px 60px -24px rgba(0,0,0,.3)}
+  .card .media{position:relative;aspect-ratio:1/1;background:radial-gradient(circle at 50% 38%,#fff,#E9E9EB);display:grid;place-items:center;padding:26px;overflow:hidden}
+  .card .media::before{content:"";position:absolute;left:18px;top:18px;width:42px;height:42px;border-left:3px solid var(--red);border-top:3px solid var(--red);opacity:0;transition:.4s}
+  .card .media::after{content:"";position:absolute;right:18px;bottom:18px;width:42px;height:42px;border-right:3px solid var(--red);border-bottom:3px solid var(--red);opacity:0;transition:.4s}
+  .card:hover .media::before,.card:hover .media::after{opacity:1}
+  .card .media svg{width:78%;transition:transform .5s var(--ease)}
+  .card:hover .media svg{transform:scale(1.06) rotate(-1deg)}
+  .badge{position:absolute;top:14px;right:14px;z-index:3;font-family:'Saira Condensed',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:.72rem;padding:6px 11px;border-radius:30px}
+  .badge.buy{background:#0E7C3A;color:#fff}
+  .badge.quote{background:var(--ink);color:#fff}
+  .card .body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:4px;flex:1}
+  .card .brand{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--steel);font-weight:700}
+  .card h3{font-family:'Saira Condensed',sans-serif;font-weight:800;text-transform:uppercase;font-size:1.32rem;color:var(--ink)}
+  .card .spec{font-size:.84rem;color:var(--steel-d);margin-bottom:12px}
+  .card .foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .price{font-family:'Saira Condensed',sans-serif;font-weight:900;font-size:1.5rem;color:var(--ink);line-height:1}
+  .price small{display:block;font-size:.66rem;letter-spacing:.12em;color:var(--steel);font-weight:600;font-family:'Inter'}
+  .price.q{color:var(--red);font-size:1.15rem;letter-spacing:.02em}
+  .card .act{font-family:'Saira Condensed',sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:.92rem;padding:11px 18px;border-radius:9px;border:none;cursor:pointer;transition:.3s var(--ease);display:inline-flex;align-items:center;gap:7px}
+  .act.buy{background:#0E7C3A;color:#fff}
+  .act.buy:hover{background:#0a5e2c;transform:translateY(-2px)}
+  .act.quote{background:var(--red);color:#fff;box-shadow:0 8px 22px -8px var(--red-glow)}
+  .act.quote:hover{background:var(--red-deep);transform:translateY(-2px)}
+  .act svg{width:15px;height:15px}
+  .catalog-cta{text-align:center;margin-top:50px}
+
+  /* ===== MAGIC QUOTE BANNER ===== */
+  .magic{position:relative;background:var(--ink);overflow:hidden;text-align:center}
+  .magic::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 90% at 50% 0%,rgba(228,21,31,.30),transparent 60%)}
+  .magic .blade{opacity:.4}
+  .magic .wrap{position:relative;z-index:2}
+  .magic h2{font-size:clamp(2.6rem,7vw,6rem);color:#fff;margin-bottom:8px}
+  .magic h2 em{font-style:italic;color:var(--red)}
+  .magic p{max-width:560px;margin:0 auto 34px;color:#C7C8CC;font-size:1.12rem}
+  .magic-steps{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:46px}
+  .mstep{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:30px;padding:11px 20px 11px 12px}
+  .mstep b{width:30px;height:30px;border-radius:50%;background:var(--red);display:grid;place-items:center;font-family:'Saira Condensed';font-weight:900;font-size:1rem}
+  .mstep span{font-family:'Saira Condensed';font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:.95rem}
+
+  /* ===== FOOTER ===== */
+  footer{background:#070708;border-top:1px solid var(--line);padding:70px 0 30px}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.4fr;gap:40px;margin-bottom:50px}
+  .foot-grid h5{font-family:'Saira Condensed';font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:.95rem;color:var(--steel);margin-bottom:18px}
+  .foot-grid a{display:block;color:#C7C8CC;padding:6px 0;font-size:.96rem;transition:.2s}
+  .foot-grid a:hover{color:var(--red);padding-left:6px}
+  .foot-brand p{color:var(--steel);max-width:280px;margin:16px 0 22px;font-size:.95rem}
+  .socials{display:flex;gap:12px}
+  .socials a{width:44px;height:44px;border-radius:11px;border:1px solid var(--line);display:grid;place-items:center;color:#fff;transition:.3s var(--ease)}
+  .socials a:hover{background:var(--red);border-color:var(--red);transform:translateY(-3px)}
+  .socials svg{width:20px;height:20px}
+  .foot-bottom{border-top:1px solid var(--line);padding-top:26px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--steel);font-size:.84rem}
+
+  /* ===== WHATSAPP FAB ===== */
+  .wa-fab{position:fixed;right:22px;bottom:22px;z-index:55;width:60px;height:60px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 14px 36px -8px rgba(37,211,102,.6);animation:pulse 2.4s infinite;transition:transform .3s var(--ease)}
+  .wa-fab:hover{transform:scale(1.08)}
+  .wa-fab svg{width:32px;height:32px;color:#fff}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+
+  /* ===== MODAL (UI MÁGICA) ===== */
+  .modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+  .modal.open{display:flex}
+  .modal-bg{position:absolute;inset:0;background:rgba(5,5,6,.78);backdrop-filter:blur(8px);animation:fade .3s}
+  .modal-card{position:relative;width:min(560px,100%);background:linear-gradient(180deg,#161618,#0E0E10);border:1px solid var(--line);border-radius:20px;padding:36px;box-shadow:0 40px 100px -20px rgba(0,0,0,.8);animation:pop .4s var(--ease)}
+  @keyframes pop{from{transform:translateY(24px) scale(.97);opacity:0}to{transform:none;opacity:1}}
+  .modal-card .x{position:absolute;top:18px;right:18px;width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:none;color:#fff;cursor:pointer;display:grid;place-items:center;transition:.25s}
+  .modal-card .x:hover{background:var(--red);border-color:var(--red)}
+  .steps-dots{display:flex;gap:8px;margin-bottom:22px}
+  .steps-dots i{height:5px;flex:1;border-radius:3px;background:var(--line);transition:.4s}
+  .steps-dots i.on{background:var(--red)}
+  .step{display:none}.step.on{display:block;animation:fade .35s}
+  .step h3{font-family:'Saira Condensed';font-weight:900;text-transform:uppercase;font-size:2rem;margin-bottom:6px}
+  .step p.lead{color:var(--steel);margin-bottom:22px}
+  .opt-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .opt{border:1.5px solid var(--line);border-radius:12px;padding:16px;cursor:pointer;transition:.25s;display:flex;align-items:center;gap:12px;color:#fff}
+  .opt:hover{border-color:var(--red);background:rgba(228,21,31,.08)}
+  .opt.sel{border-color:var(--red);background:rgba(228,21,31,.14)}
+  .opt svg{width:26px;height:26px;color:var(--red)}
+  .opt b{font-family:'Saira Condensed';font-weight:700;text-transform:uppercase;font-size:1.05rem}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--steel);margin-bottom:7px;font-weight:600}
+  .field input{width:100%;padding:14px 16px;border-radius:10px;border:1.5px solid var(--line);background:#0B0B0C;color:#fff;font-family:'Inter';font-size:1rem;transition:.2s}
+  .field input:focus{outline:none;border-color:var(--red)}
+  .modal-nav{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
+  .modal-nav .btn{flex:1;justify-content:center}
+  .summary{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:18px;margin-top:8px}
+  .summary div{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed var(--line);font-size:.95rem}
+  .summary div:last-child{border:none}
+  .summary span{color:var(--steel)}.summary b{color:#fff;font-weight:600}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:1024px){
+    .svc-layout{grid-template-columns:1fr;gap:36px}
+    .svc-intro{position:static;top:auto;margin-bottom:22px}
+    .cat-strip{grid-template-columns:repeat(2,1fr)}
+    .prod-grid{grid-template-columns:repeat(3,1fr)}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:760px){
+    nav.menu,.nav-cta .btn{display:none}
+    .burger{display:flex}
+    .nav-inner{margin-top:10px}
+    .hero-rig{display:none}
+    .prod-grid{grid-template-columns:repeat(2,1fr)}
+    .svc-stack .svc{position:static!important;top:auto!important}
+    .svc-stack{gap:16px}
+    .hero-meta{gap:24px}
+    .hero-meta .m b{font-size:2rem}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .opt-grid{grid-template-columns:1fr}
+    .mobile-menu{display:flex}
+  }
+  @media(max-width:480px){
+    .prod-grid{grid-template-columns:1fr 1fr;gap:14px}
+    .cat-strip{grid-template-columns:1fr}
+    .card .body{padding:14px}
+    .card h3{font-size:1.15rem}
+    .price{font-size:1.25rem}
+  }
+  /* mobile menu drawer */
+  .mobile-menu{position:fixed;inset:0;z-index:70;background:rgba(11,11,12,.97);backdrop-filter:blur(20px);display:none;flex-direction:column;align-items:center;justify-content:center;gap:8px;transform:translateY(-100%);transition:transform .5s var(--ease)}
+  .mobile-menu.open{transform:none}
+  .mobile-menu a{font-family:'Saira Condensed';font-weight:800;text-transform:uppercase;font-size:2.2rem;color:#fff;padding:12px}
+  .mobile-menu a:hover{color:var(--red)}
+  .mobile-menu .x{position:absolute;top:24px;right:24px;width:46px;height:46px;border-radius:12px;border:1px solid var(--line);background:none;color:#fff;font-size:1.4rem;cursor:pointer}
+
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition-duration:.01ms!important}
+    .reveal{opacity:1;transform:none}
+    .hero h1 .line span{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="logo">
+      <div class="logo-stack">
+        <div><span class="rocc">ROCC</span><span class="mach">MACH</span></div>
+        <small>MAQUINARIA INDUSTRIAL</small>
+      </div>
+    </a>
+    <nav class="menu">
+      <a href="#top" class="active">Inicio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="nav-cta">
+      <button class="btn btn-red" onclick="openQuote()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Cotizar
+      </button>
+      <button class="burger" onclick="toggleMenu()" aria-label="Menú"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mm">
+  <button class="x" onclick="toggleMenu()">✕</button>
+  <a href="#top" onclick="toggleMenu()">Inicio</a>
+  <a href="#nosotros" onclick="toggleMenu()">Nosotros</a>
+  <a href="#catalogo" onclick="toggleMenu()">Catálogo</a>
+  <a href="#contacto" onclick="toggleMenu()">Contacto</a>
+  <button class="btn btn-red" style="margin-top:20px" onclick="toggleMenu();openQuote()">Cotizar maquinaria</button>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <div class="hero-bg"><div class="blade"></div><div class="grid-lines"></div></div>
+
+  <!-- floating forklift -->
+  <div class="hero-rig" aria-hidden="true">
+    <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#2A2A2E" stroke-width="2">
+        <rect x="2" y="36" width="14" height="150" fill="#1A1A1D"/>
+        <rect x="20" y="36" width="10" height="150" fill="#161618"/>
+        <rect x="2" y="150" width="120" height="14" fill="#161618"/>
+      </g>
+      <path d="M40 60 h120 a18 18 0 0 1 18 18 v60 h-30 l-12 26 H70 a30 30 0 0 1-30-30 Z" fill="#E4151F"/>
+      <path d="M150 60 h12 a40 40 0 0 1 40 40 v40 h-52 Z" fill="#C20F18"/>
+      <rect x="120" y="20" width="74" height="50" rx="4" fill="#1A1A1D"/>
+      <rect x="120" y="20" width="6" height="120" fill="#2A2A2E"/><rect x="188" y="20" width="6" height="120" fill="#2A2A2E"/>
+      <circle cx="86" cy="176" r="30" fill="#0B0B0C" stroke="#2A2A2E" stroke-width="4"/><circle cx="86" cy="176" r="11" fill="#3A3A40"/>
+      <circle cx="170" cy="176" r="30" fill="#0B0B0C" stroke="#2A2A2E" stroke-width="4"/><circle cx="170" cy="176" r="11" fill="#3A3A40"/>
+      <rect x="6" y="40" width="6" height="100" fill="#FFD200"/>
+    </svg>
+  </div>
+
+  <div class="hero-inner wrap">
+    <div class="eyebrow" style="opacity:0;animation:fade .8s .35s var(--ease) forwards">Maquinaria industrial · México</div>
+    <h1 class="display">
+      <span class="line"><span>Fuerza que</span></span>
+      <span class="line"><span><em>mueve</em> tu</span></span>
+      <span class="line"><span>operación.</span></span>
+    </h1>
+    <p class="hero-sub">Venta, renta, refacciones y servicio de montacargas, grúas, patines y plataformas. Marcas líderes, respaldo real y entrega en todo el país.</p>
+    <div class="hero-cta">
+      <a href="#catalogo" class="btn btn-red">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Ver catálogo
+      </a>
+      <button class="btn btn-ghost" onclick="openQuote()">Cotizar maquinaria</button>
+    </div>
+    <div class="hero-meta">
+      <div class="m"><b>+15<i>años</i></b><span>de experiencia</span></div>
+      <div class="m"><b>500<i>+</i></b><span>equipos entregados</span></div>
+      <div class="m"><b>8</b><span>marcas líderes</span></div>
+      <div class="m"><b>24/7</b><span>servicio y refacciones</span></div>
+    </div>
+  </div>
+
+  <div class="scroll-hint"><div class="mouse"></div>Scroll</div>
+</section>
+
+<!-- ===================== MARQUEE ===================== -->
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <b>TOYOTA</b><b>CATERPILLAR</b><b>HYSTER</b><b>YALE</b><b>CLARK</b><b>CROWN</b><b>RAYMOND</b><b>KOMATSU</b>
+    <b>TOYOTA</b><b>CATERPILLAR</b><b>HYSTER</b><b>YALE</b><b>CLARK</b><b>CROWN</b><b>RAYMOND</b><b>KOMATSU</b>
+  </div>
+</div>
+
+<!-- ===================== NOSOTROS / QUÉ HACEMOS ===================== -->
+<section class="block services" id="nosotros">
+  <div class="wrap svc-layout">
+    <div class="sec-head svc-intro reveal">
+      <div class="eyebrow">Qué hacemos</div>
+      <h2 class="display">Tu socio de<br>maquinaria pesada.</h2>
+      <p>En ROCCMACH no solo vendemos equipo: somos el respaldo que mantiene tu almacén, obra o planta operando sin parar. Cuatro formas de trabajar contigo.</p>
+    </div>
+    <div class="svc-stack">
+      <div class="svc">
+        <span class="num">01</span>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-6 9 6v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 21V12h6v9"/></svg></div>
+        <h3>Venta</h3>
+        <p>Montacargas nuevos y seminuevos certificados de las mejores marcas, listos para trabajar desde el día uno.</p>
+      </div>
+      <div class="svc">
+        <span class="num">02</span>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M12 7v5l3 2"/><path d="M16 3l5 0 0 5"/></svg></div>
+        <h3>Renta</h3>
+        <p>Equipo por día, semana o proyecto. Flexibilidad total sin inmovilizar tu capital ni preocuparte por mantenimiento.</p>
+      </div>
+      <div class="svc">
+        <span class="num">03</span>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.1 2.1-2.1-2.1z"/></svg></div>
+        <h3>Refacciones</h3>
+        <p>Inventario de partes originales y compatibles para que un paro nunca te cueste un día de producción.</p>
+      </div>
+      <div class="svc">
+        <span class="num">04</span>
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v1H7a2 2 0 0 0-2 2v3a7 7 0 0 0 14 0V8a2 2 0 0 0-2-2h-2V5a3 3 0 0 0-3-3z"/><path d="M9 21h6"/></svg></div>
+        <h3>Servicio</h3>
+        <p>Mantenimiento preventivo y correctivo con técnicos certificados. Te visitamos donde estés, cuando lo necesites.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CATEGORÍAS ===================== -->
+<section class="block cats">
+  <div class="wrap">
+    <div class="sec-head light reveal">
+      <div class="eyebrow">Catálogo por categoría</div>
+      <h2 class="display">Encuentra tu equipo.</h2>
+    </div>
+    <div class="cat-strip reveal">
+      <div class="cat" onclick="filterTo('gruas')">
+        <div class="cic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 21V8l8-4 2 4"/><path d="M14 8h7l-3 5"/><path d="M18 13v4"/><circle cx="18" cy="19" r="2"/><path d="M4 21h8"/><circle cx="7" cy="19" r="2"/></svg></div>
+        <h4>Grúas</h4><span class="arrow">Ver equipos →</span>
+      </div>
+      <div class="cat" onclick="filterTo('montacargas')">
+        <div class="cic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 17V7h7v10"/><path d="M10 9h4l3 4v4"/><path d="M15 4v9"/><circle cx="6" cy="19" r="2"/><circle cx="16" cy="19" r="2"/><path d="M15 4h4v3"/></svg></div>
+        <h4>Montacargas</h4><span class="arrow">Ver equipos →</span>
+      </div>
+      <div class="cat" onclick="filterTo('patines')">
+        <div class="cic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 6v8h12"/><path d="M9 4h6v6H9z"/><path d="M3 14l4 4"/><circle cx="6" cy="20" r="1.6"/><circle cx="15" cy="20" r="1.6"/><path d="M15 14v6"/></svg></div>
+        <h4>Patines</h4><span class="arrow">Ver equipos →</span>
+      </div>
+      <div class="cat" onclick="filterTo('plataformas')">
+        <div class="cic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 20h10"/><path d="M5 20l3-12 4 2"/><path d="M8 8l6-3 4 6"/><path d="M14 5v6h6"/><circle cx="6" cy="20" r="1.6"/></svg></div>
+        <h4>Plataformas</h4><span class="arrow">Ver equipos →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CATÁLOGO (lógica de precio) ===================== -->
+<section class="block catalog" id="catalogo">
+  <div class="wrap">
+    <div class="sec-head light reveal">
+      <div class="eyebrow">Catálogo destacado</div>
+      <h2 class="display">Equipo listo<br>para trabajar.</h2>
+      <p>Compra en línea los equipos y refacciones menores a $50,000. Para maquinaria mayor, te llevamos por nuestra cotización inteligente en segundos.</p>
+    </div>
+
+    <div class="cat-filter reveal">
+      <button class="on" data-f="all">Todo</button>
+      <button data-f="montacargas">Montacargas</button>
+      <button data-f="gruas">Grúas</button>
+      <button data-f="patines">Patines</button>
+      <button data-f="plataformas">Plataformas</button>
+    </div>
+
+    <div class="prod-grid" id="grid"></div>
+
+    <div class="catalog-cta reveal">
+      <a href="catalogo.html" class="btn btn-dark">Ver catálogo completo →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MAGIC QUOTE BANNER ===================== -->
+<section class="block magic" id="cotizar">
+  <div class="blade"></div>
+  <div class="wrap">
+    <div class="eyebrow reveal" style="justify-content:center;text-align:center">Cotización inteligente</div>
+    <h2 class="display reveal">Cotiza tu maquinaria<br>en <em>segundos.</em></h2>
+    <p class="reveal">Sin llamadas eternas ni correos perdidos. Cuéntanos qué necesitas y te armamos una propuesta a la medida — directo a tu WhatsApp.</p>
+    <button class="btn btn-red reveal" style="font-size:1.15rem;padding:18px 38px" onclick="openQuote()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg>
+      Iniciar cotización
+    </button>
+    <div class="magic-steps reveal">
+      <div class="mstep"><b>1</b><span>Elige categoría</span></div>
+      <div class="mstep"><b>2</b><span>Define specs</span></div>
+      <div class="mstep"><b>3</b><span>Recibe propuesta</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer id="contacto">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="logo">
+          <div class="logo-stack">
+            <div><span class="rocc">ROCC</span><span class="mach">MACH</span></div>
+            <small>MAQUINARIA INDUSTRIAL</small>
+          </div>
+        </a>
+        <p>Maquinaria industrial con respaldo real. Venta, renta, refacciones y servicio en todo México.</p>
+        <div class="socials">
+          <a href="https://wa.me/523300000000" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.6-.8-2.7-1.4-3.8-3.2-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2"/></svg></a>
+          <a href="https://instagram.com" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://facebook.com" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9V7c0-1 .3-1.5 1.5-1.5H17V2h-2.8C11.5 2 10 3.6 10 6.2V9H7.5v3.5H10V22h4v-9.5h2.7l.5-3.5z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h5>Catálogo</h5>
+        <a href="catalogo.html#montacargas">Montacargas</a>
+        <a href="catalogo.html#gruas">Grúas</a>
+        <a href="catalogo.html#patines">Patines</a>
+        <a href="catalogo.html#plataformas">Plataformas</a>
+      </div>
+      <div>
+        <h5>Empresa</h5>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#cotizar">Cotizar</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <div>
+        <h5>Contacto</h5>
+        <a href="tel:+523300000000">+52 33 0000 0000</a>
+        <a href="mailto:ventas@roccmach.mx">ventas@roccmach.mx</a>
+        <a href="https://wa.me/523300000000">WhatsApp directo</a>
+        <a href="#">Guadalajara, Jalisco · MX</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ROCCMACH Maquinaria Industrial. Todos los derechos reservados.</span>
+      <span>Diseñado con potencia industrial.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/523300000000?text=Hola%20ROCCMACH,%20quiero%20cotizar%20maquinaria" aria-label="WhatsApp" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.6-.8-2.7-1.4-3.8-3.2-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2"/></svg>
+</a>
+
+<!-- ===================== MODAL UI MÁGICA ===================== -->
+<div class="modal" id="quote">
+  <div class="modal-bg" onclick="closeQuote()"></div>
+  <div class="modal-card">
+    <button class="x" onclick="closeQuote()">✕</button>
+    <div class="steps-dots"><i class="on"></i><i></i><i></i><i></i></div>
+
+    <!-- step 1 -->
+    <div class="step on" data-step="1">
+      <h3 class="display">¿Qué necesitas?</h3>
+      <p class="lead">Elige el tipo de maquinaria que buscas.</p>
+      <div class="opt-grid">
+        <div class="opt" onclick="pick(this,'cat','Montacargas')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17V7h7v10"/><path d="M10 9h4l3 4v4"/><circle cx="6" cy="19" r="2"/><circle cx="16" cy="19" r="2"/></svg><b>Montacargas</b></div>
+        <div class="opt" onclick="pick(this,'cat','Grúa')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21V8l8-4 2 4"/><path d="M14 8h7l-3 5"/><circle cx="7" cy="19" r="2"/></svg><b>Grúa</b></div>
+        <div class="opt" onclick="pick(this,'cat','Patín')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6v8h12"/><path d="M9 4h6v6H9z"/><circle cx="6" cy="20" r="1.6"/></svg><b>Patín</b></div>
+        <div class="opt" onclick="pick(this,'cat','Plataforma')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20h10"/><path d="M5 20l3-12 4 2"/><circle cx="6" cy="20" r="1.6"/></svg><b>Plataforma</b></div>
+      </div>
+    </div>
+
+    <!-- step 2 -->
+    <div class="step" data-step="2">
+      <h3 class="display">Modalidad</h3>
+      <p class="lead">¿Cómo prefieres adquirirla?</p>
+      <div class="opt-grid">
+        <div class="opt" onclick="pick(this,'modo','Compra')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-6 9 6v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><b>Compra</b></div>
+        <div class="opt" onclick="pick(this,'modo','Renta')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M12 7v5l3 2"/></svg><b>Renta</b></div>
+        <div class="opt" onclick="pick(this,'modo','Seminuevo')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7L9 18l-5-5"/></svg><b>Seminuevo</b></div>
+        <div class="opt" onclick="pick(this,'modo','Refacciones')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg><b>Refacciones</b></div>
+      </div>
+    </div>
+
+    <!-- step 3 -->
+    <div class="step" data-step="3">
+      <h3 class="display">Tus datos</h3>
+      <p class="lead">Para enviarte la propuesta personalizada.</p>
+      <div class="field"><label>Nombre</label><input id="q-name" type="text" placeholder="Tu nombre" /></div>
+      <div class="field"><label>Empresa</label><input id="q-company" type="text" placeholder="Nombre de tu empresa" /></div>
+      <div class="field"><label>WhatsApp / Teléfono</label><input id="q-phone" type="tel" placeholder="33 0000 0000" /></div>
+    </div>
+
+    <!-- step 4 -->
+    <div class="step" data-step="4">
+      <h3 class="display">¡Listo! 🔧</h3>
+      <p class="lead">Revisa tu solicitud y la enviamos directo por WhatsApp.</p>
+      <div class="summary">
+        <div><span>Maquinaria</span><b id="s-cat">—</b></div>
+        <div><span>Modalidad</span><b id="s-modo">—</b></div>
+        <div><span>Contacto</span><b id="s-name">—</b></div>
+        <div><span>Empresa</span><b id="s-company">—</b></div>
+      </div>
+    </div>
+
+    <div class="modal-nav">
+      <button class="btn btn-ghost" id="backBtn" onclick="stepBack()" style="display:none">← Atrás</button>
+      <button class="btn btn-red" id="nextBtn" onclick="stepNext()">Continuar →</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- Catalog data (demo) — lógica de precio <50k ---------- */
+const PRODUCTS = [
+  {brand:'Toyota', name:'8FGCU25', cat:'montacargas', spec:'2.5 ton · GLP · 4.7m', price:418000},
+  {brand:'Crown', name:'PE 4500', cat:'patines', spec:'2.0 ton · eléctrico', price:42500},
+  {brand:'Caterpillar', name:'GP25N', cat:'montacargas', spec:'2.5 ton · diésel', price:389000},
+  {brand:'Hyster', name:'W45Z', cat:'patines', spec:'2.0 ton · manual', price:18900},
+  {brand:'Yale', name:'GLP050', cat:'montacargas', spec:'2.2 ton · GLP', price:355000},
+  {brand:'Genie', name:'GS-1930', cat:'plataformas', spec:'5.8m · eléctrica', price:285000},
+  {brand:'Clark', name:'C25', cat:'montacargas', spec:'2.5 ton · gasolina', price:298000},
+  {brand:'JLG', name:'1230ES', cat:'plataformas', spec:'3.6m · vertical', price:46800},
+  {brand:'Manitou', name:'MT 625', cat:'gruas', spec:'2.5 ton · telescópica', price:1250000},
+  {brand:'Raymond', name:'8410', cat:'patines', spec:'2.7 ton · eléctrico', price:38500},
+  {brand:'Komatsu', name:'FG25', cat:'montacargas', spec:'2.5 ton · GLP', price:362000},
+  {brand:'Toyota', name:'BT Levio', cat:'patines', spec:'1.6 ton · walkie', price:49900},
+];
+const THRESHOLD = 50000;
+const peso = n => '$'+n.toLocaleString('es-MX');
+
+const forkliftSVG = `<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+  <rect x="6" y="20" width="9" height="100" fill="#1A1A1D"/><rect x="18" y="20" width="6" height="100" fill="#2A2A2E"/>
+  <rect x="6" y="98" width="80" height="9" fill="#161618"/>
+  <path d="M30 44 h78 a14 14 0 0 1 14 14 v40 h-20 l-8 18 H52 a20 20 0 0 1-20-20 Z" fill="#E4151F"/>
+  <path d="M100 44 h8 a26 26 0 0 1 26 26 v28 h-34 Z" fill="#C20F18"/>
+  <rect x="80" y="14" width="50" height="34" rx="3" fill="#1A1A1D"/>
+  <rect x="80" y="14" width="5" height="84" fill="#2A2A2E"/><rect x="125" y="14" width="5" height="84" fill="#2A2A2E"/>
+  <circle cx="58" cy="120" r="20" fill="#0B0B0C" stroke="#2A2A2E" stroke-width="3"/><circle cx="58" cy="120" r="7" fill="#3A3A40"/>
+  <circle cx="114" cy="120" r="20" fill="#0B0B0C" stroke="#2A2A2E" stroke-width="3"/><circle cx="114" cy="120" r="7" fill="#3A3A40"/>
+  <rect x="9" y="24" width="4" height="64" fill="#FFD200"/>
+</svg>`;
+
+function renderGrid(filter='all'){
+  const grid = document.getElementById('grid');
+  const items = PRODUCTS.filter(p => filter==='all' || p.cat===filter);
+  grid.innerHTML = items.map(p => {
+    const buyable = p.price < THRESHOLD;
+    return `<div class="card reveal">
+      <div class="media">
+        <span class="badge ${buyable?'buy':'quote'}">${buyable?'Compra en línea':'Cotización'}</span>
+        ${forkliftSVG}
+      </div>
+      <div class="body">
+        <span class="brand">${p.brand}</span>
+        <h3>${p.name}</h3>
+        <div class="spec">${p.spec}</div>
+        <div class="foot">
+          ${buyable
+            ? `<div class="price">${peso(p.price)}<small>MXN + IVA</small></div>
+               <button class="act buy" onclick="buy('${p.brand} ${p.name}', ${p.price})">
+                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+                 Comprar
+               </button>`
+            : `<div class="price q">Bajo cotización<small>UI mágica · 30s</small></div>
+               <button class="act quote" onclick="openQuote('${p.cat}')">
+                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg>
+                 Cotizar
+               </button>`
+          }
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  observeReveals();
+}
+function buy(name, price){
+  alert(`🛒 Checkout en línea\n\n${name}\n${peso(price)} MXN + IVA\n\n(Aquí se abre el carrito / pago seguro para equipos < $50,000)`);
+}
+
+/* ---------- Filters ---------- */
+document.querySelectorAll('.cat-filter button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.cat-filter button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    renderGrid(b.dataset.f);
+  });
+});
+function filterTo(cat){
+  document.querySelector('#catalogo').scrollIntoView({behavior:'smooth'});
+  document.querySelectorAll('.cat-filter button').forEach(x=>x.classList.toggle('on', x.dataset.f===cat));
+  renderGrid(cat);
+}
+
+/* ---------- Modal UI mágica ---------- */
+let curStep=1; const totalSteps=4;
+const data={cat:'',modo:'',name:'',company:'',phone:''};
+function openQuote(preCat){
+  if(preCat){ data.cat = preCat.charAt(0).toUpperCase()+preCat.slice(1); }
+  document.getElementById('quote').classList.add('open');
+  document.body.style.overflow='hidden';
+  goStep(1);
+}
+function closeQuote(){
+  document.getElementById('quote').classList.remove('open');
+  document.body.style.overflow='';
+}
+function goStep(n){
+  curStep=n;
+  document.querySelectorAll('.step').forEach(s=>s.classList.toggle('on', +s.dataset.step===n));
+  document.querySelectorAll('.steps-dots i').forEach((d,i)=>d.classList.toggle('on', i<n));
+  document.getElementById('backBtn').style.display = n>1 ? 'inline-flex':'none';
+  const next=document.getElementById('nextBtn');
+  next.innerHTML = n===totalSteps ? 'Enviar por WhatsApp ↗' : 'Continuar →';
+  if(n===totalSteps){
+    document.getElementById('s-cat').textContent=data.cat||'—';
+    document.getElementById('s-modo').textContent=data.modo||'—';
+    document.getElementById('s-name').textContent=data.name||'—';
+    document.getElementById('s-company').textContent=data.company||'—';
+  }
+}
+function pick(el,key,val){
+  el.parentElement.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));
+  el.classList.add('sel');
+  data[key]=val;
+}
+function stepNext(){
+  if(curStep===3){
+    data.name=document.getElementById('q-name').value.trim();
+    data.company=document.getElementById('q-company').value.trim();
+    data.phone=document.getElementById('q-phone').value.trim();
+  }
+  if(curStep<totalSteps){ goStep(curStep+1); }
+  else{
+    const msg=`Hola ROCCMACH 👋 Quiero cotizar:%0A%0A🔧 Maquinaria: ${data.cat}%0A📋 Modalidad: ${data.modo}%0A👤 Nombre: ${data.name}%0A🏢 Empresa: ${data.company}%0A📱 Tel: ${data.phone}`;
+    window.open(`https://wa.me/523300000000?text=${msg}`,'_blank');
+    closeQuote();
+  }
+}
+function stepBack(){ if(curStep>1) goStep(curStep-1); }
+
+/* ---------- Nav / mobile ---------- */
+function toggleMenu(){ document.getElementById('mm').classList.toggle('open'); }
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY>40);
+});
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeQuote(); });
+
+/* ---------- Scroll reveals ---------- */
+let io;
+function observeReveals(){
+  if(!io){
+    io=new IntersectionObserver(es=>{
+      es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+    },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  }
+  document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
+}
+
+/* ---------- Init ---------- */
+renderGrid('all');
+observeReveals();
+</script>
+</body>
+</html>

@@ -1,0 +1,2839 @@
+{
+  "categories": [
+    {
+      "blurb": "Combustión y eléctricos de las mejores marcas.",
+      "order": 1,
+      "slug": "montacargas",
+      "title": "Montacargas"
+    },
+    {
+      "blurb": "Eléctricos e hidráulicos para tarima y almacén.",
+      "order": 2,
+      "slug": "patines",
+      "title": "Patines"
+    },
+    {
+      "blurb": "De tijera para trabajo en altura.",
+      "order": 3,
+      "slug": "plataformas",
+      "title": "Plataformas"
+    }
+  ],
+  "products": [
+    {
+      "available": true,
+      "brand": "Big Joe",
+      "category": "patines",
+      "condition": "Seminuevo",
+      "description": "",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/0d60b01d3122ac64f451e24417857c70ba570b08-487x414.png",
+      "model": "D-40",
+      "price": 0,
+      "shortSpec": "4,000 lbs · Eléctrico",
+      "slug": "big-joe-d-40",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "4,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Solidas de poli"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 1.60m × Largo 1.30m × Ancho 65m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "No aplica"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "No enciende"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "326120032"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Big Joe",
+      "category": "patines",
+      "condition": "Seminuevo",
+      "description": "",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/0d60b01d3122ac64f451e24417857c70ba570b08-487x414.png",
+      "model": "D-40",
+      "price": 0,
+      "shortSpec": "4,000 lbs · Eléctrico",
+      "slug": "big-joe-d-40-0027",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "4,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Dimensiones",
+          "value": "Alto 1.60m × Largo 1.30m × Ancho 65m"
+        },
+        {
+          "_key": "s3",
+          "label": "Mástil y elevación",
+          "value": "No aplica"
+        },
+        {
+          "_key": "s4",
+          "label": "Horómetro",
+          "value": "No enciende"
+        },
+        {
+          "_key": "s5",
+          "label": "Serie",
+          "value": "326120027"
+        },
+        {
+          "_key": "s6",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Caterpillar",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "IDEAL PARA SU USO EN CUALQUIER TIPO DE SUELO, RADIO DE GIRO 1.80 +",
+      "featured": true,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/6857b7a7414d4ea4be18d7c75902c16834dfb239-500x400.png",
+      "model": "2ET4000",
+      "price": 350000,
+      "shortSpec": "3,720 lbs · Eléctrico · 4.80m elev.",
+      "slug": "caterpillar-2et4000",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "3,720 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Rudomaticas"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.36m × Largo 2.0m × Ancho 1.10m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Tríplex"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "Sin batería"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "FN433180"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Caterpillar",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "IDEAL PARA SU USO EN CUALQUIER TIPO DE SUELO, RADIO DE GIRO 1.80 + CARGA, BATERÍA DE 4HR EN",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/6857b7a7414d4ea4be18d7c75902c16834dfb239-500x400.png",
+      "model": "2ET4000",
+      "price": 350000,
+      "shortSpec": "2,950 lbs · Eléctrico · 4.80m elev.",
+      "slug": "caterpillar-2et4000-7648",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "2,950 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Rudomaticas"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.12m × Largo 2.20m × Ancho 1.14m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Tríplex 4.80 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "15,631"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "FN487648"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Clark",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "Ideal para uso en suelo liso. Se entrega listo para trabajar (solicitar T.E.)",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/135fd068fa0500c8fdb027ea861d0b4338bd656c-500x568.png",
+      "model": "ECG25",
+      "price": 70000,
+      "shortSpec": "5,500 lbs · Eléctrico · 4.80m elev.",
+      "slug": "clark-ecg25",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "5,500 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Cushion"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.22m × Largo 2.20m × Ancho 1.08m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Tríplex 4.80 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Serie",
+          "value": "ECG358-0144-677755"
+        },
+        {
+          "_key": "s6",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Clark",
+      "category": "patines",
+      "condition": "Seminuevo",
+      "description": "IMAGEN ILUSTRATIVA (solicitar imagen real) $,000 MX",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/1d50e86ac45253464fab557e427168b06c97bbdf-680x558.png",
+      "model": "WP40",
+      "price": 0,
+      "shortSpec": "4,000 lbs · Eléctrico",
+      "slug": "clark-wp40",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "4,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Solidas de poli"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 1.28m × Largo 1.86m × Ancho 77m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "No aplica"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "No enciende"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "WP40-0364-PM8024"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Crown",
+      "category": "patines",
+      "condition": "Seminuevo",
+      "description": "Altura: 15 cm Capacidad: 6,000 lbs Tipo: Eléctrico",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/c355b4b31ae78392a033a37b19a5894ab27d5849-720x960.png",
+      "model": "PC4500-60",
+      "price": 0,
+      "shortSpec": "6,000 lbs · Eléctrico",
+      "slug": "crown-pc4500-60",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "6,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Solidas de poli"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 1.64m × Largo 3.94m × Ancho 86m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "No aplica"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "Sin pila"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "6A299696"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Crown",
+      "category": "patines",
+      "condition": "Seminuevo",
+      "description": "",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/c355b4b31ae78392a033a37b19a5894ab27d5849-720x960.png",
+      "model": "PC4500-60",
+      "price": 0,
+      "shortSpec": "6,000 lbs · Eléctrico",
+      "slug": "crown-pc4500-60-9796",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "6,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Solidas de poli"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 1.62m × Largo 3.68m × Ancho 85m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "No aplica"
+        },
+        {
+          "_key": "s5",
+          "label": "Serie",
+          "value": "6A299796"
+        },
+        {
+          "_key": "s6",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Crown",
+      "category": "patines",
+      "condition": "Seminuevo",
+      "description": "Altura: 15 cm Capacidad: 8,000 lbs Tipo: Eléctrico",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/e991e3be7054cb1f2a602dfdb8d2c612b836eb36-553x481.png",
+      "model": "PE3520-80",
+      "price": 0,
+      "shortSpec": "8,000 lbs · Eléctrico",
+      "slug": "crown-pe3520-80",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "8,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Poliuterano"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 1.94m × Largo 3.68m × Ancho 87m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "No aplica"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "Sin batería"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "6A183081"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Crown",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/da1229a1653ff38c0ac255000bd6ebb3243dba67-619x592.png",
+      "model": "RM6025-45",
+      "price": 0,
+      "shortSpec": "4,500 lbs · Eléctrico · 8.30m elev.",
+      "slug": "crown-rm6025-45",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "4,500 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Poliuterano"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 3.78m × Largo 2.0m × Ancho 1.14m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Monomastil 8.30 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Serie",
+          "value": "1A544996"
+        },
+        {
+          "_key": "s6",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Crown",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "Altura: 7.74 m Capacidad: 4,500 lbs Tipo: Electrico",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/80862f306fcebede1a846ab797bda8850fd704d2-570x640.png",
+      "model": "RR5220-45",
+      "price": 0,
+      "shortSpec": "4,500 lbs · Electrico · 7.74m elev.",
+      "slug": "crown-rr5220-45",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "4,500 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Electrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Cushion"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 3.03m × Largo 1.93m × Ancho 1.35m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Triplex 7.74 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "Sin batería"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "1A274196"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "EP Equipment",
+      "category": "patines",
+      "condition": "Seminuevo",
+      "description": "",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/c12baa2a402083fe23e60f89a44b0019eba20f41-350x337.png",
+      "model": "EPT-2547-30",
+      "price": 0,
+      "shortSpec": "3,000 lbs · Eléctrico · 198m elev.",
+      "slug": "ep-equipment-ept-2547-30",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "3,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Dimensiones",
+          "value": "Alto 1.28m × Largo 1.66m × Ancho 72m"
+        },
+        {
+          "_key": "s3",
+          "label": "Mástil y elevación",
+          "value": "No aplica"
+        },
+        {
+          "_key": "s4",
+          "label": "Serie",
+          "value": "180740"
+        },
+        {
+          "_key": "s5",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Equipo",
+      "category": "patines",
+      "condition": "Seminuevo",
+      "description": "IDEAL PARA DISTANCIAS LARGAS YA QUE ES UN PATIN HOMBRE A BORDO CON BATERÍA",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/ec18f904b44bf57ee7032fd1105110f025c4cd46-770x486.png",
+      "model": "ECR 327",
+      "price": 95000,
+      "shortSpec": "6,000 lbs · Eléctrico · 222m elev.",
+      "slug": "equipo-ecr-327",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "6,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Solidas de poliuterano"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 1.50m × Largo 2.26m × Ancho 85m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "No aplica"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "2,644.3"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "82802461"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Hyster",
+      "category": "patines",
+      "condition": "Seminuevo",
+      "description": "",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/c4a0f16495d05e55d2aaa64dab47bed9192b3065-448x370.png",
+      "model": "B60ZAC",
+      "price": 0,
+      "shortSpec": "6,000 lbs · Eléctrico",
+      "slug": "hyster-b60zac",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "6,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Poliuterano"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 1.50m × Largo 3.27m × Ancho 94m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "No aplica"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "Sin batería"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "B230N01763E"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Hyster",
+      "category": "patines",
+      "condition": "Seminuevo",
+      "description": "",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/7036eb4d425d68459127a59451c56ec894122277-700x550.png",
+      "model": "B80ZHD",
+      "price": 0,
+      "shortSpec": "8,000 lbs · Eléctrico",
+      "slug": "hyster-b80zhd",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "8,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Solidas de poli"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 1.59m × Largo 3.48m × Ancho 94m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "No aplica"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "7,577"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "B257N01860P"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Hyster",
+      "category": "patines",
+      "condition": "Seminuevo",
+      "description": "",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/7036eb4d425d68459127a59451c56ec894122277-700x550.png",
+      "model": "B80ZHD",
+      "price": 0,
+      "shortSpec": "8,000 lbs · Eléctrico",
+      "slug": "hyster-b80zhd-859p",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "8,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Solidas de poli"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 1.60m × Largo 3.44m × Ancho 94m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "No aplica"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "No enciende"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "B257N01859P"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Hyster",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "ES IDEAL PARA OPERAR DENTRO DE NAVES INDUSTRIALES, ALMACENES CON",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/fc8c5082224df0fbd18571482e46f47f984b2658-560x440.png",
+      "model": "S120FT",
+      "price": 400000,
+      "shortSpec": "10,550 lbs · 4.70m elev.",
+      "slug": "hyster-s120ft",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "10,550 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo de llanta",
+          "value": "Cushion"
+        },
+        {
+          "_key": "s2",
+          "label": "Dimensiones",
+          "value": "Alto 2.20m × Largo 2.98m × Ancho 1.40m"
+        },
+        {
+          "_key": "s3",
+          "label": "Mástil y elevación",
+          "value": "TRÍPLEX 4.70 M"
+        },
+        {
+          "_key": "s4",
+          "label": "Horómetro",
+          "value": "En reparación"
+        },
+        {
+          "_key": "s5",
+          "label": "Serie",
+          "value": "G004V02922E"
+        },
+        {
+          "_key": "s6",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Hyster",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "MAYOR TIEMPO DE ACTIVIDAD Y CONFIABILIDAD, FÁCIL ACCESO PARA",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/55ddf328a28b02b408a7826edf7faa8bfee56076-870x796.png",
+      "model": "S35XM",
+      "price": 150000,
+      "shortSpec": "500 lbs · 3.83m elev.",
+      "slug": "hyster-s35xm",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "500 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo de llanta",
+          "value": "Cushion"
+        },
+        {
+          "_key": "s2",
+          "label": "Dimensiones",
+          "value": "Alto 2.38m × Largo 1.98m × Ancho 1.0m"
+        },
+        {
+          "_key": "s3",
+          "label": "Mástil y elevación",
+          "value": "Tríplex 3.83 m"
+        },
+        {
+          "_key": "s4",
+          "label": "Horómetro",
+          "value": "Sin tanque"
+        },
+        {
+          "_key": "s5",
+          "label": "Serie",
+          "value": "D010H02271Z"
+        },
+        {
+          "_key": "s6",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Hyster",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "Altura: 4.16 m Capacidad: 2,800 lbs Tipo: Eléctrico",
+      "featured": true,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/1769a67cb540e9ff702479984230f18a3b566bde-700x500.png",
+      "model": "W30ZR",
+      "price": 120000,
+      "shortSpec": "2,800 lbs · Eléctrico · 4.16m elev.",
+      "slug": "hyster-w30zr",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "2,800 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Poliuterano"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 1.98m × Largo 1.90m × Ancho 1.29m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Tríplex 4.16 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "Desarmado"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "B455N01607B"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "JLG",
+      "category": "plataformas",
+      "condition": "Seminuevo",
+      "description": "",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/daea034dfbd73c7dccadb42b01e2d4374868db92-766x766.png",
+      "model": "2030ES",
+      "price": 0,
+      "shortSpec": "3,700 lbs · Eléctrico · 6.1m elev.",
+      "slug": "jlg-2030es",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "3,700 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Sólidas"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.38m × Largo 2.29m × Ancho 76m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "No aplica"
+        },
+        {
+          "_key": "s5",
+          "label": "Serie",
+          "value": "0200121174"
+        },
+        {
+          "_key": "s6",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Jungheinrich",
+      "category": "patines",
+      "condition": "Seminuevo",
+      "description": "IDEAL PARA DISTANCIAS LARGAS YA QUE ES UN PATIN HOMBRE A BORDO CON BATERÍA",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/ec18f904b44bf57ee7032fd1105110f025c4cd46-770x486.png",
+      "model": "ECR 327",
+      "price": 95000,
+      "shortSpec": "6,000 lbs · Eléctrico",
+      "slug": "jungheinrich-ecr-327",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "6,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Solidas de poliuterano"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 1.50m × Largo 2.30m × Ancho 93m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "No aplica"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "Desarmada"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "82802662"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Lifter",
+      "category": "patines",
+      "condition": "Seminuevo",
+      "description": "",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/71cb2b7cc7713336d0f7551eab6b4e9d00560cc3-720x720.png",
+      "model": "CX-12",
+      "price": 0,
+      "shortSpec": "2,600 lbs · Eléctrico",
+      "slug": "lifter-cx-12",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "2,600 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Solidas de poli"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 1.35m × Largo 1.52m × Ancho 52m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "No aplica"
+        },
+        {
+          "_key": "s5",
+          "label": "Serie",
+          "value": "-"
+        },
+        {
+          "_key": "s6",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Moffett",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "Los montacargas Moffett permiten montar/desmontar con rapidez.",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/6d145cec0d2384b1359bcdd794c23ec616358b8e-1024x768.png",
+      "model": "M5000",
+      "price": 330000,
+      "shortSpec": "4,500 lbs · Diesel · 3.66m elev.",
+      "slug": "moffett-m5000",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "4,500 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Diesel"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Neumática"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.85m × Largo 2.50m × Ancho 2.56m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Tríplex 3.66 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Serie",
+          "value": "7437"
+        },
+        {
+          "_key": "s6",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Moffett",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "Los montacargas Moffett permiten montar/desmontar con rapidez.",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/6d145cec0d2384b1359bcdd794c23ec616358b8e-1024x768.png",
+      "model": "M5000",
+      "price": 330000,
+      "shortSpec": "5,000 lbs · Diesel · 3.66m elev.",
+      "slug": "moffett-m5000-6114",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "5,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Diesel"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Neumática"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.85m × Largo 2.50m × Ancho 2.56m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Dúplex 3.66 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Serie",
+          "value": "6114"
+        },
+        {
+          "_key": "s6",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Nissan",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "Al ser un motor tan popular en México, las refacciones son muy baratas, fáciles de conseguir con cualquier proveedor local.",
+      "featured": true,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/4db21e5e5e45a7ca5a15a2936d6237766d172aa2-761x594.png",
+      "model": "MUG1F2A30LV",
+      "price": 310000,
+      "shortSpec": "6,000 lbs · 4.80m elev.",
+      "slug": "nissan-mug1f2a30lv",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "6,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Gas LP"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Rudomatico"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.14m × Largo 2.80m × Ancho 1.26m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Tríplex 4.80 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Serie",
+          "value": "UG1F2-9L4261"
+        },
+        {
+          "_key": "s6",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Nissan",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "IDEAL PARA USO EN SUELO LISO, BATERÍA DE 5 HRS. EN DESCARGA CONTINUA, HOMBRE",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/a8924f19dd23966afe4751f41a158126e9074f63-300x300.png",
+      "model": "WCN-30-TH",
+      "price": 110000,
+      "shortSpec": "3,000 lbs · Eléctrico · 2.66m elev.",
+      "slug": "nissan-wcn-30-th",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "3,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Solidas de poliuterano"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 1.82m × Largo 1.89m × Ancho 92m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Dúplex 2.66 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "197.7"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "K-44-79930"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Raymond",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "está diseñado para trabajar en espacios reducidos y pasillos angostos, mejorando la",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/438ba48f0b7e7cfe791e52b91b8baa75661fd691-746x655.png",
+      "model": "DSS 300",
+      "price": 230000,
+      "shortSpec": "3,000 lbs · Eléctrico · 5.76m elev.",
+      "slug": "raymond-dss-300",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "3,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Cushion"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.39m × Largo 1.70m × Ancho 1.06m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Tríplex 5.76 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "4,217"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "DSS-07-07127"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Raymond",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "Altura: 5.35 m Capacidad: 4,500 lbs Tipo: Eléctrico",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/4353c1adb9b5ce01d5cee5a5681e7a8e23471958-1134x756.png",
+      "model": "EASI R40TT",
+      "price": 0,
+      "shortSpec": "4,500 lbs · Eléctrico · 5.35m elev.",
+      "slug": "raymond-easi-r40tt",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "4,500 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Poliuterano"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.40m × Largo 1.97m × Ancho 1.12m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Tríplex 5.35 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "Sin batería"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "EZ-D-06-36533"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Raymond",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "Altura: 5.35 m Capacidad: 4,000 lbs Tipo: Eléctrico",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/4353c1adb9b5ce01d5cee5a5681e7a8e23471958-1134x756.png",
+      "model": "EASI R40TT",
+      "price": 0,
+      "shortSpec": "4,000 lbs · Eléctrico · 5.35m elev.",
+      "slug": "raymond-easi-r40tt-7071",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "4,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Cushion"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.40m × Largo 2.12m × Ancho 1.19m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Triplex 5.35 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "Sin batería"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "EZ-D-06-37071"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Raymond",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/9cc6cfc0b8995626d4082ee323b2c5bd27e98589-540x720.png",
+      "model": "EASI R45TT",
+      "price": 150000,
+      "shortSpec": "Eléctrico · 7.11m elev.",
+      "slug": "raymond-easi-r45tt",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "5,350 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Cushion"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 3.58m × Largo 2.06m × Ancho 1.34m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Tríplex 7.11 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Serie",
+          "value": "EZ-D-05-32642"
+        },
+        {
+          "_key": "s6",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Raymond",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "Altura: 8.15 m Capacidad: 4,000 lbs Tipo: Eléctrico",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/b5ad82087ae66e1ee4f439d31ed53e00466b9d8d-486x648.png",
+      "model": "R40TT-M",
+      "price": 0,
+      "shortSpec": "4,000 lbs · Eléctrico · 8.15m elev.",
+      "slug": "raymond-r40tt-m",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "4,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Poliuterano"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 3.63m × Largo 2.95m × Ancho 1.13m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Tríplex 8.15 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "Sin pila"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "EZ-D-06-35258"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Skyjack",
+      "category": "plataformas",
+      "condition": "Seminuevo",
+      "description": "Un sistema confiable que utiliza codificación por colores y números, lo que facilita la detección de fallos.",
+      "featured": true,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/14db18d7857f1ab045758b4dfc5e60ea1755279a-711x719.png",
+      "model": "SJIII3219",
+      "price": 130000,
+      "shortSpec": "500 lbs · 7.65m elev.",
+      "slug": "skyjack-sjiii3219",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "500 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrica"
+        },
+        {
+          "_key": "s2",
+          "label": "Dimensiones",
+          "value": "Alto 1.98m × Largo 1.87m × Ancho 80m"
+        },
+        {
+          "_key": "s3",
+          "label": "Mástil y elevación",
+          "value": "No aplica"
+        },
+        {
+          "_key": "s4",
+          "label": "Serie",
+          "value": "22090116"
+        },
+        {
+          "_key": "s5",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Toyota",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "Altura: 4.75 m Capacidad: 6,300 lbs Tipo: Eléctrico",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/8b855ed5005d1139e53f7a2b053ea4c33aed540d-621x527.png",
+      "model": "7FBCU32",
+      "price": 0,
+      "shortSpec": "6,300 lbs · Eléctrico · 4.75m elev.",
+      "slug": "toyota-7fbcu32",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "6,300 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Cushion"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.24m × Largo 1m × Ancho 1.02m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Tríplex 4.75 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "Sin batería"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "62937"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Toyota",
+      "category": "patines",
+      "condition": "Seminuevo",
+      "description": "Altura: 15 cm Capacidad: 6,000 lbs Tipo: Eléctrico",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/c1b5c817869e357ac2ac0f6f8eb40afadbfd2f91-480x400.png",
+      "model": "7HBC30",
+      "price": 0,
+      "shortSpec": "6,000 lbs · Eléctrico",
+      "slug": "toyota-7hbc30",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "6,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Solidas de poli"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 1.92m × Largo 3.56m × Ancho 82m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "No aplica"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "Sin batería"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "7HBC30-30418"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Toyota",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "Altura: 7.02 m Capacidad: 4,000 lbs Tipo: Eléctrico",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/6bf4cdd176dd985c0a516bdf1471c7d98e1648e0-1004x565.png",
+      "model": "8BNCU20",
+      "price": 0,
+      "shortSpec": "4,000 lbs · Eléctrico · 7.02m elev.",
+      "slug": "toyota-8bncu20",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "4,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Cushion"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.40m × Largo 1.88m × Ancho 1.16m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Tríplex 7.02 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "Sin pila"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "56616"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Toyota",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/772218dc02031e4e5d63e25ade566fb36e8b0c11-648x524.png",
+      "model": "8FBCU20",
+      "price": 0,
+      "shortSpec": "Eléctrico · 3.34m elev.",
+      "slug": "toyota-8fbcu20",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "2,950 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Cushion"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.24m × Largo 2.06m × Ancho 1.16m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Dúplex 3.34 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Serie",
+          "value": "68692"
+        },
+        {
+          "_key": "s6",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Toyota",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "Altura: 4.80 m Capacidad: 3,050 lbs Tipo: Eléctrico",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/772218dc02031e4e5d63e25ade566fb36e8b0c11-648x524.png",
+      "model": "8FBCU20",
+      "price": 0,
+      "shortSpec": "3,050 lbs · Eléctrico · 4.80m elev.",
+      "slug": "toyota-8fbcu20-3393",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "3,050 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Cushion"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.26m × Largo 2.80m × Ancho 1.22m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Dúplex 4.80 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "Sin pila"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "83393"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Toyota",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "Altura: 4.80 m Capacidad: 3,450 lbs Tipo: Electrico",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/abecf672db0210b8d96f3f132e1726bc374791d9-700x600.png",
+      "model": "8FBE20U",
+      "price": 0,
+      "shortSpec": "3,450 lbs · Electrico · 4.80m elev.",
+      "slug": "toyota-8fbe20u",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "3,450 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Electrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Cushion"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.14m × Largo 2.12m × Ancho 1.06m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Tríplex 4.80 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "9,882.7"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "15317"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Toyota",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "Altura: 6 m Capacidad: 4,000 lbs Tipo: Eléctrico",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/abecf672db0210b8d96f3f132e1726bc374791d9-700x600.png",
+      "model": "8FBE20U",
+      "price": 0,
+      "shortSpec": "4,000 lbs · Eléctrico · 6m elev.",
+      "slug": "toyota-8fbe20u-2755",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "4,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Cushion"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.14m × Largo 2.12m × Ancho 1.06m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "tríplex 6 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "Sin batería"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "12755"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Toyota",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "ESTE MODELO ES IDEAL PARA APLICACIONES INDUSTRIALES EXIGENTES.",
+      "featured": true,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/cc7fa4706fb1451829392b233ec4fe82faabab9e-748x619.png",
+      "model": "8FGU25",
+      "price": 350000,
+      "shortSpec": "4,500 lbs · Electrico · 4.80m elev.",
+      "slug": "toyota-8fgu25",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "4,500 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Electrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Cushion"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.08m × Largo 2.74m × Ancho 1.26m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Tríplex 4.80 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "Desarmado"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "72643"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Yale",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "IDEAL PARA USO EN SUELO LISO, BATERÍA DE 4HR CARGA CONTINUA. SE ENTREGA CON",
+      "featured": true,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/7c0be6962bfdbc284995d21ab42e83a3208572ba-640x480.png",
+      "model": "ERC050VGN36TE083",
+      "price": 280000,
+      "shortSpec": "4,850 lbs · Eléctrico · 4.80m elev.",
+      "slug": "yale-erc050vgn36te083",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "4,850 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Cushion"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.21m × Largo 2.10m × Ancho 1.08m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Tríplex 4.80 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "Sin pila"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "A968N15613P"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Yale",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "IDEAL PARA USO EN SUELO LISO, BATERÍA DE 4HR CARGA CONTINUA.",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/7c0be6962bfdbc284995d21ab42e83a3208572ba-640x480.png",
+      "model": "ERC050VGN36TE083",
+      "price": 280000,
+      "shortSpec": "4,850 lbs · Eléctrico · 4.80m elev.",
+      "slug": "yale-erc050vgn36te083-612p",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "4,850 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Cushion"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.21m × Largo 2.14m × Ancho 1.08m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Tríplex 4.80 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "Sin pila"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "A968N15612P"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Yale",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "Ideal para uso en suelo liso, batería de 4hr carga continua.",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/7c0be6962bfdbc284995d21ab42e83a3208572ba-640x480.png",
+      "model": "ERC065VGN48TF088",
+      "price": 280000,
+      "shortSpec": "2,860 lbs · Eléctrico · 3.31m elev.",
+      "slug": "yale-erc065vgn48tf088",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "2,860 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Cushion"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.40m × Largo 2.31m × Ancho 1.13m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Dúplex 3.31 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Serie",
+          "value": "A968N08495L"
+        },
+        {
+          "_key": "s6",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Yale",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "Altura: 7.44 m Capacidad: 2,900 lbs Tipo: Eléctrico",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/c6db55f65e1ade8f6e241dbfe3cea41c9a0f5430-500x539.png",
+      "model": "ERP030TGN36SE082",
+      "price": 0,
+      "shortSpec": "2,900 lbs · Eléctrico · 7.44m elev.",
+      "slug": "yale-erp030tgn36se082",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "2,900 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Cushion"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.06m × Largo 1.84m × Ancho 1.04m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Tríplex 7.44 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "Sin batería"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "E807N01604W"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Yale",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/f8fd5c338cfa14440d1498b5469d2fc2b58493c7-849x1200.png",
+      "model": "GLP080LGNGBE088",
+      "price": 280000,
+      "shortSpec": "8,000 lbs · 4.7m elev.",
+      "slug": "yale-glp080lgngbe088",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "8,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Gas LP"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Rudomaticas"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.20m × Largo 3.00m × Ancho 1.36m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Tríplex 4.7 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Serie",
+          "value": "B813D02996U"
+        },
+        {
+          "_key": "s6",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Yale",
+      "category": "patines",
+      "condition": "Seminuevo",
+      "description": "IMAGEN ILUSTRATIVA (solicitar imagen real) Altura: 15 cm",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/81644d551d9d32455cd80496ea454e2c5b316aa7-960x720.png",
+      "model": "MP8040ACN24C2748",
+      "price": 0,
+      "shortSpec": "4,000 lbs · Eléctrico",
+      "slug": "yale-mp8040acn24c2748",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "4,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Solidas de poli"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 1.25m × Largo 1.83m × Ancho 77m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "No aplica"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "Sin batería"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "A827N36864Y"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Yale",
+      "category": "patines",
+      "condition": "Seminuevo",
+      "description": "Ruedas de poliuretano que protegen pisos industriales lisos, operación eléctrica silenciosa y sin emisiones.",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/5ef3dde9a195c763e6afca0404f09955523dc988-776x464.png",
+      "model": "MPE060LFN24T2736",
+      "price": 60000,
+      "shortSpec": "6,000 lbs · Eléctrico",
+      "slug": "yale-mpe060lfn24t2736",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "6,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Poliuterano"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 1.60m × Largo 1.92m × Ancho 95m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "No aplica"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "Sin pila"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "B896N03249F"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Yale",
+      "category": "patines",
+      "condition": "Seminuevo",
+      "description": "",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/17acbca3ce9935f64db75b39b2543bdd9108f454-501x389.png",
+      "model": "MTR007LFN24T",
+      "price": 0,
+      "shortSpec": "15,000 lbs · Eléctrico",
+      "slug": "yale-mtr007lfn24t",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "15,000 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Solidas de poli"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.13m × Largo 1.74m × Ancho 95m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "No aplica"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "20,817"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "C903N01633M"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Yale",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "Excelente para almacenes con racks altos, trabaja en pasillos angostos, menor consumo por ser eléctrico.",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/9a2f97ed467fd30e6d3742a1ea4d93d4c059c8e0-500x500.png",
+      "model": "NDR035EANL36TE",
+      "price": 350000,
+      "shortSpec": "3,500 lbs · Eléctrico · 7.4m elev.",
+      "slug": "yale-ndr035eanl36te",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "3,500 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Poliuterano"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 3.64m × Largo 2.23m × Ancho 1.12m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Tríplex 7.4 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Serie",
+          "value": "C861N03186J"
+        },
+        {
+          "_key": "s6",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Yale",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "Excelente para almacenes con racks altos, Trabaja en pasillos angostos,",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/9a2f97ed467fd30e6d3742a1ea4d93d4c059c8e0-500x500.png",
+      "model": "NDR035EANL36TE143",
+      "price": 350000,
+      "shortSpec": "3,500 lbs · Eléctrico · 8.44m elev.",
+      "slug": "yale-ndr035eanl36te143",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "3,500 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Poliuterano"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 3.64m × Largo 2.25m × Ancho 1.10m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Tríplex 8.44 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "Sin pila"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "C861N03514J"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Yale",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "Altura: 8.43 m Capacidad: 3,500 lbs Tipo: Eléctrico",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/9a2f97ed467fd30e6d3742a1ea4d93d4c059c8e0-500x500.png",
+      "model": "NDR035EANL36TE143",
+      "price": 350000,
+      "shortSpec": "3,500 lbs · Eléctrico · 8.43m elev.",
+      "slug": "yale-ndr035eanl36te143-019l",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "3,500 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Poliuterano"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 3.63m × Largo 2.04m × Ancho 1.10m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Tríplex 9 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "Sin pila"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "C861N04019L"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Yale",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "IDEAL PARA ESPACIOS REDUCIDOS, BATERIA DE 4 HRS EN DESCARGA CONTINUA.",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/409a638d11019f419ffb3bee9cdabd3414bc58e3-773x1000.png",
+      "model": "NR045EANL36TE110",
+      "price": 250000,
+      "shortSpec": "4,500 lbs · Eléctrico · 6.22m elev.",
+      "slug": "yale-nr045eanl36te110",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "4,500 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Poliuterano"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.80m × Largo 2.1m × Ancho 1.14m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "TrÍplex 6.22 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "Sin pila"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "C861N04039L"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    },
+    {
+      "available": true,
+      "brand": "Yale",
+      "category": "montacargas",
+      "condition": "Seminuevo",
+      "description": "DEAL PARA ESPACIOS REDUCIDOS, BATERIA DE 4 HRS EN DESCARGA CONTINUA. SE ENTREGA",
+      "featured": false,
+      "imageUrl": "https://cdn.sanity.io/images/6j6s0181/production/409a638d11019f419ffb3bee9cdabd3414bc58e3-773x1000.png",
+      "model": "NR045EBNS36TE110",
+      "price": 250000,
+      "shortSpec": "4,500 lbs · Eléctrico · 6.22m elev.",
+      "slug": "yale-nr045ebns36te110",
+      "specs": [
+        {
+          "_key": "s0",
+          "label": "Capacidad",
+          "value": "4,500 lbs"
+        },
+        {
+          "_key": "s1",
+          "label": "Tipo",
+          "value": "Eléctrico"
+        },
+        {
+          "_key": "s2",
+          "label": "Tipo de llanta",
+          "value": "Poliuterano"
+        },
+        {
+          "_key": "s3",
+          "label": "Dimensiones",
+          "value": "Alto 2.80m × Largo 186m × Ancho 1.35m"
+        },
+        {
+          "_key": "s4",
+          "label": "Mástil y elevación",
+          "value": "Tríplex 6.22 m"
+        },
+        {
+          "_key": "s5",
+          "label": "Horómetro",
+          "value": "130 horas"
+        },
+        {
+          "_key": "s6",
+          "label": "Serie",
+          "value": "D861N02963P"
+        },
+        {
+          "_key": "s7",
+          "label": "Ubicación",
+          "value": "Bodega Guadalajara"
+        }
+      ]
+    }
+  ]
+}
