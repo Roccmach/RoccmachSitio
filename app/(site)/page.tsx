@@ -7,6 +7,8 @@ import MagicBanner from "@/components/site/MagicBanner";
 import ScrollReveals from "@/components/site/ScrollReveals";
 import ScrollParallax from "@/components/site/ScrollParallax";
 
+export const revalidate = 60;
+
 export default function Home() {
   return (
     <main>

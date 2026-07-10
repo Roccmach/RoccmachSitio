@@ -12,6 +12,8 @@ import BuyButton from "@/components/site/BuyButton";
 import QuoteTrigger from "@/components/site/QuoteTrigger";
 import ScrollReveals from "@/components/site/ScrollReveals";
 
+export const revalidate = 60;
+
 export async function generateStaticParams() {
   const slugs = await getProductSlugs();
   return slugs.map((slug) => ({ slug }));
