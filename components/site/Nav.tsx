@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Logo from "./Logo";
-import { openQuote } from "./quote-events";
 
 const LINKS = [
   {
@@ -85,9 +84,6 @@ export default function Nav() {
               </Link>
             ))}
           </nav>
-          <button className="btn btn-green" style={{ marginTop: 8 }} onClick={() => { setOpen(false); openQuote(); }}>
-            Comprar maquinaria
-          </button>
         </div>
       )}
 
@@ -108,7 +104,6 @@ export default function Nav() {
         .mm-ic svg{width:19px;height:19px}
         .mm-arrow{width:16px;height:16px;margin-left:auto;color:var(--steel);flex:none;transition:.25s var(--ease)}
         .mm-list a:hover .mm-arrow,.mm-list a:active .mm-arrow{color:var(--red);transform:translateX(3px)}
-        .mobile-menu .btn{width:100%;max-width:420px;justify-content:center}
       `}</style>
     </>
   );
