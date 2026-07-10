@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageHead from "@/components/site/PageHead";
 import ScrollReveals from "@/components/site/ScrollReveals";
+import ScrollParallax from "@/components/site/ScrollParallax";
 import HoverGrid from "@/components/site/HoverGrid";
 import JsonLd from "@/components/site/JsonLd";
 import { breadcrumbJsonLd } from "@/lib/seo";
@@ -69,6 +70,7 @@ export default function NosotrosPage() {
   return (
     <main>
       <ScrollReveals />
+      <ScrollParallax />
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Inicio", url: SITE_URL },
@@ -90,6 +92,9 @@ export default function NosotrosPage() {
       </div>
 
       <section className="block services">
+        <div className="value-orb-clip" aria-hidden="true">
+          <div className="value-orb" data-parallax="0.12" />
+        </div>
         <div className="wrap">
           <p className="about-lead reveal">
             Somos una empresa mexicana, <em>apasionada por el servicio</em>: tu socio confiable en la
@@ -127,6 +132,9 @@ export default function NosotrosPage() {
       </section>
 
       <section className="block cats">
+        <div className="cats-orb-clip" aria-hidden="true">
+          <div className="cats-orb" data-parallax="0.10" />
+        </div>
         <div className="wrap">
           <div className="stat-band reveal">
             {STATS.map((st) => (

@@ -17,7 +17,10 @@ export default function PageHead({
 }) {
   return (
     <header className={`page-head${image ? " page-head-photo" : ""}${compact ? " page-head-compact" : ""}`}>
-      <div className="hero-bg"><div className="blade" /><div className="grid-lines" /></div>
+      <div className="hero-bg">
+        <div className="blade" data-parallax="0.10" />
+        <div className="grid-lines" data-parallax="0.04" />
+      </div>
       {image && (
         <div className="page-head-bg" style={{ backgroundImage: `url(${image})` }} aria-hidden="true" />
       )}

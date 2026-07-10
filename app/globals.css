@@ -171,14 +171,28 @@ section.block{position:relative;padding:clamp(70px,9vw,130px) 0}
    ancestro (no solo el propio) rompe el sticky de sus descendientes. El glow
    se recorta con un wrapper propio que NO es ancestro de .svc-stack. */
 .services{background:var(--char);border-top:1px solid var(--line);position:relative}
-.services .svc-layout{position:relative;z-index:1}
-.svc-orb-clip{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.services .svc-layout,.services .wrap{position:relative;z-index:1}
+.svc-orb-clip,.value-orb-clip{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
 .svc-orb{
   position:absolute;top:-10vw;left:-14vw;width:56vw;height:56vw;border-radius:50%;filter:blur(4px);
   background:radial-gradient(circle,rgba(124,108,242,.32),transparent 62%);
   transform:translate3d(0,var(--py,0px),0);will-change:transform;
 }
 @media(max-width:760px){.svc-orb{width:90vw;height:90vw;top:-20vw;left:-30vw}}
+.value-orb{
+  position:absolute;top:-8vw;right:-12vw;width:50vw;height:50vw;border-radius:50%;filter:blur(5px);
+  background:radial-gradient(circle,rgba(228,21,31,.30),transparent 62%);
+  transform:translate3d(0,var(--py,0px),0);will-change:transform;
+}
+@media(max-width:760px){.value-orb{width:80vw;height:80vw;top:-15vw;right:-25vw}}
+.cats .wrap{position:relative;z-index:1}
+.cats-orb-clip{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.cats-orb{
+  position:absolute;top:-10vw;left:-14vw;width:44vw;height:44vw;border-radius:50%;filter:blur(6px);
+  background:radial-gradient(circle,rgba(242,169,59,.32),transparent 62%);
+  transform:translate3d(0,var(--py,0px),0);will-change:transform;
+}
+@media(max-width:760px){.cats-orb{width:70vw;height:70vw;top:-18vw;left:-25vw}}
 .has-hover-grid{position:relative;overflow:hidden}
 .has-hover-grid > .wrap{position:relative;z-index:2}
 
@@ -259,7 +273,7 @@ section.block{position:relative;padding:clamp(70px,9vw,130px) 0}
 .svc p{color:var(--cream);font-size:1.04rem}
 
 /* ===== CATEGORÍAS ===== */
-.cats{background:var(--concrete-2);color:var(--ink)}
+.cats{background:var(--concrete-2);color:var(--ink);position:relative}
 .cat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-radius:18px;overflow:hidden;box-shadow:0 30px 70px -30px rgba(0,0,0,.25);border:1px solid var(--line-d)}
 .cat{
   position:relative;padding:36px 26px 30px;color:#fff;cursor:pointer;overflow:hidden;
