@@ -39,5 +39,15 @@ export const formatMXN = (n: number) => "$" + n.toLocaleString("es-MX");
 export const waLink = (text: string) =>
   `https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent(text)}`;
 
-/** URL base del sitio (para back_urls de Mercado Pago, etc.). */
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+/** URL base del sitio (para back_urls de Mercado Pago, links de correo/seguimiento, JSON-LD, etc.).
+ * Si NEXT_PUBLIC_SITE_URL viene mal configurada apuntando a localhost (ej. copiada por error
+ * desde .env.local a las env vars de Vercel), se ignora y se usa la URL real de producción que
+ * Vercel ya provee automáticamente — así nunca se manda a un cliente real a su propia máquina. */
+const envSiteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+const vercelUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL;
+export const SITE_URL =
+  envSiteUrl && !envSiteUrl.includes("localhost")
+    ? envSiteUrl
+    : vercelUrl
+      ? `https://${vercelUrl}`
+      : envSiteUrl || "http://localhost:3000";
