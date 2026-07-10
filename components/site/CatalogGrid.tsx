@@ -109,6 +109,11 @@ export default function CatalogGrid({
   return (
     <div className="catalog-layout">
       <aside className={`cat-sidebar${filtersOpen ? " open" : ""}`}>
+        <div className="cat-sidebar-inner">
+        <button type="button" className="cat-sidebar-close" onClick={() => setFiltersOpen(false)}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M18 6 6 18M6 6l12 12" /></svg>
+          Cerrar filtros
+        </button>
         <div className="facet">
           <h4>Categoría</h4>
           <label>
@@ -165,6 +170,7 @@ export default function CatalogGrid({
             Limpiar filtros ({activeCount})
           </button>
         )}
+        </div>
       </aside>
 
       <div className="cat-content">
