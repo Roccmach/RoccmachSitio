@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import { getOrderByToken } from "@/lib/products";
 import PageHead from "@/components/site/PageHead";
 import OrderTracker from "@/components/site/OrderTracker";
+import OrderCelebration from "@/components/site/OrderCelebration";
 import HoverGrid from "@/components/site/HoverGrid";
 
 export const metadata: Metadata = {
@@ -30,7 +32,12 @@ export default async function SeguimientoTokenPage({
         <HoverGrid />
         <div className="wrap" style={{ maxWidth: 720 }}>
           {order ? (
-            <OrderTracker order={order} token={token} />
+            <>
+              <Suspense fallback={null}>
+                <OrderCelebration orderNumber={order.orderNumber} />
+              </Suspense>
+              <OrderTracker order={order} token={token} />
+            </>
           ) : (
             <div className="track-empty">
               <p>Este enlace de seguimiento no es válido o el pedido ya no existe.</p>

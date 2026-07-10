@@ -33,7 +33,7 @@ export default async function CheckoutPage({
   const s = STATES[(status as keyof typeof STATES) ?? "success"] ?? STATES.success;
   const isSuccess = (status ?? "success") === "success";
   const orderNumber = external_reference;
-  const trackHref = t ? `/seguimiento/${t}` : orderNumber ? `/seguimiento?pedido=${orderNumber}` : "/seguimiento";
+  const trackHref = t ? `/seguimiento/${t}?welcome=1` : orderNumber ? `/seguimiento?pedido=${orderNumber}` : "/seguimiento";
 
   return (
     <main>

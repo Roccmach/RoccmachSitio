@@ -94,7 +94,7 @@ export default function QuoteModal() {
     // 2) El cliente aterriza directo en su propia página de seguimiento, con folio y estatus
     // real — ya NO se abre WhatsApp automáticamente (a Issac le distraía perder el foco de
     // pestaña hacia WhatsApp cuando lo que importa es que el cliente vea su pedido creado).
-    if (token) window.location.href = `/seguimiento/${token}`;
+    if (token) window.location.href = `/seguimiento/${token}?welcome=1`;
   };
 
   const next = () => {
