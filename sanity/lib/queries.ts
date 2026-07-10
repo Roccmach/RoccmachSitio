@@ -33,6 +33,11 @@ export const HERO_SLIDES_QUERY = groq`*[_type == "heroSlide" && defined(image.as
   title, subtitle, ctaLabel, ctaHref, "imageUrl": image.asset->url
 }`;
 
+// Tope de 8 aplicado también aquí (defensa extra: la validación del Studio no bloquea escrituras por API).
+export const TESTIMONIALS_QUERY = groq`*[_type == "testimonial" && defined(image.asset)] | order(order asc) [0...8]{
+  name, company, feedback, "imageUrl": image.asset->url
+}`;
+
 // Solo campos seguros para el seguimiento público (sin teléfono/correo).
 export const ORDER_BY_NUMBER_QUERY = groq`*[_type == "order" && orderNumber == $n][0]{
   orderNumber, status, statusNote, total, createdAt, customerName, company, city,

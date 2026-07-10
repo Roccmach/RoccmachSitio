@@ -162,6 +162,24 @@ section.block{position:relative;padding:clamp(70px,9vw,130px) 0}
 .sec-head.light h2{color:var(--ink)}
 .sec-head p{margin-top:18px;color:var(--cream);font-size:1.08rem}
 .sec-head.light p{color:var(--steel-d)}
+
+/* ===== TESTIMONIOS (masonry) ===== */
+.tm-grid{column-count:1;column-gap:20px}
+@media(min-width:640px){.tm-grid{column-count:2}}
+@media(min-width:1024px){.tm-grid{column-count:3}}
+@media(min-width:1400px){.tm-grid{column-count:4}}
+.tm-card{
+  position:relative;break-inside:avoid;margin:0 0 20px;border-radius:var(--radius);
+  overflow:hidden;background:var(--ink-2,#151517);border:1px solid var(--line);
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease);
+}
+.tm-card:hover{transform:translateY(-4px);box-shadow:0 20px 44px -18px rgba(0,0,0,.55)}
+.tm-card img{width:100%;display:block;object-fit:cover}
+.tm-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.55) 38%,transparent 68%)}
+.tm-card figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px;color:#fff}
+.tm-card figcaption p{font-size:.98rem;line-height:1.5;color:#EDEDEF;margin:0 0 12px;font-style:italic}
+.tm-card figcaption b{display:block;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:.92rem;letter-spacing:.02em}
+.tm-card figcaption span{display:block;color:var(--steel);font-size:.84rem;margin-top:2px}
 .reveal{opacity:0;transform:translateY(38px) scale(.97);filter:blur(5px);transition:opacity .9s var(--ease),transform .9s var(--ease),filter .9s var(--ease)}
 .reveal.in{opacity:1;transform:none;filter:blur(0)}
 
