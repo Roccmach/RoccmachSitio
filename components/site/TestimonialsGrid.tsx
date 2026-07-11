@@ -29,6 +29,9 @@ function packColumns(items: TestimonialData[], columns: number) {
     cols[shortest].push({ t, i });
     heights[shortest] += h;
   }
+  // El empaque decide EN QUÉ columna cae cada tarjeta (por altura); el orden
+  // visual dentro de cada columna sigue el orden natural de los testimonios.
+  cols.forEach((col) => col.sort((a, b) => a.i - b.i));
   return cols;
 }
 
