@@ -15,8 +15,10 @@ export default async function TestimonialsGrid() {
         <div className="tm-grid">
           {testimonials.map((t, i) => (
             <figure className="tm-card reveal" key={i}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={t.imageUrl} alt={t.name} loading="lazy" />
+              <div className="tm-media">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={t.imageUrl} alt={t.name} loading="lazy" />
+              </div>
               <div className="tm-scrim" />
               <figcaption>
                 <p>&ldquo;{t.feedback}&rdquo;</p>
