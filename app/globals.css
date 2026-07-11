@@ -164,10 +164,9 @@ section.block{position:relative;padding:clamp(70px,9vw,130px) 0}
 .sec-head.light p{color:var(--steel-d)}
 
 /* ===== TESTIMONIOS (masonry) ===== */
-.tm-grid{column-count:1;column-gap:20px}
+.tm-grid{column-count:1;column-gap:22px}
 @media(min-width:640px){.tm-grid{column-count:2}}
 @media(min-width:1024px){.tm-grid{column-count:3}}
-@media(min-width:1400px){.tm-grid{column-count:4}}
 .tm-card{
   position:relative;break-inside:avoid;margin:0 0 20px;border-radius:var(--radius);
   overflow:hidden;background:var(--ink-2,#151517);border:1px solid var(--line);
