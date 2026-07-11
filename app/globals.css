@@ -174,17 +174,18 @@ section.block{position:relative;padding:clamp(70px,9vw,130px) 0}
   transition:transform .45s var(--ease),box-shadow .45s var(--ease),border-color .45s var(--ease);
 }
 .tm-card:hover{transform:translateY(-6px);box-shadow:0 24px 50px -18px rgba(0,0,0,.6);border-color:rgba(228,21,31,.4)}
-.tm-card .tm-media{aspect-ratio:4/5;overflow:hidden}
-.tm-card img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .7s var(--ease)}
-.tm-card:hover img{transform:scale(1.08)}
-.tm-scrim{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.94) 0%,rgba(0,0,0,.62) 42%,rgba(0,0,0,.08) 75%)}
-.tm-card figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px;color:#fff}
-.tm-card figcaption p{
-  font-size:.96rem;line-height:1.48;color:#EDEDEF;margin:0 0 12px;font-style:italic;
-  display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;
+.tm-card>img{width:100%;display:block;object-fit:cover;transition:transform .7s var(--ease)}
+.tm-card:hover>img{transform:scale(1.06)}
+.tm-scrim-top{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.88) 0%,rgba(0,0,0,.5) 30%,transparent 58%);pointer-events:none}
+.tm-top{position:absolute;left:16px;right:16px;top:16px;display:flex;align-items:center;gap:10px}
+.tm-avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.75);flex:none}
+.tm-who{min-width:0}
+.tm-who b{display:block;color:#fff;font-family:var(--display);font-weight:700;font-size:.88rem;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tm-who span{display:block;color:rgba(255,255,255,.68);font-size:.74rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tm-cap{
+  position:absolute;left:16px;right:16px;top:62px;margin:0;color:#F2F2F3;font-size:.9rem;line-height:1.42;font-weight:600;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-shadow:0 1px 6px rgba(0,0,0,.5);
 }
-.tm-card figcaption b{display:block;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:.92rem;letter-spacing:.02em}
-.tm-card figcaption span{display:block;color:var(--steel);font-size:.84rem;margin-top:2px}
 .tm-card.reveal{transition:opacity .8s var(--ease),transform .8s var(--ease),filter .8s var(--ease),box-shadow .45s var(--ease),border-color .45s var(--ease);transition-delay:var(--tm-delay,0s)}
 .tm-card.reveal.in{transition-delay:0s}
 .tm-grid .tm-card:nth-child(1){--tm-delay:0s}

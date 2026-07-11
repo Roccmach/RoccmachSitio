@@ -15,16 +15,18 @@ export default async function TestimonialsGrid() {
         <div className="tm-grid">
           {testimonials.map((t, i) => (
             <figure className="tm-card reveal" key={i}>
-              <div className="tm-media">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={t.imageUrl} alt={t.name} loading="lazy" />
+              <div className="tm-scrim-top" />
+              <div className="tm-top">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={t.imageUrl} alt={t.name} loading="lazy" />
+                <img className="tm-avatar" src={t.imageUrl} alt="" aria-hidden="true" />
+                <div className="tm-who">
+                  <b>{t.name}</b>
+                  {t.company && <span>{t.company}</span>}
+                </div>
               </div>
-              <div className="tm-scrim" />
-              <figcaption>
-                <p>&ldquo;{t.feedback}&rdquo;</p>
-                <b>{t.name}</b>
-                {t.company && <span>{t.company}</span>}
-              </figcaption>
+              <p className="tm-cap">{t.feedback}</p>
             </figure>
           ))}
         </div>
