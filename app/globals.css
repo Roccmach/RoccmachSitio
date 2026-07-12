@@ -156,7 +156,7 @@ nav.menu a.active{background:var(--red);color:#fff}
 @keyframes scrollx{to{transform:translateX(-50%)}}
 
 /* ===== SECTION SHELL ===== */
-section.block{position:relative;padding:clamp(70px,9vw,130px) 0}
+section.block{position:relative;padding:clamp(40px,5vw,75px) 0}
 .sec-head{max-width:720px;margin-bottom:54px}
 .sec-head h2{font-size:clamp(2.4rem,5.5vw,4.6rem);margin-top:14px;color:#fff}
 .sec-head.light h2{color:var(--ink)}
