@@ -82,10 +82,9 @@ header.nav{position:fixed;top:0;left:0;right:0;z-index:60;transition:.4s var(--e
   border:1px solid var(--line);border-radius:16px;transition:.4s var(--ease);
 }
 .nav.scrolled .nav-inner{background:rgba(11,11,12,.86);box-shadow:0 18px 50px -20px rgba(0,0,0,.8)}
-.logo{display:flex;align-items:center;gap:0;font-family:var(--display);font-weight:900;font-style:italic;font-size:1.8rem;letter-spacing:-.02em;line-height:1}
-.logo .rocc{color:#fff}.logo .mach{color:var(--red)}
-.logo small{display:block;font-style:normal;font-weight:700;font-size:.42rem;letter-spacing:.42em;color:var(--steel);margin-top:2px}
-.logo-stack{display:flex;flex-direction:column}
+.logo{display:flex;align-items:center}
+.logo img{height:38px;width:auto;display:block}
+.foot-brand .logo img{height:46px}
 nav.menu{display:flex;align-items:center;gap:4px}
 nav.menu a{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.95rem;padding:11px 18px;border-radius:9px;color:#D6D6D8;transition:.25s;position:relative}
 nav.menu a:hover{color:#fff;background:rgba(255,255,255,.06)}
