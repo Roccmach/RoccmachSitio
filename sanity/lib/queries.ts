@@ -38,6 +38,8 @@ export const TESTIMONIALS_QUERY = groq`*[_type == "testimonial" && defined(image
   name, company, feedback, "imageUrl": image.asset->url
 }`;
 
+export const LEGAL_PAGE_QUERY = groq`*[_type == "legalPage" && kind == $kind][0]{ title, content }`;
+
 // Solo campos seguros para el seguimiento público (sin teléfono/correo).
 export const ORDER_BY_NUMBER_QUERY = groq`*[_type == "order" && orderNumber == $n][0]{
   orderNumber, status, statusNote, total, createdAt, customerName, company, city,

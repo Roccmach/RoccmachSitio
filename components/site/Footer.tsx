@@ -46,6 +46,10 @@ export default function Footer() {
         </div>
         <div className="foot-bottom">
           <span>© {new Date().getFullYear()} ROCCMACH Maquinaria Industrial. Todos los derechos reservados.</span>
+          <div className="foot-legal">
+            <Link href="/terminos-y-condiciones">Términos y Condiciones</Link>
+            <Link href="/aviso-de-privacidad">Aviso de Privacidad</Link>
+          </div>
           <span>Diseñado con potencia industrial.</span>
         </div>
       </div>
