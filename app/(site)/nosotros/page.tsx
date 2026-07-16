@@ -57,12 +57,12 @@ const MISION_VISION = [
   {
     label: "Misión",
     title: "Soluciones que impulsan tu operación",
-    desc: "Proporcionar soluciones a las empresas a través de la adquisición de maquinaria industrial y refacciones, con atención personalizada que garantiza respuestas rápidas y acertadas para cada cliente.",
+    desc: "ROCCMACH es una empresa especializada en la importación y comercialización de maquinaria usada de alta calidad, comprometida con ofrecer soluciones confiables, atención personalizada y un servicio excepcional que impulsa la productividad y el crecimiento de nuestros clientes.",
   },
   {
     label: "Visión",
     title: "Ser líderes en el sector",
-    desc: "Ser líderes en la distribución y el servicio de maquinaria industrial y refacciones, destacando por la excelencia en la calidad de nuestros productos y la atención al cliente.",
+    desc: "Ser el grupo empresarial líder en México en soluciones de maquinaria, reconocido por su innovación, solidez, crecimiento sostenible y compromiso con la excelencia, generando valor para clientes, colaboradores, proveedores y accionistas.",
   },
 ];
 
