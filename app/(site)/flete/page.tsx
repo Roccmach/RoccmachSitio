@@ -1,15 +1,20 @@
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/config";
 import { breadcrumbJsonLd } from "@/lib/seo";
+import { getFreightRoutes } from "@/lib/freightRoutes";
 import JsonLd from "@/components/site/JsonLd";
 import PageHead from "@/components/site/PageHead";
 import FreightQuoteTrigger from "@/components/site/FreightQuoteTrigger";
 import FreightQuoteModal from "@/components/site/FreightQuoteModal";
+import FreightRouteCards from "@/components/site/FreightRouteCards";
+import FreightRouteModal from "@/components/site/FreightRouteModal";
 import ScrollReveals from "@/components/site/ScrollReveals";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Flete — Transporte de Carga en México · ROCCMACH",
-  description: "Cotiza tu flete en línea: precio calculado por distancia real entre origen y destino, con recibo descargable al instante.",
+  description: "Cotiza tu flete en línea: rutas fijas desde Guadalajara con precio pactado, o calcula por distancia real a cualquier destino.",
   alternates: { canonical: "/flete" },
 };
 
@@ -52,7 +57,9 @@ const PILARES = [
   },
 ];
 
-export default function FletePage() {
+export default async function FletePage() {
+  const routes = await getFreightRoutes();
+
   return (
     <main>
       <ScrollReveals />
@@ -63,19 +70,27 @@ export default function FletePage() {
         ])}
       />
       <FreightQuoteModal />
+      <FreightRouteModal />
 
       <PageHead
         eyebrow="Flete"
         title={<>Movemos tu carga<br /><em>con precisión.</em></>}
-        subtitle="Cotiza tu flete en línea: precio calculado por la distancia real entre origen y destino, con recibo descargable al instante."
+        subtitle="Rutas fijas desde Guadalajara con precio pactado, o cotiza por distancia real a cualquier destino."
         crumb={[{ label: "Inicio", href: "/" }, { label: "Flete", href: "/flete" }]}
       />
 
-      <section className="block">
-        <div className="wrap" style={{ textAlign: "center" }}>
-          <FreightQuoteTrigger className="btn btn-red">Cotiza ahora →</FreightQuoteTrigger>
-        </div>
-      </section>
+      {routes.length > 0 && (
+        <section className="block">
+          <div className="wrap">
+            <div className="sec-head reveal">
+              <div className="eyebrow">Rutas del Pacífico</div>
+              <h2 className="display">Salidas fijas<br />desde Guadalajara.</h2>
+              <p>Elige tu destino y cotiza al instante — el precio ya está pactado con nosotros.</p>
+            </div>
+            <FreightRouteCards routes={routes} />
+          </div>
+        </section>
+      )}
 
       <section className="block services">
         <div className="wrap">
@@ -98,8 +113,8 @@ export default function FletePage() {
       <section className="block">
         <div className="wrap">
           <div className="sec-head reveal">
-            <div className="eyebrow">Cómo funciona</div>
-            <h2 className="display">4 pasos y listo.</h2>
+            <div className="eyebrow">¿Tu destino no está en la lista?</div>
+            <h2 className="display">Cotiza con tu propia dirección.</h2>
           </div>
           <div className="value-grid value-grid-4">
             {[
@@ -116,7 +131,7 @@ export default function FletePage() {
             ))}
           </div>
           <div style={{ textAlign: "center", marginTop: 50 }} className="reveal">
-            <FreightQuoteTrigger className="btn btn-red">Cotiza tu flete ahora →</FreightQuoteTrigger>
+            <FreightQuoteTrigger className="btn btn-red">Cotiza con dirección personalizada →</FreightQuoteTrigger>
           </div>
         </div>
       </section>

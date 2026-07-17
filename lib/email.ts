@@ -85,6 +85,34 @@ export async function sendContactOrderConfirmation(opts: {
   }
 }
 
+/** Confirmación de cotización de flete por ruta fija (precio pactado, no calculado). */
+export async function sendFreightRouteConfirmation(opts: {
+  to: string; folio: string; token: string; destino: string; boxType: string; total: number; customerName?: string;
+}) {
+  const r = getResend();
+  if (!r || !opts.to) return;
+  const pdfUrl = `${SITE_URL}/api/flete/ruta/${opts.token}/pdf`;
+  try {
+    await r.emails.send({
+      from: FROM,
+      to: opts.to,
+      subject: `Cotización de flete · ${opts.folio}`,
+      html: shell("¡Tu cotización de flete está lista! 🚛", `
+        <p>${opts.customerName ? `Hola ${opts.customerName}, ` : ""}gracias por cotizar tu flete con ROCCMACH.</p>
+        <p style="font-size:14px;color:#6B7178">Folio</p>
+        <p style="font-size:24px;font-weight:bold;color:#E4151F;margin:0 0 6px">${opts.folio}</p>
+        <p><b>Ruta:</b> Guadalajara → ${opts.destino}</p>
+        <p><b>Tipo de caja:</b> ${opts.boxType}</p>
+        <p><b>Precio pactado:</b> ${formatMXN(opts.total)} MXN</p>
+        <p><a href="${pdfUrl}" style="display:inline-block;background:#E4151F;color:#fff;text-decoration:none;font-weight:bold;padding:14px 26px;border-radius:8px;margin:10px 0">Descargar cotización PDF →</a></p>
+        <p style="font-size:13px;color:#6B7178">Nuestro equipo comercial te contactará para coordinar fecha y horarios.</p>
+      `),
+    });
+  } catch (err) {
+    console.error("[email] freight route confirmation error:", err);
+  }
+}
+
 export async function sendStatusUpdate(opts: {
   to: string; orderNumber: string; token: string; status: string; statusNote?: string;
 }) {

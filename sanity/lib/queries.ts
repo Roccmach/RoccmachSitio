@@ -59,3 +59,17 @@ export const FREIGHT_QUOTE_BY_TOKEN_QUERY = groq`*[_type == "freightQuote" && to
   horarioCarga, horarioDescarga, customerName, company, distanceKm, distanceSource,
   pricePerKmUsed, total, createdAt
 }`;
+
+// Rutas activas para las tarjetas de /flete — OJO: nunca se piden los campos de precio aquí,
+// solo se ven después de cotizar (el precio se calcula server-side en /api/flete/ruta/quote).
+export const FREIGHT_ROUTES_QUERY = groq`*[_type == "freightRoute" && activo == true] | order(order asc){
+  destino, "slug": slug.current
+}`;
+
+export const FREIGHT_ROUTE_BY_SLUG_QUERY = groq`*[_type == "freightRoute" && slug.current == $slug && activo == true][0]{
+  destino, precioCajaSeca, precioPlana, precioLowBoy
+}`;
+
+export const FREIGHT_ROUTE_QUOTE_BY_TOKEN_QUERY = groq`*[_type == "freightRouteQuote" && token == $t][0]{
+  folio, status, destino, tipoCaja, total, customerName, company, createdAt
+}`;
