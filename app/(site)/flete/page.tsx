@@ -112,16 +112,19 @@ export default async function FletePage() {
             <div className="eyebrow">¿Tu destino no está en la lista?</div>
             <h2 className="display">Cotiza con tu propia dirección.</h2>
           </div>
-          <div className="value-grid value-grid-4">
+          <div className="steps-flow reveal">
+            <div className="steps-line" aria-hidden="true">
+              <span className="steps-line-runner" />
+            </div>
             {[
               { n: "1", t: "Origen y destino", d: "Danos la dirección donde recogemos y donde entregamos la carga." },
               { n: "2", t: "Detalle de la carga", d: "Tipo de carga, empaque y peso neto/bruto." },
               { n: "3", t: "Horarios", d: "Cuándo se carga y cuándo se descarga." },
               { n: "4", t: "Tu cotización", d: "Calculamos la distancia real y te damos el precio al instante, con recibo en PDF." },
-            ].map((s) => (
-              <div className="value reveal" key={s.n}>
-                <div className="eyebrow">Paso {s.n}</div>
-                <h3>{s.t}</h3>
+            ].map((s, i) => (
+              <div className="step-card" key={s.n} style={{ "--step-delay": `${0.15 + i * 0.18}s` } as React.CSSProperties}>
+                <div className="step-num" aria-hidden="true"><span>{s.n}</span></div>
+                <h3><span className="sr-only">Paso {s.n}: </span>{s.t}</h3>
                 <p>{s.d}</p>
               </div>
             ))}
