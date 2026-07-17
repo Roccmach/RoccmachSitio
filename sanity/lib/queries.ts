@@ -51,3 +51,11 @@ export const ORDER_BY_TOKEN_QUERY = groq`*[_type == "order" && token == $t][0]{
   orderNumber, status, statusNote, total, createdAt, customerName, company, city,
   "items": items[]{ title, price, qty }
 }`;
+
+export const FREIGHT_SETTINGS_QUERY = groq`*[_type == "freightSettings"][0]{ pricePerKm, minCharge }`;
+
+export const FREIGHT_QUOTE_BY_TOKEN_QUERY = groq`*[_type == "freightQuote" && token == $t][0]{
+  folio, status, origen, destino, tipoCarga, empaque, pesoNeto, pesoBruto,
+  horarioCarga, horarioDescarga, customerName, company, distanceKm, distanceSource,
+  pricePerKmUsed, total, createdAt
+}`;

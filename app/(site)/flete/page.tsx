@@ -1,0 +1,125 @@
+import type { Metadata } from "next";
+import { SITE_URL } from "@/lib/config";
+import { breadcrumbJsonLd } from "@/lib/seo";
+import JsonLd from "@/components/site/JsonLd";
+import PageHead from "@/components/site/PageHead";
+import FreightQuoteTrigger from "@/components/site/FreightQuoteTrigger";
+import FreightQuoteModal from "@/components/site/FreightQuoteModal";
+import ScrollReveals from "@/components/site/ScrollReveals";
+
+export const metadata: Metadata = {
+  title: "Flete — Transporte de Carga en México · ROCCMACH",
+  description: "Cotiza tu flete en línea: precio calculado por distancia real entre origen y destino, con recibo descargable al instante.",
+  alternates: { canonical: "/flete" },
+};
+
+const PILARES = [
+  {
+    title: "Confiabilidad",
+    desc: "Cumplimos horarios de carga y descarga, y damos seguimiento real a tu envío desde que sale hasta que llega.",
+    accent: "#E4151F",
+    glow: "rgba(228,21,31,.45)",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+        <path d="M12 2 4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6z" strokeLinejoin="round" />
+        <path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+  },
+  {
+    title: "Rentabilidad",
+    desc: "Precio calculado por distancia real, sin sorpresas ni cargos ocultos — pagas por lo que realmente se transporta.",
+    accent: "#F2A93B",
+    glow: "rgba(242,169,59,.45)",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+        <path d="M3 17l6-6 4 4 8-8" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M17 7h4v4" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+  },
+  {
+    title: "Experiencia",
+    desc: "Más de 15 años moviendo carga industrial en México: sabemos cómo cuidar tu equipo en cada kilómetro.",
+    accent: "#3B82C4",
+    glow: "rgba(59,130,196,.45)",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+        <circle cx="12" cy="8" r="5" />
+        <path d="M8.5 12.5 7 22l5-3 5 3-1.5-9.5" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+  },
+];
+
+export default function FletePage() {
+  return (
+    <main>
+      <ScrollReveals />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Inicio", url: SITE_URL },
+          { name: "Flete", url: `${SITE_URL}/flete` },
+        ])}
+      />
+      <FreightQuoteModal />
+
+      <PageHead
+        eyebrow="Flete"
+        title={<>Movemos tu carga<br /><em>con precisión.</em></>}
+        subtitle="Cotiza tu flete en línea: precio calculado por la distancia real entre origen y destino, con recibo descargable al instante."
+        crumb={[{ label: "Inicio", href: "/" }, { label: "Flete", href: "/flete" }]}
+      />
+
+      <section className="block">
+        <div className="wrap" style={{ textAlign: "center" }}>
+          <FreightQuoteTrigger className="btn btn-red">Cotiza ahora →</FreightQuoteTrigger>
+        </div>
+      </section>
+
+      <section className="block cats">
+        <div className="wrap">
+          <div className="sec-head light reveal">
+            <div className="eyebrow">Por qué ROCCMACH</div>
+            <h2 className="display">Flete que puedes<br />planear con certeza.</h2>
+          </div>
+          <div className="value-grid">
+            {PILARES.map((p) => (
+              <div className="value reveal" key={p.title} style={{ "--v-accent": p.accent, "--v-glow": p.glow } as React.CSSProperties}>
+                <div className="ic">{p.icon}</div>
+                <h3>{p.title}</h3>
+                <p>{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="block">
+        <div className="wrap">
+          <div className="sec-head reveal">
+            <div className="eyebrow">Cómo funciona</div>
+            <h2 className="display">4 pasos y listo.</h2>
+          </div>
+          <div className="value-grid value-grid-4">
+            {[
+              { n: "1", t: "Origen y destino", d: "Danos la dirección donde recogemos y donde entregamos la carga." },
+              { n: "2", t: "Detalle de la carga", d: "Tipo de carga, empaque y peso neto/bruto." },
+              { n: "3", t: "Horarios", d: "Cuándo se carga y cuándo se descarga." },
+              { n: "4", t: "Tu cotización", d: "Calculamos la distancia real y te damos el precio al instante, con recibo en PDF." },
+            ].map((s) => (
+              <div className="value reveal" key={s.n}>
+                <div className="eyebrow">Paso {s.n}</div>
+                <h3>{s.t}</h3>
+                <p>{s.d}</p>
+              </div>
+            ))}
+          </div>
+          <div style={{ textAlign: "center", marginTop: 50 }} className="reveal">
+            <FreightQuoteTrigger className="btn btn-red">Cotiza tu flete ahora →</FreightQuoteTrigger>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}

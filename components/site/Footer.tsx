@@ -33,6 +33,7 @@ export default function Footer() {
             <h5>Empresa</h5>
             <Link href="/nosotros">Nosotros</Link>
             <Link href="/catalogo">Catálogo</Link>
+            <Link href="/flete">Flete</Link>
             <Link href="/seguimiento">Seguir mi pedido</Link>
             <Link href="/contacto">Contacto</Link>
           </div>
