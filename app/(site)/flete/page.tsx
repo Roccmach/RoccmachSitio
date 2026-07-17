@@ -9,6 +9,8 @@ import FreightQuoteModal from "@/components/site/FreightQuoteModal";
 import FreightRouteCards from "@/components/site/FreightRouteCards";
 import FreightRouteModal from "@/components/site/FreightRouteModal";
 import ScrollReveals from "@/components/site/ScrollReveals";
+import ScrollParallax from "@/components/site/ScrollParallax";
+import HoverGrid from "@/components/site/HoverGrid";
 
 export const revalidate = 60;
 
@@ -113,6 +115,7 @@ export default async function FletePage() {
   return (
     <main>
       <ScrollReveals />
+      <ScrollParallax />
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Inicio", url: SITE_URL },
@@ -126,6 +129,9 @@ export default async function FletePage() {
       <FreightHero />
 
       <section className="block services">
+        <div className="svc-orb-clip" aria-hidden="true">
+          <div className="svc-orb" data-parallax="0.12" />
+        </div>
         <div className="wrap">
           <div className="sec-head reveal">
             <div className="eyebrow">Por qué ROCCMACH</div>
@@ -145,6 +151,9 @@ export default async function FletePage() {
 
       {routes.length > 0 && (
         <section className="block">
+          <div className="value-orb-clip" aria-hidden="true">
+            <div className="value-orb" data-parallax="0.1" />
+          </div>
           <div className="wrap">
             <div className="sec-head reveal">
               <div className="eyebrow">Rutas del Pacífico</div>
@@ -156,7 +165,11 @@ export default async function FletePage() {
         </section>
       )}
 
-      <section className="block">
+      <section className="block has-hover-grid">
+        <HoverGrid />
+        <div className="cats-orb-clip" aria-hidden="true">
+          <div className="cats-orb" data-parallax="0.1" />
+        </div>
         <div className="wrap">
           <div className="sec-head reveal">
             <div className="eyebrow">¿Tu destino no está en la lista?</div>
