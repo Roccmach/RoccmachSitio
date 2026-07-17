@@ -3,9 +3,9 @@
 import { useEffect, useState, useCallback } from "react";
 import { FREIGHT_QUOTE_EVENT } from "./freight-events";
 import CityStateAutocomplete from "./CityStateAutocomplete";
+import { BOX_TYPES, BOX_TYPE_ICONS } from "./box-types";
 
 const TOTAL_STEPS = 5;
-const BOX_TYPES = ["Caja Seca", "Plana", "Low Boy"] as const;
 
 const empty = {
   origenCiudad: "", origenCp: "",
@@ -163,9 +163,10 @@ export default function FreightQuoteModal() {
               <div className="step on">
                 <h3 className="display">Detalle de la carga</h3>
                 <p className="lead">Cuéntanos qué vamos a transportar.</p>
-                <div className="opt-grid" role="radiogroup" aria-label="Tipo de caja">
+                <div className="opt-grid opt-grid-3" role="radiogroup" aria-label="Tipo de caja">
                   {BOX_TYPES.map((v) => (
                     <button key={v} type="button" role="radio" aria-checked={data.tipoCaja === v} className={`opt${data.tipoCaja === v ? " sel" : ""}`} onClick={() => set("tipoCaja", v)}>
+                      {BOX_TYPE_ICONS[v]}
                       <b>{v}</b>
                     </button>
                   ))}

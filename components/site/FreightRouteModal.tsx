@@ -2,9 +2,9 @@
 
 import { useEffect, useState, useCallback, useMemo } from "react";
 import { FREIGHT_ROUTE_EVENT, type FreightRoutePrefill } from "./freight-route-events";
+import { BOX_TYPES, BOX_TYPE_ICONS } from "./box-types";
 
 const TOTAL_STEPS = 2;
-const BOX_TYPES = ["Caja Seca", "Plana", "Low Boy"] as const;
 
 const emptyContact = { name: "", company: "", phone: "", email: "" };
 type ContactData = typeof emptyContact;
@@ -171,9 +171,10 @@ export default function FreightRouteModal() {
               <div className="step on">
                 <h3 className="display">Guadalajara → {route.destino}</h3>
                 <p className="lead">¿Qué tipo de caja necesitas?</p>
-                <div className="opt-grid" role="radiogroup" aria-label="Tipo de caja">
+                <div className="opt-grid opt-grid-3" role="radiogroup" aria-label="Tipo de caja">
                   {BOX_TYPES.map((v) => (
                     <button key={v} type="button" role="radio" aria-checked={boxType === v} className={`opt${boxType === v ? " sel" : ""}`} onClick={() => setBoxType(v)}>
+                      {BOX_TYPE_ICONS[v]}
                       <b>{v}</b>
                     </button>
                   ))}
