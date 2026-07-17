@@ -66,12 +66,12 @@ export default function FreightHero() {
             <video
               className="fh-video"
               src="/flete-hero.mp4"
-              poster="/flete-banner.png"
+              poster="/flete-banner.jpg"
               autoPlay
               muted
               loop
               playsInline
-              preload="metadata"
+              preload="auto"
             />
             <div className="fh-veil" />
           </div>

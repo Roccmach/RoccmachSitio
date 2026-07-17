@@ -580,7 +580,7 @@ footer.site{background:#070708;border-top:1px solid var(--line);padding:70px 0 3
 .fh-sticky{position:sticky;top:0;height:100svh;overflow:hidden}
 .fh-bg{
   position:absolute;inset:0;z-index:0;
-  background-image:url(/flete-banner.png);background-size:cover;background-position:center 55%;
+  background-image:url(/flete-banner.jpg);background-size:cover;background-position:center 55%;
 }
 .fh-bg::after{
   content:"";position:absolute;inset:0;
