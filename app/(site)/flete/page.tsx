@@ -77,9 +77,9 @@ export default function FletePage() {
         </div>
       </section>
 
-      <section className="block cats">
+      <section className="block services">
         <div className="wrap">
-          <div className="sec-head light reveal">
+          <div className="sec-head reveal">
             <div className="eyebrow">Por qué ROCCMACH</div>
             <h2 className="display">Flete que puedes<br />planear con certeza.</h2>
           </div>
