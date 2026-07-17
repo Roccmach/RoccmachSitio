@@ -57,6 +57,56 @@ const PILARES = [
   },
 ];
 
+const STEPS = [
+  {
+    n: "1",
+    t: "Origen y destino",
+    d: "Danos la dirección donde recogemos y donde entregamos la carga.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+        <circle cx="5" cy="6" r="2.3" />
+        <circle cx="19" cy="18" r="2.3" fill="currentColor" stroke="none" />
+        <path d="M7.2 7.6 16.8 16.4" strokeDasharray="2.6 3.2" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    n: "2",
+    t: "Detalle de la carga",
+    d: "Tipo de carga, empaque y peso neto/bruto.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+        <path d="M3 8 12 3l9 5-9 5-9-5z" strokeLinejoin="round" />
+        <path d="M3 8v8l9 5 9-5V8" strokeLinejoin="round" />
+        <path d="M12 13v8" />
+      </svg>
+    ),
+  },
+  {
+    n: "3",
+    t: "Horarios",
+    d: "Cuándo se carga y cuándo se descarga.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5l3.5 2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+  },
+  {
+    n: "4",
+    t: "Tu cotización",
+    d: "Calculamos la distancia real y te damos el precio al instante, con recibo en PDF.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+        <path d="M6 2h9l5 5v15H6z" strokeLinejoin="round" />
+        <path d="M15 2v5h5" strokeLinejoin="round" />
+        <path d="M9 13h6M9 17h6" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+];
+
 export default async function FletePage() {
   const routes = await getFreightRoutes();
 
@@ -116,13 +166,9 @@ export default async function FletePage() {
             <div className="steps-line" aria-hidden="true">
               <span className="steps-line-runner" />
             </div>
-            {[
-              { n: "1", t: "Origen y destino", d: "Danos la dirección donde recogemos y donde entregamos la carga." },
-              { n: "2", t: "Detalle de la carga", d: "Tipo de carga, empaque y peso neto/bruto." },
-              { n: "3", t: "Horarios", d: "Cuándo se carga y cuándo se descarga." },
-              { n: "4", t: "Tu cotización", d: "Calculamos la distancia real y te damos el precio al instante, con recibo en PDF." },
-            ].map((s, i) => (
+            {STEPS.map((s, i) => (
               <div className="step-card" key={s.n} style={{ "--step-delay": `${0.15 + i * 0.18}s` } as React.CSSProperties}>
+                <div className="step-ic" aria-hidden="true">{s.icon}</div>
                 <div className="step-num" aria-hidden="true"><span>{s.n}</span></div>
                 <h3><span className="sr-only">Paso {s.n}: </span>{s.t}</h3>
                 <p>{s.d}</p>
