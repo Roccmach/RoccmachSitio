@@ -3,7 +3,7 @@ import { SITE_URL } from "@/lib/config";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { getFreightRoutes } from "@/lib/freightRoutes";
 import JsonLd from "@/components/site/JsonLd";
-import PageHead from "@/components/site/PageHead";
+import FreightHero from "@/components/site/FreightHero";
 import FreightQuoteTrigger from "@/components/site/FreightQuoteTrigger";
 import FreightQuoteModal from "@/components/site/FreightQuoteModal";
 import FreightRouteCards from "@/components/site/FreightRouteCards";
@@ -72,12 +72,7 @@ export default async function FletePage() {
       <FreightQuoteModal />
       <FreightRouteModal />
 
-      <PageHead
-        eyebrow="Flete"
-        title={<>Movemos tu carga<br /><em>con precisión.</em></>}
-        subtitle="Rutas fijas desde Guadalajara con precio pactado, o cotiza por distancia real a cualquier destino."
-        crumb={[{ label: "Inicio", href: "/" }, { label: "Flete", href: "/flete" }]}
-      />
+      <FreightHero />
 
       <section className="block services">
         <div className="wrap">
