@@ -19,6 +19,8 @@ export default function FreightHero() {
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       section.style.height = "100svh";
+      sticky.style.setProperty("--fh-w", "min(440px, 28vw)");
+      sticky.style.setProperty("--fh-h", "58vh");
       return;
     }
 
@@ -27,8 +29,12 @@ export default function FreightHero() {
       const rect = section.getBoundingClientRect();
       const scrollable = rect.height - window.innerHeight;
       const p = scrollable > 0 ? Math.min(1, Math.max(0, -rect.top / scrollable)) : 1;
-      sticky.style.setProperty("--fh-w", `${62 + 38 * p}vw`);
-      sticky.style.setProperty("--fh-h", `${86 + 14 * p}%`);
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const startW = Math.min(440, vw * 0.28);
+      const startH = vh * 0.58;
+      sticky.style.setProperty("--fh-w", `${startW + (vw - startW) * p}px`);
+      sticky.style.setProperty("--fh-h", `${startH + (vh - startH) * p}px`);
       sticky.style.setProperty("--fh-r", `${18 * (1 - p)}px`);
       sticky.style.setProperty("--fh-tx", `${60 * p}vw`);
       sticky.style.setProperty("--fh-op", `${Math.max(0, 1 - p * 3)}`);
@@ -54,6 +60,7 @@ export default function FreightHero() {
     <>
       <section className="fh-hero" ref={sectionRef}>
         <div className="fh-sticky" ref={stickyRef}>
+          <div className="fh-bg" aria-hidden="true" />
           <p className="fh-eyebrow">Flete</p>
           <div className="fh-wrap">
             <video
