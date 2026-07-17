@@ -100,7 +100,8 @@ export function OrderPdf({ order }: { order: TrackedOrder }) {
 
           <Text style={s.note}>
             Este comprobante confirma tu pedido con ROCCMACH Maquinaria Industrial. Conserva tu número de
-            pedido para dar seguimiento a la entrega. Precios en pesos mexicanos, IVA incluido.
+            pedido para dar seguimiento a la entrega. Precios en pesos mexicanos, IVA incluido. La información
+            y los precios de este documento pueden cambiar sin previo aviso.
           </Text>
         </View>
 

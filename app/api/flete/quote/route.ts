@@ -1,21 +1,27 @@
 import { NextResponse } from "next/server";
-import { createFreightQuote } from "@/lib/freight";
+import { createFreightQuote, type FreightBoxType } from "@/lib/freight";
+
+const BOX_TYPES: FreightBoxType[] = ["Caja Seca", "Plana", "Low Boy"];
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { origen, destino, tipoCarga, empaque, pesoNeto, pesoBruto, horarioCarga, horarioDescarga, name, company, phone, email } = body ?? {};
+    const { origen, destino, tipoCaja, tipoCarga, empaque, pesoNeto, pesoBruto, horarioCarga, horarioDescarga, name, company, phone, email } = body ?? {};
 
-    if (!origen?.calle || !origen?.numero || !origen?.cp || !destino?.calle || !destino?.numero || !destino?.cp) {
+    if (!origen?.ciudad || !origen?.cp || !destino?.ciudad || !destino?.cp) {
       return NextResponse.json({ ok: false, error: "Faltan datos de origen o destino" }, { status: 400 });
+    }
+    if (!BOX_TYPES.includes(tipoCaja)) {
+      return NextResponse.json({ ok: false, error: "Falta el tipo de caja" }, { status: 400 });
     }
     if (!name || !phone) {
       return NextResponse.json({ ok: false, error: "Faltan datos de contacto" }, { status: 400 });
     }
 
     const quote = await createFreightQuote({
-      origen: { calle: String(origen.calle).slice(0, 160), numero: String(origen.numero).slice(0, 20), cp: String(origen.cp).slice(0, 10) },
-      destino: { calle: String(destino.calle).slice(0, 160), numero: String(destino.numero).slice(0, 20), cp: String(destino.cp).slice(0, 10) },
+      origen: { ciudad: String(origen.ciudad).slice(0, 120), cp: String(origen.cp).slice(0, 10) },
+      destino: { ciudad: String(destino.ciudad).slice(0, 120), cp: String(destino.cp).slice(0, 10) },
+      tipoCaja: tipoCaja as FreightBoxType,
       tipoCarga: String(tipoCarga || "").slice(0, 160),
       empaque: empaque === "Caja" ? "Caja" : "Pieza",
       pesoNeto: typeof pesoNeto === "number" ? pesoNeto : undefined,

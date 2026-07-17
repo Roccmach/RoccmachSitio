@@ -44,7 +44,7 @@ const fecha = (iso?: string) => {
   try { return iso ? new Date(iso).toLocaleDateString("es-MX", { day: "2-digit", month: "long", year: "numeric" }) : "—"; }
   catch { return "—"; }
 };
-const addr = (a: { calle: string; numero: string; cp: string }) => `${a.calle} ${a.numero}, CP ${a.cp}`;
+const addr = (a: { ciudad: string; cp: string }) => `${a.ciudad}, CP ${a.cp}`;
 
 export function FreightPdf({ quote }: { quote: TrackedFreightQuote }) {
   return (
@@ -98,6 +98,10 @@ export function FreightPdf({ quote }: { quote: TrackedFreightQuote }) {
             <Text style={s.sectionTitle}>Detalle de la carga</Text>
             <View style={s.detailGrid}>
               <View style={s.detailItem}>
+                <Text style={s.detailLabel}>Tipo de caja</Text>
+                <Text style={s.detailValue}>{quote.tipoCaja || "—"}</Text>
+              </View>
+              <View style={s.detailItem}>
                 <Text style={s.detailLabel}>Tipo de carga</Text>
                 <Text style={s.detailValue}>{quote.tipoCarga || "—"}</Text>
               </View>
@@ -142,7 +146,8 @@ export function FreightPdf({ quote }: { quote: TrackedFreightQuote }) {
           <Text style={s.note}>
             Esta cotización es un estimado calculado a partir de la distancia por carretera entre origen y
             destino. El precio final puede variar según condiciones de acceso, tiempos de espera y
-            disponibilidad. Nuestro equipo te contactará para confirmar los detalles.
+            disponibilidad. Nuestro equipo te contactará para confirmar los detalles. La información y los
+            precios de este documento pueden cambiar sin previo aviso.
           </Text>
         </View>
 

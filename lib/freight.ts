@@ -7,14 +7,16 @@ import { generateToken } from "@/lib/orders";
 import { geocodeAddress, getRoadDistanceKm } from "@/lib/geo";
 
 export interface Address {
-  calle: string;
-  numero: string;
+  ciudad: string;
   cp: string;
 }
+
+export type FreightBoxType = "Caja Seca" | "Plana" | "Low Boy";
 
 export interface FreightQuoteInput {
   origen: Address;
   destino: Address;
+  tipoCaja: FreightBoxType;
   tipoCarga: string;
   empaque: "Pieza" | "Caja";
   pesoNeto?: number;
@@ -44,16 +46,31 @@ function generateFreightFolio(): string {
   return `FL-${s}`;
 }
 
-const fullAddress = (a: Address) => `${a.calle} ${a.numero}, ${a.cp}, México`;
+const fullAddress = (a: Address) => `${a.cp} ${a.ciudad}, México`;
+
+interface FreightSettings {
+  pricePerKmCajaSeca?: number;
+  pricePerKmPlana?: number;
+  pricePerKmLowBoy?: number;
+  minCharge?: number;
+}
+
+const priceForBoxType = (settings: FreightSettings | null, tipoCaja: FreightBoxType): number => {
+  if (!settings) return 0;
+  if (tipoCaja === "Caja Seca") return settings.pricePerKmCajaSeca ?? 0;
+  if (tipoCaja === "Plana") return settings.pricePerKmPlana ?? 0;
+  return settings.pricePerKmLowBoy ?? 0;
+};
 
 /**
- * Geocodifica origen/destino, calcula distancia por carretera (OSRM, con respaldo de línea
- * recta) y aplica el precio/km configurado en Sanity para armar la cotización. Guarda el
- * resultado como un documento "freightQuote" con folio + token para el recibo en PDF.
+ * Geocodifica origen/destino (ciudad + CP, suficiente para una cotización aproximada), calcula
+ * distancia por carretera (OSRM, con respaldo de línea recta) y aplica el precio/km del tipo de
+ * caja elegido (configurado en Sanity) para armar la cotización. Guarda el resultado como un
+ * documento "freightQuote" con folio + token para el recibo en PDF.
  */
 export async function createFreightQuote(input: FreightQuoteInput): Promise<FreightQuoteResult | null> {
-  const settings = await client.fetch<{ pricePerKm?: number; minCharge?: number } | null>(FREIGHT_SETTINGS_QUERY).catch(() => null);
-  const pricePerKm = settings?.pricePerKm ?? 0;
+  const settings = await client.fetch<FreightSettings | null>(FREIGHT_SETTINGS_QUERY).catch(() => null);
+  const pricePerKm = priceForBoxType(settings, input.tipoCaja);
   const minCharge = settings?.minCharge ?? 0;
 
   const [origenPt, destinoPt] = await Promise.all([
@@ -62,7 +79,7 @@ export async function createFreightQuote(input: FreightQuoteInput): Promise<Frei
   ]);
 
   if (!origenPt || !destinoPt) {
-    throw new Error("No pudimos ubicar una de las 2 direcciones. Revisa la calle, número y código postal.");
+    throw new Error("No pudimos ubicar una de las 2 direcciones. Revisa la ciudad y el código postal.");
   }
 
   const { km, source } = await getRoadDistanceKm(origenPt, destinoPt);
@@ -81,6 +98,7 @@ export async function createFreightQuote(input: FreightQuoteInput): Promise<Frei
         status: "Nueva",
         origen: input.origen,
         destino: input.destino,
+        tipoCaja: input.tipoCaja,
         tipoCarga: input.tipoCarga,
         empaque: input.empaque,
         pesoNeto: input.pesoNeto,
@@ -110,6 +128,7 @@ export interface TrackedFreightQuote {
   status: string;
   origen: Address;
   destino: Address;
+  tipoCaja: FreightBoxType;
   tipoCarga: string;
   empaque: string;
   pesoNeto?: number;

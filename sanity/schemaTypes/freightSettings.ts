@@ -4,14 +4,26 @@ export const freightSettings = defineType({
   name: "freightSettings",
   title: "Configuración de flete",
   type: "document",
-  description: "Precio por kilómetro usado para calcular las cotizaciones de flete en /flete. Solo debe existir un documento de este tipo.",
+  description:
+    "Precio por kilómetro (uno por tipo de caja) usado para calcular las cotizaciones de flete por dirección en /flete. Solo debe existir un documento de este tipo.",
   fields: [
     defineField({
-      name: "pricePerKm",
-      title: "Precio por KM (MXN)",
+      name: "pricePerKmCajaSeca",
+      title: "Precio por KM · Caja Seca (MXN)",
       type: "number",
       validation: (r) => r.required().min(0),
-      description: "Se multiplica por la distancia calculada entre origen y destino.",
+    }),
+    defineField({
+      name: "pricePerKmPlana",
+      title: "Precio por KM · Plana (MXN)",
+      type: "number",
+      validation: (r) => r.required().min(0),
+    }),
+    defineField({
+      name: "pricePerKmLowBoy",
+      title: "Precio por KM · Low Boy (MXN)",
+      type: "number",
+      validation: (r) => r.required().min(0),
     }),
     defineField({
       name: "minCharge",
@@ -22,7 +34,10 @@ export const freightSettings = defineType({
     }),
   ],
   preview: {
-    select: { price: "pricePerKm" },
-    prepare: ({ price }) => ({ title: "Configuración de flete", subtitle: price ? `$${price}/km` : "Sin precio configurado" }),
+    select: { cs: "pricePerKmCajaSeca", p: "pricePerKmPlana", lb: "pricePerKmLowBoy" },
+    prepare: ({ cs, p, lb }) => ({
+      title: "Configuración de flete",
+      subtitle: cs ? `Caja Seca $${cs} · Plana $${p} · Low Boy $${lb} /km` : "Sin precios configurados",
+    }),
   },
 });

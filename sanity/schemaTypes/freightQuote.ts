@@ -3,8 +3,7 @@ import { defineField, defineType } from "sanity";
 export const FREIGHT_STATUSES = ["Nueva", "Contactado", "Cerrada"] as const;
 
 const addressFields = [
-  defineField({ name: "calle", title: "Calle", type: "string" }),
-  defineField({ name: "numero", title: "Número", type: "string" }),
+  defineField({ name: "ciudad", title: "Ciudad", type: "string" }),
   defineField({ name: "cp", title: "Código Postal", type: "string" }),
 ];
 
@@ -24,6 +23,12 @@ export const freightQuote = defineType({
     }),
     defineField({ name: "origen", title: "Origen", type: "object", fields: addressFields }),
     defineField({ name: "destino", title: "Destino", type: "object", fields: addressFields }),
+    defineField({
+      name: "tipoCaja",
+      title: "Tipo de caja",
+      type: "string",
+      options: { list: ["Caja Seca", "Plana", "Low Boy"], layout: "radio" },
+    }),
     defineField({ name: "tipoCarga", title: "Tipo de carga", type: "string" }),
     defineField({
       name: "empaque",

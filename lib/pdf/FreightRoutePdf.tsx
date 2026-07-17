@@ -102,7 +102,8 @@ export function FreightRoutePdf({ quote }: { quote: TrackedFreightRouteQuote }) 
 
           <Text style={s.note}>
             Precio de flete pactado para la ruta Guadalajara → {quote.destino} en unidad tipo {quote.tipoCaja}.
-            Nuestro equipo te contactará para coordinar fecha, horarios y condiciones de carga.
+            Nuestro equipo te contactará para coordinar fecha, horarios y condiciones de carga. La información
+            y los precios de este documento pueden cambiar sin previo aviso.
           </Text>
         </View>
 

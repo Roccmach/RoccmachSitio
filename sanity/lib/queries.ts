@@ -52,10 +52,10 @@ export const ORDER_BY_TOKEN_QUERY = groq`*[_type == "order" && token == $t][0]{
   "items": items[]{ title, price, qty }
 }`;
 
-export const FREIGHT_SETTINGS_QUERY = groq`*[_type == "freightSettings"][0]{ pricePerKm, minCharge }`;
+export const FREIGHT_SETTINGS_QUERY = groq`*[_type == "freightSettings"][0]{ pricePerKmCajaSeca, pricePerKmPlana, pricePerKmLowBoy, minCharge }`;
 
 export const FREIGHT_QUOTE_BY_TOKEN_QUERY = groq`*[_type == "freightQuote" && token == $t][0]{
-  folio, status, origen, destino, tipoCarga, empaque, pesoNeto, pesoBruto,
+  folio, status, origen, destino, tipoCaja, tipoCarga, empaque, pesoNeto, pesoBruto,
   horarioCarga, horarioDescarga, customerName, company, distanceKm, distanceSource,
   pricePerKmUsed, total, createdAt
 }`;

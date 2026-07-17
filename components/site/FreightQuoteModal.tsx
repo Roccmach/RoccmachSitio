@@ -2,12 +2,15 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { FREIGHT_QUOTE_EVENT } from "./freight-events";
+import CityStateAutocomplete from "./CityStateAutocomplete";
 
 const TOTAL_STEPS = 5;
+const BOX_TYPES = ["Caja Seca", "Plana", "Low Boy"] as const;
 
 const empty = {
-  origenCalle: "", origenNumero: "", origenCp: "",
-  destinoCalle: "", destinoNumero: "", destinoCp: "",
+  origenCiudad: "", origenCp: "",
+  destinoCiudad: "", destinoCp: "",
+  tipoCaja: "" as "" | (typeof BOX_TYPES)[number],
   tipoCarga: "", empaque: "" as "" | "Pieza" | "Caja", pesoNeto: "", pesoBruto: "",
   horarioCarga: "", horarioDescarga: "",
   name: "", company: "", phone: "", email: "",
@@ -64,8 +67,9 @@ export default function FreightQuoteModal() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          origen: { calle: data.origenCalle, numero: data.origenNumero, cp: data.origenCp },
-          destino: { calle: data.destinoCalle, numero: data.destinoNumero, cp: data.destinoCp },
+          origen: { ciudad: data.origenCiudad, cp: data.origenCp },
+          destino: { ciudad: data.destinoCiudad, cp: data.destinoCp },
+          tipoCaja: data.tipoCaja,
           tipoCarga: data.tipoCarga,
           empaque: data.empaque,
           pesoNeto: data.pesoNeto ? Number(data.pesoNeto) : undefined,
@@ -93,9 +97,9 @@ export default function FreightQuoteModal() {
   const back = () => step > 1 && setStep(step - 1);
 
   const canAdvance =
-    (step === 1 && !!data.origenCalle && !!data.origenNumero && !!data.origenCp) ||
-    (step === 2 && !!data.destinoCalle && !!data.destinoNumero && !!data.destinoCp) ||
-    (step === 3 && !!data.tipoCarga && !!data.empaque) ||
+    (step === 1 && !!data.origenCiudad && !!data.origenCp) ||
+    (step === 2 && !!data.destinoCiudad && !!data.destinoCp) ||
+    (step === 3 && !!data.tipoCaja && !!data.tipoCarga && !!data.empaque) ||
     (step === 4 && !!data.horarioCarga && !!data.horarioDescarga) ||
     (step === 5 && !!data.name && !!data.phone && !!data.email);
 
@@ -139,20 +143,18 @@ export default function FreightQuoteModal() {
 
             {step === 1 && (
               <div className="step on">
-                <h3 className="display">Dirección de origen</h3>
-                <p className="lead">¿Dónde recogemos la carga?</p>
-                <div className="field"><label htmlFor="fq-o-calle">Calle</label><input id="fq-o-calle" value={data.origenCalle} onChange={(e) => set("origenCalle", e.target.value)} placeholder="Av. Industrias 123" /></div>
-                <div className="field"><label htmlFor="fq-o-numero">Número</label><input id="fq-o-numero" value={data.origenNumero} onChange={(e) => set("origenNumero", e.target.value)} placeholder="123" /></div>
+                <h3 className="display">Origen</h3>
+                <p className="lead">¿Desde qué ciudad recogemos la carga? Cotización aproximada.</p>
+                <div className="field"><label htmlFor="fq-o-ciudad">Ciudad</label><CityStateAutocomplete id="fq-o-ciudad" value={data.origenCiudad} onChange={(v) => set("origenCiudad", v)} /></div>
                 <div className="field"><label htmlFor="fq-o-cp">Código Postal</label><input id="fq-o-cp" value={data.origenCp} onChange={(e) => set("origenCp", e.target.value)} placeholder="44100" inputMode="numeric" /></div>
               </div>
             )}
 
             {step === 2 && (
               <div className="step on">
-                <h3 className="display">Dirección de destino</h3>
-                <p className="lead">¿A dónde entregamos la carga?</p>
-                <div className="field"><label htmlFor="fq-d-calle">Calle</label><input id="fq-d-calle" value={data.destinoCalle} onChange={(e) => set("destinoCalle", e.target.value)} placeholder="Calle Reforma 456" /></div>
-                <div className="field"><label htmlFor="fq-d-numero">Número</label><input id="fq-d-numero" value={data.destinoNumero} onChange={(e) => set("destinoNumero", e.target.value)} placeholder="456" /></div>
+                <h3 className="display">Destino</h3>
+                <p className="lead">¿A qué ciudad entregamos la carga? Cotización aproximada.</p>
+                <div className="field"><label htmlFor="fq-d-ciudad">Ciudad</label><CityStateAutocomplete id="fq-d-ciudad" value={data.destinoCiudad} onChange={(v) => set("destinoCiudad", v)} /></div>
                 <div className="field"><label htmlFor="fq-d-cp">Código Postal</label><input id="fq-d-cp" value={data.destinoCp} onChange={(e) => set("destinoCp", e.target.value)} placeholder="06000" inputMode="numeric" /></div>
               </div>
             )}
@@ -161,6 +163,13 @@ export default function FreightQuoteModal() {
               <div className="step on">
                 <h3 className="display">Detalle de la carga</h3>
                 <p className="lead">Cuéntanos qué vamos a transportar.</p>
+                <div className="opt-grid" role="radiogroup" aria-label="Tipo de caja">
+                  {BOX_TYPES.map((v) => (
+                    <button key={v} type="button" role="radio" aria-checked={data.tipoCaja === v} className={`opt${data.tipoCaja === v ? " sel" : ""}`} onClick={() => set("tipoCaja", v)}>
+                      <b>{v}</b>
+                    </button>
+                  ))}
+                </div>
                 <div className="field"><label htmlFor="fq-tipo">Tipo de carga</label><input id="fq-tipo" value={data.tipoCarga} onChange={(e) => set("tipoCarga", e.target.value)} placeholder="Maquinaria, refacciones, etc." /></div>
                 <div className="opt-grid" role="radiogroup" aria-label="Pieza o caja">
                   {(["Pieza", "Caja"] as const).map((v) => (
