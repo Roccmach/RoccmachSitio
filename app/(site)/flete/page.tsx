@@ -160,7 +160,7 @@ export default async function FletePage() {
         <div className="wrap">
           <div className="sec-head reveal">
             <div className="eyebrow">¿Tu destino no está en la lista?</div>
-            <h2 className="display">Cotiza con tu propia dirección.</h2>
+            <h2 className="display">Cotiza a tu destino en segundos.</h2>
           </div>
           <div className="steps-flow reveal">
             <div className="steps-line" aria-hidden="true">
