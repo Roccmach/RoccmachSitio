@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { SITE_URL } from "@/lib/config";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, freightServiceJsonLd } from "@/lib/seo";
 import { getFreightRoutes } from "@/lib/freightRoutes";
 import JsonLd from "@/components/site/JsonLd";
 import FreightHero from "@/components/site/FreightHero";
@@ -13,8 +13,8 @@ import ScrollReveals from "@/components/site/ScrollReveals";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "Flete — Transporte de Carga en México · ROCCMACH",
-  description: "Cotiza tu flete en línea: rutas fijas desde Guadalajara con precio pactado, o calcula por distancia real a cualquier destino.",
+  title: "Flete y Transporte de Carga desde Guadalajara · ROCCMACH",
+  description: "Cotiza flete desde Guadalajara a Tijuana, Mazatlán, Hermosillo y más — precio pactado o por distancia real, cotización al instante.",
   alternates: { canonical: "/flete" },
 };
 
@@ -69,6 +69,7 @@ export default async function FletePage() {
           { name: "Flete", url: `${SITE_URL}/flete` },
         ])}
       />
+      <JsonLd data={freightServiceJsonLd(routes.map((r) => r.destino))} />
       <FreightQuoteModal />
       <FreightRouteModal />
 
