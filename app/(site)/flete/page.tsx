@@ -79,19 +79,6 @@ export default async function FletePage() {
         crumb={[{ label: "Inicio", href: "/" }, { label: "Flete", href: "/flete" }]}
       />
 
-      {routes.length > 0 && (
-        <section className="block">
-          <div className="wrap">
-            <div className="sec-head reveal">
-              <div className="eyebrow">Rutas del Pacífico</div>
-              <h2 className="display">Salidas fijas<br />desde Guadalajara.</h2>
-              <p>Elige tu destino y cotiza al instante — el precio ya está pactado con nosotros.</p>
-            </div>
-            <FreightRouteCards routes={routes} />
-          </div>
-        </section>
-      )}
-
       <section className="block services">
         <div className="wrap">
           <div className="sec-head reveal">
@@ -109,6 +96,19 @@ export default async function FletePage() {
           </div>
         </div>
       </section>
+
+      {routes.length > 0 && (
+        <section className="block">
+          <div className="wrap">
+            <div className="sec-head reveal">
+              <div className="eyebrow">Rutas del Pacífico</div>
+              <h2 className="display">Salidas fijas<br />desde Guadalajara.</h2>
+              <p>Elige tu destino y cotiza al instante — el precio ya está pactado con nosotros.</p>
+            </div>
+            <FreightRouteCards routes={routes} />
+          </div>
+        </section>
+      )}
 
       <section className="block">
         <div className="wrap">
