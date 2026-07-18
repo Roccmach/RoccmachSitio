@@ -994,6 +994,13 @@ section.magic{padding-bottom:clamp(220px,34vw,420px)}
 .geo-suggestions li{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;color:#D6D6D8;font-size:.92rem;cursor:pointer;transition:.15s}
 .geo-suggestions li svg{width:16px;height:16px;color:var(--red);flex:none}
 .geo-suggestions li:hover,.geo-suggestions li.on{background:rgba(228,21,31,.14);color:#fff}
+
+/* ---- sugerencias de ciudad por código postal ---- */
+.cp-suggestions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.cp-chip{background:var(--char-2);border:1.5px solid var(--line);border-radius:20px;padding:8px 14px;color:#D6D6D8;font-size:.85rem;cursor:pointer;transition:.2s}
+.cp-chip:hover{border-color:var(--red);color:#fff}
+.cp-chip.sel{background:rgba(228,21,31,.16);border-color:var(--red);color:#fff}
+
 .modal-nav{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
 .modal-nav .btn{flex:1;justify-content:center}
 .modal-nav .btn:disabled{opacity:.5;cursor:not-allowed}
