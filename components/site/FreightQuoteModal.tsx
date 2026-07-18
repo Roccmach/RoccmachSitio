@@ -4,6 +4,8 @@ import { useEffect, useState, useCallback } from "react";
 import { FREIGHT_QUOTE_EVENT } from "./freight-events";
 import CpCityField from "./CpCityField";
 import { BOX_TYPES, BOX_TYPE_ICONS } from "./box-types";
+import DatePicker from "./DatePicker";
+import TimePicker from "./TimePicker";
 
 const TOTAL_STEPS = 4;
 
@@ -12,10 +14,24 @@ const empty = {
   destinoCiudad: "", destinoCp: "",
   tipoCaja: "" as "" | (typeof BOX_TYPES)[number],
   tipoCarga: "", empaque: "" as "" | "Pieza" | "Caja", pesoNeto: "", pesoBruto: "",
-  horarioCarga: "", horarioDescarga: "",
+  fechaCarga: "", horaCarga: "", fechaDescarga: "", horaDescarga: "",
   name: "", company: "", phone: "", email: "",
 };
 type FormData = typeof empty;
+
+const DIAS_CORTOS = ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"];
+const MESES_CORTOS = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
+
+function formatFechaHora(fecha: string, hora: string) {
+  if (!fecha || !hora) return "";
+  const [y, m, d] = fecha.split("-").map(Number);
+  const date = new Date(y, m - 1, d);
+  const [hh, mm] = hora.split(":").map(Number);
+  let h12 = hh % 12;
+  if (h12 === 0) h12 = 12;
+  const ampm = hh >= 12 ? "PM" : "AM";
+  return `${DIAS_CORTOS[date.getDay()]} ${d} ${MESES_CORTOS[m - 1]}, ${h12}:${String(mm).padStart(2, "0")} ${ampm}`;
+}
 
 interface QuoteResult {
   folio: string;
@@ -74,8 +90,8 @@ export default function FreightQuoteModal() {
           empaque: data.empaque,
           pesoNeto: data.pesoNeto ? Number(data.pesoNeto) : undefined,
           pesoBruto: data.pesoBruto ? Number(data.pesoBruto) : undefined,
-          horarioCarga: data.horarioCarga,
-          horarioDescarga: data.horarioDescarga,
+          horarioCarga: formatFechaHora(data.fechaCarga, data.horaCarga),
+          horarioDescarga: formatFechaHora(data.fechaDescarga, data.horaDescarga),
           name: data.name, company: data.company, phone: data.phone, email: data.email,
         }),
       });
@@ -99,7 +115,7 @@ export default function FreightQuoteModal() {
   const canAdvance =
     (step === 1 && !!data.origenCiudad && !!data.origenCp && !!data.destinoCiudad && !!data.destinoCp) ||
     (step === 2 && !!data.tipoCaja && !!data.tipoCarga && !!data.empaque) ||
-    (step === 3 && !!data.horarioCarga && !!data.horarioDescarga) ||
+    (step === 3 && !!data.fechaCarga && !!data.horaCarga && !!data.fechaDescarga && !!data.horaDescarga) ||
     (step === 4 && !!data.name && !!data.phone && !!data.email);
 
   if (!open) return null;
@@ -188,8 +204,16 @@ export default function FreightQuoteModal() {
               <div className="step on">
                 <h3 className="display">Horarios</h3>
                 <p className="lead">¿Cuándo se carga y descarga?</p>
-                <div className="field"><label htmlFor="fq-carga">Horario de carga</label><input id="fq-carga" value={data.horarioCarga} onChange={(e) => set("horarioCarga", e.target.value)} placeholder="Ej: 8:00 - 10:00 AM" /></div>
-                <div className="field"><label htmlFor="fq-descarga">Horario de descarga</label><input id="fq-descarga" value={data.horarioDescarga} onChange={(e) => set("horarioDescarga", e.target.value)} placeholder="Ej: 2:00 - 4:00 PM" /></div>
+                <p className="lead" style={{ marginTop: 18, marginBottom: 8, fontSize: ".82rem", textTransform: "uppercase", letterSpacing: ".1em", color: "var(--red)" }}>Carga</p>
+                <div className="field-row">
+                  <div className="field"><label htmlFor="fq-fecha-carga">Fecha</label><DatePicker id="fq-fecha-carga" value={data.fechaCarga} onChange={(v) => set("fechaCarga", v)} /></div>
+                  <div className="field"><label htmlFor="fq-hora-carga">Hora</label><TimePicker id="fq-hora-carga" value={data.horaCarga} onChange={(v) => set("horaCarga", v)} /></div>
+                </div>
+                <p className="lead" style={{ marginTop: 18, marginBottom: 8, fontSize: ".82rem", textTransform: "uppercase", letterSpacing: ".1em", color: "var(--red)" }}>Descarga</p>
+                <div className="field-row">
+                  <div className="field"><label htmlFor="fq-fecha-descarga">Fecha</label><DatePicker id="fq-fecha-descarga" value={data.fechaDescarga} onChange={(v) => set("fechaDescarga", v)} /></div>
+                  <div className="field"><label htmlFor="fq-hora-descarga">Hora</label><TimePicker id="fq-hora-descarga" value={data.horaDescarga} onChange={(v) => set("horaDescarga", v)} /></div>
+                </div>
               </div>
             )}
 

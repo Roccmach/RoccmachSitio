@@ -1002,6 +1002,33 @@ section.magic{padding-bottom:clamp(220px,34vw,420px)}
 .cp-chip:hover{border-color:var(--red);color:#fff}
 .cp-chip.sel{background:rgba(228,21,31,.16);border-color:var(--red);color:#fff}
 
+/* ---- calendario y selector de hora (Horarios) ---- */
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.field-row{grid-template-columns:1fr}}
+.dt-field{position:relative}
+.dt-input{width:100%;display:flex;align-items:center;gap:10px;text-align:left;padding:14px 16px;border-radius:10px;border:1.5px solid var(--line);background:#0B0B0C;color:#fff;font-family:var(--body);font-size:1rem;cursor:pointer;transition:.2s}
+.dt-input:hover,.dt-input:focus{outline:none;border-color:var(--red)}
+.dt-input svg{width:18px;height:18px;color:var(--red);flex:none}
+.dt-input .ph{color:#8A9099}
+.dt-pop{position:absolute;z-index:20;top:calc(100% + 8px);left:0;background:var(--char-2);border:1px solid var(--line);border-radius:14px;box-shadow:0 20px 40px -16px rgba(0,0,0,.7);padding:14px}
+.dt-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:.85rem;color:#fff}
+.dt-head button{background:none;border:1px solid var(--line);border-radius:8px;color:#fff;width:28px;height:28px;cursor:pointer;transition:.2s;flex:none}
+.dt-head button:hover{border-color:var(--red);background:rgba(228,21,31,.12)}
+.dt-dow{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;margin-bottom:4px}
+.dt-dow span{text-align:center;font-size:.7rem;color:var(--steel);text-transform:uppercase;letter-spacing:.05em}
+.dt-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;width:252px}
+.dt-day{aspect-ratio:1;display:grid;place-items:center;background:none;border:none;border-radius:8px;color:#D6D6D8;font-size:.88rem;cursor:pointer;transition:.15s}
+.dt-day:hover:not(:disabled){background:rgba(228,21,31,.14);color:#fff}
+.dt-day.today{border:1px solid var(--red)}
+.dt-day.sel{background:var(--red);color:#fff;font-weight:700}
+.dt-day:disabled{color:#3A3B3E;cursor:not-allowed}
+@media(max-width:520px){.dt-grid{width:auto}}
+.dt-pop-time{width:220px;max-height:260px;overflow-y:auto}
+.tm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
+.tm-slot{background:none;border:1px solid var(--line);border-radius:8px;padding:9px 10px;color:#D6D6D8;font-size:.86rem;cursor:pointer;transition:.15s}
+.tm-slot:hover{border-color:var(--red);color:#fff}
+.tm-slot.sel{background:var(--red);border-color:var(--red);color:#fff;font-weight:700}
+
 .modal-nav{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
 .modal-nav .btn{flex:1;justify-content:center}
 .modal-nav .btn:disabled{opacity:.5;cursor:not-allowed}
