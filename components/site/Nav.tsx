@@ -27,6 +27,13 @@ const LINKS = [
     ),
   },
   {
+    href: "/flete",
+    label: "Flete",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><path d="M1 16V6a1 1 0 0 1 1-1h9v11" /><path d="M11 8h4l4 4v4" strokeLinejoin="round" /><circle cx="6" cy="17.5" r="2" /><circle cx="17" cy="17.5" r="2" /></svg>
+    ),
+  },
+  {
     href: "/contacto",
     label: "Contacto",
     icon: (

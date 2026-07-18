@@ -77,18 +77,11 @@ img{max-width:100%;display:block}
 /* ===== NAV ===== */
 header.nav{position:fixed;top:0;left:0;right:0;z-index:60;transition:.4s var(--ease)}
 .nav-inner{
-  position:relative;overflow:hidden;
   display:flex;align-items:center;justify-content:space-between;gap:24px;
   max-width:var(--maxw);margin:14px auto 0;padding:10px 14px 10px 22px;
   background:rgba(11,11,12,.55);backdrop-filter:blur(16px);
   border:1px solid var(--line);border-radius:16px;transition:.4s var(--ease);
 }
-.nav-inner::before{
-  content:"";position:absolute;top:-160%;left:6%;width:220px;height:220px;z-index:0;
-  border-radius:50%;filter:blur(22px);pointer-events:none;
-  background:radial-gradient(circle,rgba(228,21,31,.4),transparent 70%);
-}
-.nav-inner>*{position:relative;z-index:1}
 .nav.scrolled .nav-inner{background:rgba(11,11,12,.86);box-shadow:0 18px 50px -20px rgba(0,0,0,.8)}
 .logo{display:flex;align-items:center}
 .logo img{height:38px;width:auto;display:block}
