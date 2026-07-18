@@ -77,11 +77,18 @@ img{max-width:100%;display:block}
 /* ===== NAV ===== */
 header.nav{position:fixed;top:0;left:0;right:0;z-index:60;transition:.4s var(--ease)}
 .nav-inner{
+  position:relative;overflow:hidden;
   display:flex;align-items:center;justify-content:space-between;gap:24px;
   max-width:var(--maxw);margin:14px auto 0;padding:10px 14px 10px 22px;
   background:rgba(11,11,12,.55);backdrop-filter:blur(16px);
   border:1px solid var(--line);border-radius:16px;transition:.4s var(--ease);
 }
+.nav-inner::before{
+  content:"";position:absolute;top:-160%;left:6%;width:220px;height:220px;z-index:0;
+  border-radius:50%;filter:blur(22px);pointer-events:none;
+  background:radial-gradient(circle,rgba(228,21,31,.4),transparent 70%);
+}
+.nav-inner>*{position:relative;z-index:1}
 .nav.scrolled .nav-inner{background:rgba(11,11,12,.86);box-shadow:0 18px 50px -20px rgba(0,0,0,.8)}
 .logo{display:flex;align-items:center}
 .logo img{height:38px;width:auto;display:block}
@@ -517,7 +524,14 @@ section.block{position:relative;padding:clamp(40px,5vw,75px) 0}
 .act svg{width:13px;height:13px}
 
 /* ===== FOOTER ===== */
-footer.site{background:#070708;border-top:1px solid var(--line);padding:70px 0 30px}
+footer.site{position:relative;overflow:hidden;background:#070708;border-top:1px solid var(--line);padding:70px 0 30px}
+footer.site .wrap{position:relative;z-index:1}
+.foot-orb-clip{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.foot-orb{
+  position:absolute;bottom:-16vw;right:-10vw;width:42vw;height:42vw;border-radius:50%;filter:blur(6px);
+  background:radial-gradient(circle,rgba(228,21,31,.24),transparent 62%);
+}
+@media(max-width:760px){.foot-orb{width:70vw;height:70vw;bottom:-20vw;right:-25vw}}
 .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.4fr;gap:40px;margin-bottom:50px}
 .foot-grid h5{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:.95rem;color:var(--steel);margin-bottom:18px}
 .foot-grid a{display:block;color:#C7C8CC;padding:6px 0;font-size:.96rem;transition:.2s}

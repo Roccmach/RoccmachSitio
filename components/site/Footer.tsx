@@ -5,6 +5,9 @@ import { BRAND, waLink } from "@/lib/config";
 export default function Footer() {
   return (
     <footer className="site" id="contacto">
+      <div className="foot-orb-clip" aria-hidden="true">
+        <div className="foot-orb" />
+      </div>
       <div className="wrap">
         <div className="foot-grid">
           <div className="foot-brand">
