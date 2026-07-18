@@ -224,7 +224,8 @@ section.block{position:relative;padding:clamp(40px,5vw,75px) 0}
 }
 @media(max-width:760px){.cats-orb{width:70vw;height:70vw;top:-18vw;left:-25vw}}
 .has-hover-grid{position:relative;overflow:hidden}
-.has-hover-grid > .wrap{position:relative;z-index:2}
+.has-hover-grid > .wrap{position:relative;z-index:2;pointer-events:none}
+.has-hover-grid > .wrap a,.has-hover-grid > .wrap button{pointer-events:auto}
 
 /* ===== RETÍCULA INTERACTIVA (hover boxes) ===== */
 .hover-grid{
