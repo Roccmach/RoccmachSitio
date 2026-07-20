@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SITE_URL } from "@/lib/config";
 import { breadcrumbJsonLd, freightServiceJsonLd } from "@/lib/seo";
 import { getFreightRoutes } from "@/lib/freightRoutes";
@@ -14,10 +15,25 @@ import HoverGrid from "@/components/site/HoverGrid";
 
 export const revalidate = 60;
 
+const TITLE = "Flete y Transporte de Carga desde Guadalajara · ROCCMACH";
+const DESCRIPTION = "Cotiza flete desde Guadalajara a Tijuana, Mazatlán, Hermosillo y más — precio pactado o por distancia real, cotización al instante.";
+
 export const metadata: Metadata = {
-  title: "Flete y Transporte de Carga desde Guadalajara · ROCCMACH",
-  description: "Cotiza flete desde Guadalajara a Tijuana, Mazatlán, Hermosillo y más — precio pactado o por distancia real, cotización al instante.",
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: "/flete" },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: `${SITE_URL}/flete`,
+    images: [{ url: `${SITE_URL}/flete-banner.jpg`, width: 1600, height: 900, alt: "Flete y transporte de carga ROCCMACH" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+    images: [`${SITE_URL}/flete-banner.jpg`],
+  },
 };
 
 const PILARES = [
@@ -136,6 +152,7 @@ export default async function FletePage() {
           <div className="sec-head reveal">
             <div className="eyebrow">Por qué ROCCMACH</div>
             <h2 className="display">Flete que puedes<br />planear con certeza.</h2>
+            <p>¿También necesitas comprar o rentar equipo? Ve nuestro <Link href="/catalogo">catálogo de maquinaria</Link>.</p>
           </div>
           <div className="value-grid">
             {PILARES.map((p) => (
