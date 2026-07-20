@@ -38,6 +38,12 @@ export const TESTIMONIALS_QUERY = groq`*[_type == "testimonial" && defined(image
   name, company, feedback, "imageUrl": image.asset->url
 }`;
 
+export const BANNER_HOME_QUERY = groq`*[_type == "bannerHome"][0]{
+  "desktopUrl": desktopImage.asset->url,
+  "mobileUrl": mobileImage.asset->url,
+  url
+}`;
+
 export const LEGAL_PAGE_QUERY = groq`*[_type == "legalPage" && kind == $kind][0]{ title, content }`;
 
 // Solo campos seguros para el seguimiento público (sin teléfono/correo).

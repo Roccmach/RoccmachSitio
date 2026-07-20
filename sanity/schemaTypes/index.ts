@@ -2,6 +2,7 @@ import { category } from "./category";
 import { product } from "./product";
 import { heroSlide } from "./heroSlide";
 import { testimonial } from "./testimonial";
+import { bannerHome } from "./bannerHome";
 import { legalPage } from "./legalPage";
 import { freightSettings } from "./freightSettings";
 import { freightQuote } from "./freightQuote";
@@ -16,6 +17,7 @@ export const schemaTypes = [
   category,
   heroSlide,
   testimonial,
+  bannerHome,
   legalPage,
   freightSettings,
   freightQuote,
