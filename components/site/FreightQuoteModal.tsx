@@ -33,20 +33,11 @@ function formatFechaHora(fecha: string, hora: string) {
   return `${DIAS_CORTOS[date.getDay()]} ${d} ${MESES_CORTOS[m - 1]}, ${h12}:${String(mm).padStart(2, "0")} ${ampm}`;
 }
 
-interface QuoteResult {
-  folio: string;
-  token: string;
-  distanceKm: number;
-  distanceSource: "osrm" | "straight-line";
-  total: number;
-}
-
 export default function FreightQuoteModal() {
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState(1);
   const [data, setData] = useState<FormData>({ ...empty });
-  const [status, setStatus] = useState<"idle" | "loading" | "result" | "error">("idle");
-  const [result, setResult] = useState<QuoteResult | null>(null);
+  const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
   const close = useCallback(() => {
@@ -59,7 +50,6 @@ export default function FreightQuoteModal() {
       setData({ ...empty });
       setStep(1);
       setStatus("idle");
-      setResult(null);
       setOpen(true);
       document.body.style.overflow = "hidden";
     };
@@ -101,8 +91,7 @@ export default function FreightQuoteModal() {
         setStatus("error");
         return;
       }
-      setResult(json);
-      setStatus("result");
+      window.location.href = `/flete/seguimiento/${json.token}?welcome=1`;
     } catch {
       setErrorMsg("No pudimos calcular tu cotización. Revisa tu conexión e intenta de nuevo.");
       setStatus("error");
@@ -126,21 +115,7 @@ export default function FreightQuoteModal() {
       <div className="modal-card">
         <button className="x" onClick={close} aria-label="Cerrar">✕</button>
 
-        {status === "result" && result ? (
-          <div className="step on">
-            <h3 className="display">¡Listo, {data.name.split(" ")[0]}!</h3>
-            <p className="lead">Tu folio de cotización es <b>{result.folio}</b>. Nuestro equipo te contactará para confirmar los detalles.</p>
-            <div className="summary">
-              <div><span>Distancia calculada</span><b>{result.distanceKm} km</b></div>
-              <div><span>Total estimado</span><b>${result.total.toLocaleString("es-MX")} MXN</b></div>
-            </div>
-            <div className="modal-nav">
-              <a className="btn btn-green" href={`/api/flete/${result.token}/pdf`} target="_blank" rel="noopener">
-                Descargar recibo PDF
-              </a>
-            </div>
-          </div>
-        ) : status === "error" ? (
+        {status === "error" ? (
           <div className="step on">
             <h3 className="display">No pudimos calcular tu ruta</h3>
             <p className="lead">{errorMsg}</p>

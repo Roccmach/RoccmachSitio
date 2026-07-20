@@ -100,6 +100,7 @@ export async function createFreightRouteQuote(input: FreightRouteQuoteInput): Pr
 export interface TrackedFreightRouteQuote {
   folio: string;
   status: string;
+  statusNote?: string;
   destino: string;
   tipoCaja: string;
   total: number;

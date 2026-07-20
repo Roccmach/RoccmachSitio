@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback, useMemo } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { FREIGHT_ROUTE_EVENT, type FreightRoutePrefill } from "./freight-route-events";
 import { BOX_TYPES, BOX_TYPE_ICONS } from "./box-types";
 
@@ -9,56 +9,13 @@ const TOTAL_STEPS = 2;
 const emptyContact = { name: "", company: "", phone: "", email: "" };
 type ContactData = typeof emptyContact;
 
-interface QuoteResult {
-  folio: string;
-  token: string;
-  destino: string;
-  boxType: string;
-  total: number;
-}
-
-const COLORS = ["#E4151F", "#F2A93B", "#3B82C4", "#fff", "#8A9099"];
-
-function Confetti() {
-  const pieces = useMemo(
-    () =>
-      Array.from({ length: 40 }).map((_, i) => ({
-        left: Math.random() * 100,
-        delay: Math.random() * 0.5,
-        dur: 2.2 + Math.random() * 1.6,
-        color: COLORS[i % COLORS.length],
-        size: 6 + Math.random() * 7,
-        rot: Math.random() * 360,
-      })),
-    []
-  );
-  return (
-    <div className="confetti-layer" aria-hidden="true">
-      {pieces.map((p, i) => (
-        <span
-          key={i}
-          style={{
-            left: `${p.left}%`,
-            width: p.size,
-            height: p.size * 1.4,
-            background: p.color,
-            transform: `rotate(${p.rot}deg)`,
-            animation: `confetti-fall ${p.dur}s linear ${p.delay}s infinite`,
-          }}
-        />
-      ))}
-    </div>
-  );
-}
-
 export default function FreightRouteModal() {
   const [open, setOpen] = useState(false);
   const [route, setRoute] = useState<FreightRoutePrefill | null>(null);
   const [step, setStep] = useState(1);
   const [boxType, setBoxType] = useState<(typeof BOX_TYPES)[number] | "">("");
   const [contact, setContact] = useState<ContactData>({ ...emptyContact });
-  const [status, setStatus] = useState<"idle" | "loading" | "result" | "error">("idle");
-  const [result, setResult] = useState<QuoteResult | null>(null);
+  const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
   const close = useCallback(() => {
@@ -74,7 +31,6 @@ export default function FreightRouteModal() {
       setBoxType("");
       setContact({ ...emptyContact });
       setStatus("idle");
-      setResult(null);
       setOpen(true);
       document.body.style.overflow = "hidden";
     };
@@ -110,8 +66,7 @@ export default function FreightRouteModal() {
         setStatus("error");
         return;
       }
-      setResult(json);
-      setStatus("result");
+      window.location.href = `/flete/seguimiento/${json.token}?welcome=1`;
     } catch {
       setErrorMsg("No pudimos generar tu cotización. Revisa tu conexión e intenta de nuevo.");
       setStatus("error");
@@ -133,25 +88,7 @@ export default function FreightRouteModal() {
       <div className="modal-card">
         <button className="x" onClick={close} aria-label="Cerrar">✕</button>
 
-        {status === "result" && result ? (
-          <div className="step on">
-            <Confetti />
-            <div className="celebration-check" style={{ margin: "0 auto 18px" }}>✓</div>
-            <h3 className="display" style={{ textAlign: "center" }}>¡Cotización lista!</h3>
-            <p className="lead" style={{ textAlign: "center" }}>
-              Folio <b>{result.folio}</b> · Guadalajara → {result.destino} · {result.boxType}
-            </p>
-            <div className="summary">
-              <div><span>Precio pactado</span><b>${result.total.toLocaleString("es-MX")} MXN</b></div>
-            </div>
-            {contact.email && <p className="lead" style={{ fontSize: ".85rem" }}>Te enviamos una copia a {contact.email}.</p>}
-            <div className="modal-nav">
-              <a className="btn btn-green" href={`/api/flete/ruta/${result.token}/pdf`} target="_blank" rel="noopener">
-                Descargar cotización PDF
-              </a>
-            </div>
-          </div>
-        ) : status === "error" ? (
+        {status === "error" ? (
           <div className="step on">
             <h3 className="display">Algo no salió bien</h3>
             <p className="lead">{errorMsg}</p>

@@ -1,6 +1,6 @@
 import { defineField, defineType } from "sanity";
 
-export const FREIGHT_ROUTE_STATUSES = ["Nueva", "Contactado", "Cerrada"] as const;
+export const FREIGHT_ROUTE_STATUSES = ["Nueva", "Contactado", "Programada", "En tránsito", "Entregada", "Cancelada"] as const;
 
 export const freightRouteQuote = defineType({
   name: "freightRouteQuote",
@@ -16,6 +16,13 @@ export const freightRouteQuote = defineType({
       type: "string",
       options: { list: [...FREIGHT_ROUTE_STATUSES], layout: "dropdown" },
       initialValue: "Nueva",
+      description: "Cámbialo conforme avanza el envío. El cliente lo ve en su seguimiento.",
+    }),
+    defineField({
+      name: "statusNote",
+      title: "Nota para el cliente",
+      type: "string",
+      description: "Mensaje visible en el seguimiento. Ej: 'Recogemos el martes a las 9am'.",
     }),
     defineField({ name: "destino", title: "Destino", type: "string", readOnly: true }),
     defineField({

@@ -62,7 +62,7 @@ export const ORDER_BY_TOKEN_QUERY = groq`*[_type == "order" && token == $t][0]{
 export const FREIGHT_SETTINGS_QUERY = groq`*[_type == "freightSettings"][0]{ pricePerKmCajaSeca, pricePerKmPlana, pricePerKmLowBoy, minCharge }`;
 
 export const FREIGHT_QUOTE_BY_TOKEN_QUERY = groq`*[_type == "freightQuote" && token == $t][0]{
-  folio, status, origen, destino, tipoCaja, tipoCarga, empaque, pesoNeto, pesoBruto,
+  folio, status, statusNote, origen, destino, tipoCaja, tipoCarga, empaque, pesoNeto, pesoBruto,
   horarioCarga, horarioDescarga, customerName, company, distanceKm, distanceSource,
   pricePerKmUsed, total, createdAt
 }`;
@@ -78,5 +78,5 @@ export const FREIGHT_ROUTE_BY_SLUG_QUERY = groq`*[_type == "freightRoute" && slu
 }`;
 
 export const FREIGHT_ROUTE_QUOTE_BY_TOKEN_QUERY = groq`*[_type == "freightRouteQuote" && token == $t][0]{
-  folio, status, destino, tipoCaja, total, customerName, company, createdAt
+  folio, status, statusNote, destino, tipoCaja, total, customerName, company, createdAt
 }`;

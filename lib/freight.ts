@@ -126,6 +126,7 @@ export async function createFreightQuote(input: FreightQuoteInput): Promise<Frei
 export interface TrackedFreightQuote {
   folio: string;
   status: string;
+  statusNote?: string;
   origen: Address;
   destino: Address;
   tipoCaja: FreightBoxType;

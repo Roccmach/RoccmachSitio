@@ -38,10 +38,20 @@ function Confetti() {
   );
 }
 
-/** Confeti + felicitación en el primer aterrizaje a /seguimiento/[token] justo después de
- * completar una compra (MP o compra asistida) — ambos flujos agregan ?welcome=1 al link.
- * Se limpia el query param al mostrarse para que un refresh no lo repita. */
-export default function OrderCelebration({ orderNumber }: { orderNumber?: string }) {
+/** Confeti + felicitación en el primer aterrizaje a /seguimiento/[token] (o su equivalente de
+ * flete) justo después de completar una compra o cotización — el flujo agrega ?welcome=1 al
+ * link. Se limpia el query param al mostrarse para que un refresh no lo repita. */
+export default function OrderCelebration({
+  orderNumber,
+  title = "¡Pedido confirmado!",
+  message,
+  buttonLabel = "Ver mi pedido →",
+}: {
+  orderNumber?: string;
+  title?: string;
+  message?: React.ReactNode;
+  buttonLabel?: string;
+}) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -62,17 +72,21 @@ export default function OrderCelebration({ orderNumber }: { orderNumber?: string
       <Confetti />
       <div className="celebration-card">
         <div className="celebration-check">✓</div>
-        <h2 className="display">¡Pedido confirmado!</h2>
+        <h2 className="display">{title}</h2>
         <p>
-          {orderNumber ? (
+          {message ?? (
             <>
-              Tu pedido <b>{orderNumber}</b> quedó registrado.{" "}
+              {orderNumber ? (
+                <>
+                  Tu pedido <b>{orderNumber}</b> quedó registrado.{" "}
+                </>
+              ) : null}
+              Nuestro equipo ya está en contacto para coordinar todo. ¡Gracias por confiar en ROCCMACH!
             </>
-          ) : null}
-          Nuestro equipo ya está en contacto para coordinar todo. ¡Gracias por confiar en ROCCMACH!
+          )}
         </p>
         <button type="button" className="btn btn-green" onClick={() => setOpen(false)}>
-          Ver mi pedido →
+          {buttonLabel}
         </button>
       </div>
     </div>,
