@@ -31,16 +31,18 @@ export const testimonial = defineType({
     select: { title: "name", subtitle: "feedback", media: "image" },
   },
   // Límite de 8: se valida en el Studio (no bloquea escrituras hechas por API/scripts).
+  // OJO: cuenta IDs únicos (sin el prefijo "drafts.") — un conteo crudo de documentos
+  // duplica cualquier testimonio que tenga a la vez versión borrador y publicada
+  // (normal mientras se edita uno), lo que bloqueaba publicar de más.
   validation: (Rule) =>
     Rule.custom(async (_value, context) => {
       const id = context.document?._id;
       if (!id) return true;
       const client = context.getClient({ apiVersion: "2024-10-01" });
       const baseId = id.replace(/^drafts\./, "");
-      const count = await client.fetch(
-        `count(*[_type == "testimonial" && !(_id in [$base, "drafts." + $base])])`,
-        { base: baseId }
-      );
-      return count < MAX_TESTIMONIALS || `Ya hay ${MAX_TESTIMONIALS} testimonios. Borra uno antes de agregar otro.`;
+      const ids = await client.fetch<string[]>(`*[_type == "testimonial"]._id`);
+      const baseIds = new Set(ids.map((i) => i.replace(/^drafts\./, "")));
+      baseIds.delete(baseId);
+      return baseIds.size < MAX_TESTIMONIALS || `Ya hay ${MAX_TESTIMONIALS} testimonios. Borra uno antes de agregar otro.`;
     }),
 });
