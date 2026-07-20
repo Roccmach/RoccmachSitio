@@ -6,6 +6,22 @@ import type { HeroSlideData } from "@/lib/hero";
 
 const ROTATE_MS = 6500;
 
+/** Parte el título en palabras para que se "armen" una por una al entrar
+ * (en vez de aparecer de golpe) — cada palabra queda enmascarada en su
+ * propio span (overflow hidden) y sube con un pequeño retraso escalonado. */
+function buildWords(title: string) {
+  const words = title.split(" ");
+  return words.flatMap((word, i) => {
+    const nodes: React.ReactNode[] = [
+      <span className="word" key={`w${i}`}>
+        <span style={{ animationDelay: `${(0.08 + i * 0.05).toFixed(3)}s` }}>{word}</span>
+      </span>,
+    ];
+    if (i < words.length - 1) nodes.push(" ");
+    return nodes;
+  });
+}
+
 function CtaLink({ href, children, className }: { href: string; children: React.ReactNode; className: string }) {
   const isExternal = /^https?:\/\//.test(href);
   if (isExternal) {
@@ -25,6 +41,7 @@ function CtaLink({ href, children, className }: { href: string; children: React.
 export default function HeroCarousel({ slides }: { slides: HeroSlideData[] }) {
   const [index, setIndex] = useState(0);
   const pausedRef = useRef(false);
+  const sectionRef = useRef<HTMLElement>(null);
   const total = slides.length;
 
   useEffect(() => {
@@ -37,12 +54,42 @@ export default function HeroCarousel({ slides }: { slides: HeroSlideData[] }) {
     return () => clearInterval(id);
   }, [total]);
 
+  // Al hacer scroll, el contenido del hero se desliza hacia arriba y se
+  // desvanece un poco más lento que el scroll — sensación de profundidad al
+  // "salir" de la escena, en vez de que la sección se corte de golpe.
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let ticking = false;
+    const update = () => {
+      const rect = section.getBoundingClientRect();
+      const p = Math.min(1, Math.max(0, -rect.top / window.innerHeight));
+      section.style.setProperty("--hero-exit", p.toFixed(3));
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
   const slide = slides[index];
 
   return (
     <section
       className="hero hero-photo"
       id="top"
+      ref={sectionRef}
       onMouseEnter={() => { pausedRef.current = true; }}
       onMouseLeave={() => { pausedRef.current = false; }}
     >
@@ -64,8 +111,14 @@ export default function HeroCarousel({ slides }: { slides: HeroSlideData[] }) {
       <div className="hero-photo-scrim" />
 
       <div className="hero-inner wrap">
-        <div className="eyebrow">Maquinaria industrial · Guadalajara, México</div>
-        {slide.title && <h1 className="display hero-photo-title">{slide.title}</h1>}
+        <div className="eyebrow" style={{ opacity: 0, animation: "fade .8s .35s var(--ease) forwards" }}>
+          Maquinaria industrial · Guadalajara, México
+        </div>
+        {slide.title && (
+          <h1 className="display hero-photo-title" key={`title-${index}`}>
+            {buildWords(slide.title)}
+          </h1>
+        )}
         {slide.subtitle && <p className="hero-sub">{slide.subtitle}</p>}
         {slide.ctaHref && (
           <div className="hero-cta">
