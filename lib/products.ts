@@ -90,6 +90,7 @@ export const CATEGORY_SLUGS: CategorySlug[] = ["gruas", "montacargas", "patines"
 
 export interface TrackedOrder {
   orderNumber: string;
+  kind?: "mercadopago" | "asistido";
   status: string;
   statusNote?: string;
   total?: number;

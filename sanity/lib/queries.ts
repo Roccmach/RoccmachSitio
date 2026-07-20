@@ -49,13 +49,13 @@ export const LEGAL_PAGE_QUERY = groq`*[_type == "legalPage" && kind == $kind][0]
 
 // Solo campos seguros para el seguimiento público (sin teléfono/correo).
 export const ORDER_BY_NUMBER_QUERY = groq`*[_type == "order" && orderNumber == $n][0]{
-  orderNumber, status, statusNote, total, createdAt, customerName, company, city,
+  orderNumber, kind, status, statusNote, total, createdAt, customerName, company, city,
   "items": items[]{ title, price, qty }
 }`;
 
 // Por token (URL única secreta) — mismo set seguro.
 export const ORDER_BY_TOKEN_QUERY = groq`*[_type == "order" && token == $t][0]{
-  orderNumber, status, statusNote, total, createdAt, customerName, company, city,
+  orderNumber, kind, status, statusNote, total, createdAt, customerName, company, city,
   "items": items[]{ title, price, qty }
 }`;
 
