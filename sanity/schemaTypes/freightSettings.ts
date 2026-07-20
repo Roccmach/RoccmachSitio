@@ -2,10 +2,10 @@ import { defineField, defineType } from "sanity";
 
 export const freightSettings = defineType({
   name: "freightSettings",
-  title: "Configuración de flete",
+  title: "Configuración de transporte",
   type: "document",
   description:
-    "Precio por kilómetro (uno por tipo de caja) usado para calcular las cotizaciones de flete por dirección en /flete. Solo debe existir un documento de este tipo.",
+    "Precio por kilómetro (uno por tipo de caja) usado para calcular las cotizaciones de transporte por dirección en /transporte-de-carga. Solo debe existir un documento de este tipo.",
   fields: [
     defineField({
       name: "pricePerKmCajaSeca",
@@ -36,7 +36,7 @@ export const freightSettings = defineType({
   preview: {
     select: { cs: "pricePerKmCajaSeca", p: "pricePerKmPlana", lb: "pricePerKmLowBoy" },
     prepare: ({ cs, p, lb }) => ({
-      title: "Configuración de flete",
+      title: "Configuración de transporte",
       subtitle: cs ? `Caja Seca $${cs} · Plana $${p} · Low Boy $${lb} /km` : "Sin precios configurados",
     }),
   },

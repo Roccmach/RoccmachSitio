@@ -9,7 +9,7 @@ const addressFields = [
 
 export const freightQuote = defineType({
   name: "freightQuote",
-  title: "Cotización de flete",
+  title: "Cotización de transporte",
   type: "document",
   fields: [
     defineField({ name: "folio", title: "Folio", type: "string", readOnly: true }),

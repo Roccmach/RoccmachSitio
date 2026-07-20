@@ -15,18 +15,18 @@ import HoverGrid from "@/components/site/HoverGrid";
 
 export const revalidate = 60;
 
-const TITLE = "Flete y Transporte de Carga desde Guadalajara · ROCCMACH";
-const DESCRIPTION = "Cotiza flete desde Guadalajara a Tijuana, Mazatlán, Hermosillo y más — precio pactado o por distancia real, cotización al instante.";
+const TITLE = "Transporte de Carga y Flete desde Guadalajara · ROCCMACH";
+const DESCRIPTION = "Servicio de transporte de carga y flete desde Guadalajara a Tijuana, Mazatlán, Hermosillo y más — precio pactado o por distancia real, cotización al instante.";
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: "/flete" },
+  alternates: { canonical: "/transporte-de-carga" },
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
-    url: `${SITE_URL}/flete`,
-    images: [{ url: `${SITE_URL}/flete-banner.jpg`, width: 1600, height: 900, alt: "Flete y transporte de carga ROCCMACH" }],
+    url: `${SITE_URL}/transporte-de-carga`,
+    images: [{ url: `${SITE_URL}/flete-banner.jpg`, width: 1600, height: 900, alt: "Transporte de carga ROCCMACH" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -125,7 +125,7 @@ const STEPS = [
   },
 ];
 
-export default async function FletePage() {
+export default async function TransporteDeCargaPage() {
   const routes = await getFreightRoutes();
 
   return (
@@ -135,7 +135,7 @@ export default async function FletePage() {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: "Inicio", url: SITE_URL },
-          { name: "Flete", url: `${SITE_URL}/flete` },
+          { name: "Transporte de Carga", url: `${SITE_URL}/transporte-de-carga` },
         ])}
       />
       <JsonLd data={freightServiceJsonLd(routes.map((r) => r.destino))} />
@@ -151,7 +151,7 @@ export default async function FletePage() {
         <div className="wrap">
           <div className="sec-head reveal">
             <div className="eyebrow">Por qué ROCCMACH</div>
-            <h2 className="display">Flete que puedes<br />planear con certeza.</h2>
+            <h2 className="display">Transporte que puedes<br />planear con certeza.</h2>
             <p>¿También necesitas comprar o rentar equipo? Ve nuestro <Link href="/catalogo">catálogo de maquinaria</Link>.</p>
           </div>
           <div className="value-grid">

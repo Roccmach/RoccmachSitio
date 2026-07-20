@@ -73,12 +73,12 @@ export function productJsonLd(p: Product) {
   };
 }
 
-/** Service — va en /flete, para que buscadores/IA sepan qué rutas y ciudades cubrimos. */
+/** Service — va en /transporte-de-carga, para que buscadores/IA sepan qué rutas y ciudades cubrimos. */
 export function freightServiceJsonLd(cities: string[]) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    serviceType: "Flete y transporte de carga",
+    serviceType: "Transporte de carga y flete",
     provider: { "@type": "Organization", name: BRAND.name, url: SITE_URL },
     areaServed: [
       { "@type": "Country", name: "México" },
@@ -86,8 +86,8 @@ export function freightServiceJsonLd(cities: string[]) {
       ...cities.map((name) => ({ "@type": "City" as const, name })),
     ],
     description:
-      "Servicio de flete y transporte de carga desde Guadalajara: rutas fijas con precio pactado a destinos del Pacífico, o cotización por distancia real a cualquier punto de México.",
-    url: `${SITE_URL}/flete`,
+      "Servicio de transporte de carga y flete desde Guadalajara: rutas fijas con precio pactado a destinos del Pacífico, o cotización por distancia real a cualquier punto de México.",
+    url: `${SITE_URL}/transporte-de-carga`,
   };
 }
 

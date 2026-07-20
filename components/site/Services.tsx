@@ -80,7 +80,7 @@ export default function Services() {
         <div className="sec-head svc-intro reveal">
           <div className="eyebrow">Qué hacemos</div>
           <h2 className="display">Tu socio de<br />maquinaria pesada.</h2>
-          <p>En ROCCMACH no solo vendemos equipo: somos el respaldo que mantiene tu almacén, obra o planta operando sin parar. Cuatro formas de trabajar contigo — y si necesitas mover tu equipo, también cotizamos <Link href="/flete">flete</Link>.</p>
+          <p>En ROCCMACH no solo vendemos equipo: somos el respaldo que mantiene tu almacén, obra o planta operando sin parar. Cuatro formas de trabajar contigo — y si necesitas mover tu equipo, también cotizamos <Link href="/transporte-de-carga">transporte de carga</Link>.</p>
         </div>
         <div className="svc-stack">
           {SERVICES.map((s, i) => (

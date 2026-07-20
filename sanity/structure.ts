@@ -59,9 +59,9 @@ export const structure: StructureResolver = (S) =>
                     .defaultOrdering([{ field: "createdAt", direction: "desc" }])
                 ),
               S.listItem()
-                .title("Cotizaciones de flete")
+                .title("Cotizaciones de transporte")
                 .icon(EarthAmericasIcon)
-                .child(S.documentTypeList("freightQuote").title("Cotizaciones de flete")),
+                .child(S.documentTypeList("freightQuote").title("Cotizaciones de transporte")),
               S.listItem()
                 .title("Cotizaciones de rutas fijas")
                 .icon(MarkerIcon)
@@ -88,11 +88,11 @@ export const structure: StructureResolver = (S) =>
         ),
 
       S.listItem()
-        .title("Flete — configuración")
+        .title("Transporte — configuración")
         .icon(TargetIcon)
         .child(
           S.list()
-            .title("Flete — configuración")
+            .title("Transporte — configuración")
             .items([
               S.documentTypeListItem("freightRoute").title("Rutas fijas").icon(MarkerIcon),
               S.listItem()

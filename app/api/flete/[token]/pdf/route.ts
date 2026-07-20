@@ -18,7 +18,7 @@ export async function GET(
   return new Response(new Uint8Array(buffer), {
     headers: {
       "Content-Type": "application/pdf",
-      "Content-Disposition": `inline; filename="ROCCMACH-Flete-${quote.folio}.pdf"`,
+      "Content-Disposition": `inline; filename="ROCCMACH-Transporte-${quote.folio}.pdf"`,
       "Cache-Control": "no-store",
     },
   });

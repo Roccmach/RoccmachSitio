@@ -8,11 +8,11 @@ import OrderCelebration from "@/components/site/OrderCelebration";
 import HoverGrid from "@/components/site/HoverGrid";
 
 export const metadata: Metadata = {
-  title: "Seguimiento de flete · ROCCMACH",
+  title: "Seguimiento de transporte · ROCCMACH",
   robots: { index: false },
 };
 
-export default async function FleteSeguimientoTokenPage({
+export default async function TransporteSeguimientoTokenPage({
   params,
 }: {
   params: Promise<{ token: string }>;
@@ -26,7 +26,7 @@ export default async function FleteSeguimientoTokenPage({
       <PageHead
         eyebrow="Seguimiento"
         title={<>Tu <em>cotización{folio ? ` ${folio}` : ""}.</em></>}
-        crumb={[{ label: "Inicio", href: "/" }, { label: "Flete", href: "/flete" }]}
+        crumb={[{ label: "Inicio", href: "/" }, { label: "Transporte de Carga", href: "/transporte-de-carga" }]}
         compact
       />
       <section className="block services has-hover-grid" style={{ paddingTop: 30 }}>
@@ -84,7 +84,7 @@ export default async function FleteSeguimientoTokenPage({
             <div className="track-empty">
               <p>Este enlace de seguimiento no es válido o la cotización ya no existe.</p>
               <p style={{ marginTop: 14 }}>
-                <Link href="/flete" className="btn btn-red">Ir a Flete</Link>
+                <Link href="/transporte-de-carga" className="btn btn-red">Ir a Transporte</Link>
               </p>
             </div>
           )}

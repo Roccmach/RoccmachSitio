@@ -43,7 +43,7 @@ const fecha = (iso?: string) => {
 
 export function FreightRoutePdf({ quote }: { quote: TrackedFreightRouteQuote }) {
   return (
-    <Document title={`Cotización de flete ${quote.folio}`}>
+    <Document title={`Cotización de transporte ${quote.folio}`}>
       <Page size="A4" style={s.page}>
         <View style={s.header}>
           <View>
@@ -52,7 +52,7 @@ export function FreightRoutePdf({ quote }: { quote: TrackedFreightRouteQuote }) 
           </View>
           <View>
             <Text style={s.docTag}>COTIZACIÓN</Text>
-            <Text style={s.docTag}>DE FLETE</Text>
+            <Text style={s.docTag}>DE TRANSPORTE</Text>
           </View>
         </View>
         <View style={s.redBar} />
@@ -101,7 +101,7 @@ export function FreightRoutePdf({ quote }: { quote: TrackedFreightRouteQuote }) 
           </View>
 
           <Text style={s.note}>
-            Precio de flete pactado para la ruta Guadalajara → {quote.destino} en unidad tipo {quote.tipoCaja}.
+            Precio de transporte pactado para la ruta Guadalajara → {quote.destino} en unidad tipo {quote.tipoCaja}.
             Nuestro equipo te contactará para coordinar fecha, horarios y condiciones de carga. La información
             y los precios de este documento pueden cambiar sin previo aviso.
           </Text>

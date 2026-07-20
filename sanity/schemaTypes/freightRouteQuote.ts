@@ -6,7 +6,7 @@ export const freightRouteQuote = defineType({
   name: "freightRouteQuote",
   title: "Cotización de ruta",
   type: "document",
-  description: "Cotizaciones generadas desde las tarjetas de rutas fijas en /flete.",
+  description: "Cotizaciones generadas desde las tarjetas de rutas fijas en /transporte-de-carga.",
   fields: [
     defineField({ name: "folio", title: "Folio", type: "string", readOnly: true }),
     defineField({ name: "token", title: "Token", type: "string", readOnly: true, hidden: true }),

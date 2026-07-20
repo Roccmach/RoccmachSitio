@@ -91,7 +91,7 @@ export default function FreightQuoteModal() {
         setStatus("error");
         return;
       }
-      window.location.href = `/flete/seguimiento/${json.token}?welcome=1`;
+      window.location.href = `/transporte-de-carga/seguimiento/${json.token}?welcome=1`;
     } catch {
       setErrorMsg("No pudimos calcular tu cotización. Revisa tu conexión e intenta de nuevo.");
       setStatus("error");
@@ -110,7 +110,7 @@ export default function FreightQuoteModal() {
   if (!open) return null;
 
   return (
-    <div className="modal open" role="dialog" aria-modal="true" aria-label="Cotización de flete">
+    <div className="modal open" role="dialog" aria-modal="true" aria-label="Cotización de transporte">
       <div className="modal-bg" onClick={close} />
       <div className="modal-card">
         <button className="x" onClick={close} aria-label="Cerrar">✕</button>

@@ -66,7 +66,7 @@ export default function FreightRouteModal() {
         setStatus("error");
         return;
       }
-      window.location.href = `/flete/seguimiento/${json.token}?welcome=1`;
+      window.location.href = `/transporte-de-carga/seguimiento/${json.token}?welcome=1`;
     } catch {
       setErrorMsg("No pudimos generar tu cotización. Revisa tu conexión e intenta de nuevo.");
       setStatus("error");
@@ -83,7 +83,7 @@ export default function FreightRouteModal() {
   if (!open || !route) return null;
 
   return (
-    <div className="modal open" role="dialog" aria-modal="true" aria-label={`Cotizar flete a ${route.destino}`}>
+    <div className="modal open" role="dialog" aria-modal="true" aria-label={`Cotizar transporte a ${route.destino}`}>
       <div className="modal-bg" onClick={close} />
       <div className="modal-card">
         <button className="x" onClick={close} aria-label="Cerrar">✕</button>

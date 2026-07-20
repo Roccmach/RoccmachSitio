@@ -34,7 +34,7 @@ export default function FreightRouteCards({ routes }: { routes: FreightRouteCard
             <button
               type="button"
               className="btn btn-red"
-              aria-label={`Cotizar flete desde Guadalajara a ${r.destino}`}
+              aria-label={`Cotizar transporte desde Guadalajara a ${r.destino}`}
               onClick={() => openFreightRouteQuote(r)}
             >
               Cotizar ahora →

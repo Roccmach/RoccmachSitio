@@ -96,9 +96,9 @@ export async function sendFreightRouteConfirmation(opts: {
     await r.emails.send({
       from: FROM,
       to: opts.to,
-      subject: `Cotización de flete · ${opts.folio}`,
-      html: shell("¡Tu cotización de flete está lista! 🚛", `
-        <p>${opts.customerName ? `Hola ${opts.customerName}, ` : ""}gracias por cotizar tu flete con ROCCMACH.</p>
+      subject: `Cotización de transporte · ${opts.folio}`,
+      html: shell("¡Tu cotización de transporte está lista! 🚛", `
+        <p>${opts.customerName ? `Hola ${opts.customerName}, ` : ""}gracias por cotizar tu transporte con ROCCMACH.</p>
         <p style="font-size:14px;color:#6B7178">Folio</p>
         <p style="font-size:24px;font-weight:bold;color:#E4151F;margin:0 0 6px">${opts.folio}</p>
         <p><b>Ruta:</b> Guadalajara → ${opts.destino}</p>

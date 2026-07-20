@@ -128,11 +128,11 @@ export default function FreightTracker({
             Descargar PDF
           </a>
         )}
-        <Link href="/flete" className="btn btn-green">
+        <Link href="/transporte-de-carga" className="btn btn-green">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} style={{ width: 15, height: 15 }}>
             <circle cx="12" cy="12" r="9" /><path d="M9 8l5 4-5 4z" fill="currentColor" stroke="none" />
           </svg>
-          Ver más de flete
+          Ver más de transporte
         </Link>
       </div>
     </div>

@@ -48,7 +48,7 @@ const addr = (a: { ciudad: string; cp: string }) => `${a.ciudad}, CP ${a.cp}`;
 
 export function FreightPdf({ quote }: { quote: TrackedFreightQuote }) {
   return (
-    <Document title={`Cotización de flete ${quote.folio}`}>
+    <Document title={`Cotización de transporte ${quote.folio}`}>
       <Page size="A4" style={s.page}>
         <View style={s.header}>
           <View>
@@ -57,7 +57,7 @@ export function FreightPdf({ quote }: { quote: TrackedFreightQuote }) {
           </View>
           <View>
             <Text style={s.docTag}>COTIZACIÓN</Text>
-            <Text style={s.docTag}>DE FLETE</Text>
+            <Text style={s.docTag}>DE TRANSPORTE</Text>
           </View>
         </View>
         <View style={s.redBar} />

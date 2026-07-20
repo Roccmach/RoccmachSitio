@@ -72,7 +72,7 @@ export default function FreightHero() {
     <section className="fh-hero" ref={sectionRef}>
       <div className="fh-sticky" ref={stickyRef}>
         <div className="fh-bg" aria-hidden="true" />
-        <p className="fh-eyebrow">Flete</p>
+        <p className="fh-eyebrow">Transporte de Carga</p>
         <div className="fh-wrap">
           <video
             className="fh-video"

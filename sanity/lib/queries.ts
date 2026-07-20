@@ -67,8 +67,8 @@ export const FREIGHT_QUOTE_BY_TOKEN_QUERY = groq`*[_type == "freightQuote" && to
   pricePerKmUsed, total, createdAt
 }`;
 
-// Rutas activas para las tarjetas de /flete — OJO: nunca se piden los campos de precio aquí,
-// solo se ven después de cotizar (el precio se calcula server-side en /api/flete/ruta/quote).
+// Rutas activas para las tarjetas de /transporte-de-carga — OJO: nunca se piden los campos de
+// precio aquí, solo se ven después de cotizar (el precio se calcula server-side en /api/flete/ruta/quote).
 export const FREIGHT_ROUTES_QUERY = groq`*[_type == "freightRoute" && activo == true] | order(order asc){
   destino, "slug": slug.current
 }`;
