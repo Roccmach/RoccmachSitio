@@ -2,15 +2,27 @@ import Link from "next/link";
 import { formatMXN } from "@/lib/config";
 import type { TrackedOrder } from "@/lib/products";
 
-const STEPS = ["Pagado", "En preparación", "Enviado", "Entregado"];
-// Un color distinto por paso (en vez de rojo parejo) — azul→morado→ámbar→verde,
-// se usa igual para el círculo, la barra y el chip de estatus de arriba.
-const STEP_COLORS = [
-  { solid: "#3B82F6", glow: "rgba(59,130,246,.45)" },
-  { solid: "#8B5CF6", glow: "rgba(139,92,246,.45)" },
-  { solid: "#F59E0B", glow: "rgba(245,158,11,.45)" },
-  { solid: "#22C55E", glow: "rgba(34,197,94,.45)" },
-];
+// Pasos distintos según el tipo de pedido: MercadoPago paga en línea desde el
+// inicio; la compra asistida (+$50k) negocia primero y no pasa por "Pendiente
+// de pago" — ambos comparten el mismo tramo final (Pagado → Entregado).
+const STEPS_BY_KIND: Record<"mercadopago" | "asistido", string[]> = {
+  mercadopago: ["Pendiente de pago", "Pagado", "En preparación", "Enviado", "Entregado"],
+  asistido: ["Pendiente de contacto", "Cotización enviada", "Pagado", "En preparación", "Enviado", "Entregado"],
+};
+
+// Color por status (no por posición en el arreglo) — así "Pagado" siempre es
+// azul en cualquiera de los dos flujos, y el chip de arriba nunca queda sin
+// color aunque el status no esté en la lista de pasos del pedido.
+const STATUS_COLORS: Record<string, { solid: string; glow: string }> = {
+  "Pendiente de contacto": { solid: "#8A9099", glow: "rgba(138,144,153,.45)" },
+  "Cotización enviada": { solid: "#06B6D4", glow: "rgba(6,182,212,.45)" },
+  "Pendiente de pago": { solid: "#8A9099", glow: "rgba(138,144,153,.45)" },
+  Pagado: { solid: "#3B82F6", glow: "rgba(59,130,246,.45)" },
+  "En preparación": { solid: "#8B5CF6", glow: "rgba(139,92,246,.45)" },
+  Enviado: { solid: "#F59E0B", glow: "rgba(245,158,11,.45)" },
+  Entregado: { solid: "#22C55E", glow: "rgba(34,197,94,.45)" },
+};
+const FALLBACK_COLOR = STATUS_COLORS["Pendiente de contacto"];
 
 function fecha(iso?: string) {
   if (!iso) return null;
@@ -23,10 +35,15 @@ function fecha(iso?: string) {
 
 export default function OrderTracker({ order, token }: { order: TrackedOrder; token?: string }) {
   const cancelled = order.status === "Cancelado";
+  // Pedidos creados antes de que existiera `kind`: se infiere del status —
+  // solo el flujo asistido pasa por "Pendiente de contacto"/"Cotización enviada".
+  const kind: "mercadopago" | "asistido" =
+    order.kind ?? (order.status === "Pendiente de contacto" || order.status === "Cotización enviada" ? "asistido" : "mercadopago");
+  const STEPS = STEPS_BY_KIND[kind];
   const currentIdx = STEPS.indexOf(order.status);
   const created = fecha(order.createdAt);
-  const fillPct = cancelled ? 0 : (currentIdx / (STEPS.length - 1)) * 84;
-  const badgeColor = STEP_COLORS[currentIdx]?.solid ?? STEP_COLORS[0].solid;
+  const fillPct = cancelled || currentIdx < 0 ? 0 : (currentIdx / (STEPS.length - 1)) * 84;
+  const badgeColor = (STATUS_COLORS[order.status] ?? FALLBACK_COLOR).solid;
   const fillColor = badgeColor;
 
   return (
@@ -64,9 +81,10 @@ export default function OrderTracker({ order, token }: { order: TrackedOrder; to
           {STEPS.map((step, i) => {
             const done = currentIdx >= i;
             const current = currentIdx === i;
+            const color = STATUS_COLORS[step] ?? FALLBACK_COLOR;
             const stepStyle = {
-              "--step-color": STEP_COLORS[i].solid,
-              "--step-glow": STEP_COLORS[i].glow,
+              "--step-color": color.solid,
+              "--step-glow": color.glow,
             } as React.CSSProperties;
             return (
               <div
