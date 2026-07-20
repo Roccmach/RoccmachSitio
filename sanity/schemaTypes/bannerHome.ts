@@ -4,8 +4,14 @@ export const bannerHome = defineType({
   name: "bannerHome",
   title: "Banner Home",
   type: "document",
-  description: "Banner publicitario en la página de inicio, entre Testimonios y Compra asistida. Si falta cualquier campo, el banner no se muestra.",
+  description: "Banner publicitario en la página de inicio, entre Testimonios y Compra asistida. Si falta imagen/link, el banner no se muestra.",
   fields: [
+    defineField({
+      name: "title",
+      title: "Titular",
+      type: "string",
+      description: "Ej: ¿Necesitas una refacción? Visítanos ahora.",
+    }),
     defineField({
       name: "desktopImage",
       title: "Imagen (desktop)",
@@ -30,7 +36,7 @@ export const bannerHome = defineType({
     }),
   ],
   preview: {
-    select: { media: "desktopImage", url: "url" },
-    prepare: ({ media, url }) => ({ title: "Banner Home", subtitle: url, media }),
+    select: { media: "desktopImage", title: "title", url: "url" },
+    prepare: ({ media, title, url }) => ({ title: title || "Banner Home", subtitle: url, media }),
   },
 });

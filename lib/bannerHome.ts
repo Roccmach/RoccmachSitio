@@ -3,6 +3,7 @@ import { isSanityConfigured } from "@/sanity/env";
 import { BANNER_HOME_QUERY } from "@/sanity/lib/queries";
 
 export interface BannerHomeData {
+  title?: string;
   desktopUrl: string;
   mobileUrl: string;
   url: string;

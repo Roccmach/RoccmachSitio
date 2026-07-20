@@ -39,6 +39,7 @@ export const TESTIMONIALS_QUERY = groq`*[_type == "testimonial" && defined(image
 }`;
 
 export const BANNER_HOME_QUERY = groq`*[_type == "bannerHome"][0]{
+  title,
   "desktopUrl": desktopImage.asset->url,
   "mobileUrl": mobileImage.asset->url,
   url

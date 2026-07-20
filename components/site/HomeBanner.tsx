@@ -12,6 +12,7 @@ export default async function HomeBanner() {
   return (
     <section className="block home-banner">
       <div className="wrap">
+        {banner.title && <h2 className="hb-title reveal">{banner.title}</h2>}
         <a
           className="hb-link reveal"
           href={banner.url}
