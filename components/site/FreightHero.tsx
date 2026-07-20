@@ -17,10 +17,17 @@ export default function FreightHero() {
     const sticky = stickyRef.current;
     if (!section || !sticky) return;
 
+    const isMobile = () => window.innerWidth < 760;
+
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       section.style.height = "100svh";
-      sticky.style.setProperty("--fh-w", "min(440px, 28vw)");
-      sticky.style.setProperty("--fh-h", "58vh");
+      if (isMobile()) {
+        sticky.style.setProperty("--fh-w", "62vw");
+        sticky.style.setProperty("--fh-h", "42vh");
+      } else {
+        sticky.style.setProperty("--fh-w", "min(440px, 28vw)");
+        sticky.style.setProperty("--fh-h", "58vh");
+      }
       return;
     }
 
@@ -31,12 +38,17 @@ export default function FreightHero() {
       const p = scrollable > 0 ? Math.min(1, Math.max(0, -rect.top / scrollable)) : 1;
       const vw = window.innerWidth;
       const vh = window.innerHeight;
-      const startW = Math.min(440, vw * 0.28);
-      const startH = vh * 0.58;
+      const mobile = vw < 760;
+      // En mobile vw*0.28 da una tarjeta inicial angostísima (retrato extremo,
+      // vh domina el alto): se ancla el ancho a una proporción de vh en vez de
+      // vw para que la tarjeta chica se vea proporcionada, no un rectángulo.
+      const startW = mobile ? vh * 0.3 : Math.min(440, vw * 0.28);
+      const startH = mobile ? vh * 0.42 : vh * 0.58;
+      const txMax = mobile ? 95 : 60;
       sticky.style.setProperty("--fh-w", `${startW + (vw - startW) * p}px`);
       sticky.style.setProperty("--fh-h", `${startH + (vh - startH) * p}px`);
       sticky.style.setProperty("--fh-r", `${18 * (1 - p)}px`);
-      sticky.style.setProperty("--fh-tx", `${60 * p}vw`);
+      sticky.style.setProperty("--fh-tx", `${txMax * p}vw`);
       sticky.style.setProperty("--fh-op", `${Math.max(0, 1 - p * 3)}`);
       ticking = false;
     };
