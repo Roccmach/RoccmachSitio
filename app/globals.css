@@ -1024,10 +1024,10 @@ section.magic{padding-bottom:clamp(220px,34vw,420px)}
 .dt-day:disabled{color:#3A3B3E;cursor:not-allowed}
 @media(max-width:520px){.dt-grid{width:auto}}
 .dt-pop-time{width:220px;max-height:260px;overflow-y:auto}
-.tm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
-.tm-slot{background:none;border:1px solid var(--line);border-radius:8px;padding:9px 10px;color:#D6D6D8;font-size:.86rem;cursor:pointer;transition:.15s}
-.tm-slot:hover{border-color:var(--red);color:#fff}
-.tm-slot.sel{background:var(--red);border-color:var(--red);color:#fff;font-weight:700}
+.tp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
+.tp-slot{background:none;border:1px solid var(--line);border-radius:8px;padding:9px 10px;color:#D6D6D8;font-size:.86rem;cursor:pointer;transition:.15s}
+.tp-slot:hover{border-color:var(--red);color:#fff}
+.tp-slot.sel{background:var(--red);border-color:var(--red);color:#fff;font-weight:700}
 
 .modal-nav{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
 .modal-nav .btn{flex:1;justify-content:center}

@@ -56,12 +56,12 @@ export default function TimePicker({
       </button>
       {open && (
         <div className="dt-pop dt-pop-time">
-          <div className="tm-grid">
+          <div className="tp-grid">
             {SLOTS.map((s) => (
               <button
                 key={s}
                 type="button"
-                className={`tm-slot${value === s ? " sel" : ""}`}
+                className={`tp-slot${value === s ? " sel" : ""}`}
                 onClick={() => { onChange(s); setOpen(false); }}
               >
                 {fmt12(s)}
