@@ -6,13 +6,22 @@ Producción: **https://roccmach.vercel.app**
 
 ---
 
+1. [Qué incluye este proyecto](#1-qué-incluye-este-proyecto)
+2. [Cómo se administra el catálogo](#2-cómo-se-administra-el-catálogo-día-a-día)
+3. [Stack técnico](#3-stack-técnico-para-cualquier-desarrollador-que-le-siga)
+4. [Variables de entorno](#4-variables-de-entorno)
+5. [Correr en local](#5-correr-en-local)
+6. [Deploy](#6-deploy)
+
+---
+
 ## 1. Qué incluye este proyecto
 
 - **Landing pages**: Inicio, Nosotros, Contacto.
 - **Catálogo** (`/catalogo`): filtros por categoría, precio y capacidad de carga con sliders y buscador, todo alimentado desde el CMS (Sanity), sin tocar código para dar de alta equipo nuevo.
 - **Compra en línea** (equipos con precio < $50,000 MXN): checkout con **Mercado Pago**.
 - **Compra asistida** (equipos ≥ $50,000 MXN, o sin precio público): formulario de datos → se genera un pedido con folio → el equipo de ventas de ROCCMACH da seguimiento por WhatsApp/teléfono.
-- **Seguimiento de pedido** (`/seguimiento/[folio]`): página pública donde el cliente ve el estatus de su compra, con descarga de comprobante en PDF.
+- **Seguimiento de pedido** (`/seguimiento`, buscando por número de pedido, o `/seguimiento/[token]` con el link único que llega por correo): página pública donde el cliente ve el estatus de su compra, con descarga de comprobante en PDF.
 - **Panel de contenido (Sanity Studio)**: dar de alta/editar equipos, categorías, banners de inicio, y configuración general del sitio sin necesitar a un programador.
 - **SEO técnico**: datos estructurados (JSON-LD), metadatos por página, sitemap.
 
@@ -49,29 +58,51 @@ sanity/schemaTypes/   modelos de contenido (equipo, categoría, pedido, lead, ba
 scripts/              scripts de carga inicial de catálogo (seed)
 ```
 
-### Variables de entorno (Vercel → Project Settings → Environment Variables)
+## 4. Variables de entorno
 
-| Variable | Para qué |
-|---|---|
-| `NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET`, `NEXT_PUBLIC_SANITY_API_VERSION` | conexión al CMS |
-| `SANITY_WRITE_TOKEN` | permite al sitio crear pedidos/leads en Sanity |
-| `MP_ACCESS_TOKEN`, `NEXT_PUBLIC_MP_PUBLIC_KEY` | Mercado Pago |
-| `RESEND_API_KEY` | envío de correos (confirmación de pedido) |
-| `NEXT_PUBLIC_WHATSAPP_NUMBER` | número de WhatsApp de ventas |
-| `NEXT_PUBLIC_SITE_URL` | dominio público (el sitio ya tiene un respaldo automático a la URL de Vercel si esta variable falta o queda mal puesta) |
+Todas las claves del proyecto viven en variables de entorno — **nunca hardcodeadas en el código**. Hay dos lugares donde se configuran, y deben tener los mismos valores en ambos:
 
-### Correr en local
+- **Local** (tu máquina, para desarrollar): archivo `.env.local` en la raíz del proyecto (no se sube a git).
+- **Producción** (el sitio real): Vercel → proyecto `roccmach` → **Settings → Environment Variables**.
+
+Para empezar en local:
+
+```bash
+cp .env.example .env.local
+```
+
+Y llena `.env.local` con los valores reales (el archivo trae comentarios explicando de dónde sacar cada uno). `.env.example` es la plantilla sin valores — ese sí vive en git, a propósito, como referencia.
+
+> **Importante:** en Vercel, si agregas o cambias una variable, **no se aplica sola** a lo que ya está desplegado — hace falta un redeploy (Deployments → el más reciente → menú `⋯` → **Redeploy**, o simplemente un nuevo `git push`). Es el error más común al configurar una clave nueva: se guarda bien pero parece que "no jaló" porque falta ese paso.
+
+### Tabla completa
+
+| Variable | Obligatoria | De dónde se saca | Si falta |
+|---|---|---|---|
+| `NEXT_PUBLIC_SANITY_PROJECT_ID` | Sí | manage.sanity.io → proyecto → Settings → API | El sitio no puede leer contenido — cae a datos vacíos, no truena |
+| `NEXT_PUBLIC_SANITY_DATASET` | Sí | Normalmente `production` | Igual que arriba |
+| `NEXT_PUBLIC_SANITY_API_VERSION` | Sí | Fecha fija, ya viene en `.env.example` | Igual que arriba |
+| `SANITY_WRITE_TOKEN` | Sí | manage.sanity.io → API → Tokens → **Add API token**, permiso **Editor** | El sitio no puede crear pedidos ni leads (checkout y formularios dejan de guardar) |
+| `SANITY_WEBHOOK_SECRET` | Sí | Lo generas tú (un string random y largo) — debe coincidir con el `?secret=...` del webhook en manage.sanity.io → API → Webhooks | `/api/notify` rechaza todo con 401 (a propósito — nunca debe quedar sin este valor) y no se mandan los correos de cambio de estatus |
+| `MP_ACCESS_TOKEN` | Sí, para vender en línea | mercadopago.com.mx/developers/panel/app → Credenciales. `TEST-...` = sandbox, `APP_USR-...` = producción real | La compra en línea cae a WhatsApp en vez de checkout |
+| `NEXT_PUBLIC_MP_PUBLIC_KEY` | Sí, junto con la anterior | Mismo panel de Mercado Pago | Igual que arriba |
+| `RESEND_API_KEY` | Sí, para mandar correos | resend.com → API Keys → Create | Los correos se omiten silenciosamente, nada se rompe |
+| `RESEND_FROM` | No (tiene default) | Requiere verificar un dominio propio primero en resend.com → Domains | Los correos salen desde una dirección de pruebas compartida de Resend |
+| `NEXT_PUBLIC_WHATSAPP_NUMBER` | Sí | Número de ventas, formato `52...` sin signos | Los botones de WhatsApp quedan sin número |
+| `NEXT_PUBLIC_SITE_URL` | Sí en producción | El dominio real del sitio, sin `/` al final | Afecta links en correos, regreso de pago de Mercado Pago, sitemap y SEO — en local puede quedar en `localhost` |
+
+## 5. Correr en local
 
 ```bash
 npm install
 npm run dev
 ```
 
-Abre [http://localhost:3000](http://localhost:3000). Necesitas un `.env.local` con las variables de arriba (pide una copia a Fold).
+Abre [http://localhost:3000](http://localhost:3000).
 
-### Deploy
+## 6. Deploy
 
-Cada `git push` a `main` dispara un deploy automático en Vercel. No hay pasos manuales adicionales.
+Cada `git push` a `main` dispara un deploy automático en Vercel — no hay pasos manuales adicionales, salvo el redeploy mencionado arriba cuando cambian variables de entorno.
 
 ---
 
