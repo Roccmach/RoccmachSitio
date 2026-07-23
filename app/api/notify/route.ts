@@ -6,13 +6,12 @@ import { sendStatusUpdate } from "@/lib/email";
 // proyección { orderNumber, token, status, statusNote, customerEmail }.
 export async function POST(request: Request) {
   try {
-    // Seguridad opcional: ?secret=... debe coincidir con SANITY_WEBHOOK_SECRET.
+    // ?secret=... debe coincidir con SANITY_WEBHOOK_SECRET. Sin este env var
+    // configurado, el endpoint rechaza todo — nunca queda abierto por default.
     const secret = process.env.SANITY_WEBHOOK_SECRET;
-    if (secret) {
-      const url = new URL(request.url);
-      if (url.searchParams.get("secret") !== secret) {
-        return NextResponse.json({ ok: false }, { status: 401 });
-      }
+    const url = new URL(request.url);
+    if (!secret || url.searchParams.get("secret") !== secret) {
+      return NextResponse.json({ ok: false }, { status: 401 });
     }
 
     const body = await request.json().catch(() => ({}));

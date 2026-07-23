@@ -15,6 +15,15 @@ function getResend() {
   return resend;
 }
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 function shell(title: string, bodyHtml: string) {
   return `<div style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto;color:#0B0B0C">
     <div style="background:#0B0B0C;padding:22px 28px">
@@ -47,7 +56,7 @@ export async function sendOrderConfirmation(opts: {
       to: opts.to,
       subject: `Pedido confirmado · ${opts.orderNumber}`,
       html: shell("¡Gracias por tu compra! 🎉", `
-        <p>${opts.customerName ? `Hola ${opts.customerName}, ` : ""}recibimos tu pago y estamos preparando tu equipo.</p>
+        <p>${opts.customerName ? `Hola ${escapeHtml(opts.customerName)}, ` : ""}recibimos tu pago y estamos preparando tu equipo.</p>
         <p style="font-size:14px;color:#6B7178">Número de pedido</p>
         <p style="font-size:24px;font-weight:bold;color:#E4151F;margin:0 0 6px">${opts.orderNumber}</p>
         ${typeof opts.total === "number" ? `<p><b>Total:</b> ${formatMXN(opts.total)} MXN</p>` : ""}
@@ -72,7 +81,7 @@ export async function sendContactOrderConfirmation(opts: {
       to: opts.to,
       subject: `Solicitud recibida · ${opts.orderNumber}`,
       html: shell("¡Recibimos tu solicitud! 🔧", `
-        <p>${opts.customerName ? `Hola ${opts.customerName}, ` : ""}gracias por tu interés en <b>${opts.productTitle}</b>.</p>
+        <p>${opts.customerName ? `Hola ${escapeHtml(opts.customerName)}, ` : ""}gracias por tu interés en <b>${escapeHtml(opts.productTitle)}</b>.</p>
         <p style="font-size:14px;color:#6B7178">Número de pedido</p>
         <p style="font-size:24px;font-weight:bold;color:#E4151F;margin:0 0 6px">${opts.orderNumber}</p>
         <p>Nuestro equipo comercial te contactará en breve para coordinar pago y entrega.</p>
@@ -98,11 +107,11 @@ export async function sendFreightRouteConfirmation(opts: {
       to: opts.to,
       subject: `Cotización de transporte · ${opts.folio}`,
       html: shell("¡Tu cotización de transporte está lista! 🚛", `
-        <p>${opts.customerName ? `Hola ${opts.customerName}, ` : ""}gracias por cotizar tu transporte con ROCCMACH.</p>
+        <p>${opts.customerName ? `Hola ${escapeHtml(opts.customerName)}, ` : ""}gracias por cotizar tu transporte con ROCCMACH.</p>
         <p style="font-size:14px;color:#6B7178">Folio</p>
         <p style="font-size:24px;font-weight:bold;color:#E4151F;margin:0 0 6px">${opts.folio}</p>
-        <p><b>Ruta:</b> Guadalajara → ${opts.destino}</p>
-        <p><b>Tipo de caja:</b> ${opts.boxType}</p>
+        <p><b>Ruta:</b> Guadalajara → ${escapeHtml(opts.destino)}</p>
+        <p><b>Tipo de caja:</b> ${escapeHtml(opts.boxType)}</p>
         <p><b>Precio pactado:</b> ${formatMXN(opts.total)} MXN</p>
         <p><a href="${pdfUrl}" style="display:inline-block;background:#E4151F;color:#fff;text-decoration:none;font-weight:bold;padding:14px 26px;border-radius:8px;margin:10px 0">Descargar cotización PDF →</a></p>
         <p style="font-size:13px;color:#6B7178">Nuestro equipo comercial te contactará para coordinar fecha y horarios.</p>
@@ -123,10 +132,10 @@ export async function sendStatusUpdate(opts: {
       from: FROM,
       to: opts.to,
       subject: `Tu pedido ${opts.orderNumber}: ${opts.status}`,
-      html: shell(`Tu pedido va: ${opts.status}`, `
+      html: shell(`Tu pedido va: ${escapeHtml(opts.status)}`, `
         <p>Actualizamos el estatus de tu pedido <b>${opts.orderNumber}</b>.</p>
-        <p style="font-size:20px;font-weight:bold;color:#E4151F">${opts.status}</p>
-        ${opts.statusNote ? `<p style="font-style:italic;border-left:3px solid #E4151F;padding-left:12px;color:#333">${opts.statusNote}</p>` : ""}
+        <p style="font-size:20px;font-weight:bold;color:#E4151F">${escapeHtml(opts.status)}</p>
+        ${opts.statusNote ? `<p style="font-style:italic;border-left:3px solid #E4151F;padding-left:12px;color:#333">${escapeHtml(opts.statusNote)}</p>` : ""}
         <p>${trackButton(opts.token)}</p>
       `),
     });
