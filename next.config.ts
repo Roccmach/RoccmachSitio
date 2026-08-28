@@ -11,6 +11,8 @@ const nextConfig: NextConfig = {
     return [
       { source: "/flete", destination: "/transporte-de-carga", permanent: true },
       { source: "/flete/seguimiento/:token", destination: "/transporte-de-carga/seguimiento/:token", permanent: true },
+      // Atajo que el equipo ya usaba en el sitio anterior para entrar al correo.
+      { source: "/webmail", destination: "https://webmail.roccmach.com/", permanent: false },
     ];
   },
 };
