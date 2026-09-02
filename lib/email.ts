@@ -4,15 +4,55 @@ import { BRAND, SITE_URL, formatMXN } from "@/lib/config";
 
 export const isEmailConfigured = !!process.env.RESEND_API_KEY;
 
+/**
+ * Un valor pegado en el panel de Vercel puede llegar con las comillas del
+ * formato .env incluidas: `"ROCCMACH <x@y.com>"` en vez de `ROCCMACH <x@y.com>`.
+ * En un archivo .env el parser las quita; en un campo de panel no hay parser.
+ * Resend rechaza ese `from` con 422 — nos costó dos días encontrarlo.
+ */
+function unquote(value: string | undefined): string | undefined {
+  const clean = value?.trim().replace(/^["']|["']$/g, "").trim();
+  return clean || undefined;
+}
+
 // Para pruebas Resend permite enviar desde onboarding@resend.dev.
 // Al verificar un dominio, cámbialo por algo como "ROCCMACH <pedidos@tudominio.mx>".
-const FROM = process.env.RESEND_FROM || "ROCCMACH <onboarding@resend.dev>";
+const FROM = unquote(process.env.RESEND_FROM) || "ROCCMACH <onboarding@resend.dev>";
 
 let resend: Resend | null = null;
 function getResend() {
   if (!isEmailConfigured) return null;
   if (!resend) resend = new Resend(process.env.RESEND_API_KEY);
   return resend;
+}
+
+/**
+ * ÚNICO punto donde se llama a Resend, y siempre reporta lo que pasó.
+ *
+ * El SDK de Resend NO lanza excepción cuando la API rechaza el envío: devuelve
+ * `{ data, error }`. Atrapar solo excepciones deja el rechazo en absoluto
+ * silencio — fue exactamente lo que pasó en producción: 422 en Resend, 200 en
+ * nuestra API, cero correos y cero errores en los logs durante días.
+ */
+async function deliver(
+  label: string,
+  payload: { from: string; to: string; subject: string; html: string }
+): Promise<boolean> {
+  const r = getResend();
+  if (!r) return false;
+  try {
+    const { data, error } = await r.emails.send(payload);
+    if (error) {
+      // `from` inválido, dominio sin verificar, API key mala: todo cae aquí.
+      console.error(`[email:${label}] Resend rechazó el envío a ${payload.to}:`, error);
+      return false;
+    }
+    console.log(`[email:${label}] enviado a ${payload.to} (id ${data?.id})`);
+    return true;
+  } catch (err) {
+    console.error(`[email:${label}] excepción al enviar a ${payload.to}:`, err);
+    return false;
+  }
 }
 
 function escapeHtml(str: string): string {
@@ -48,10 +88,8 @@ function trackButton(token: string) {
 export async function sendOrderConfirmation(opts: {
   to: string; orderNumber: string; token: string; total?: number; customerName?: string;
 }) {
-  const r = getResend();
-  if (!r || !opts.to) return;
-  try {
-    await r.emails.send({
+  if (!opts.to) return false;
+  return deliver("pedido-pagado", {
       from: FROM,
       to: opts.to,
       subject: `Pedido confirmado · ${opts.orderNumber}`,
@@ -63,20 +101,15 @@ export async function sendOrderConfirmation(opts: {
         <p>${trackButton(opts.token)}</p>
         <p style="font-size:13px;color:#6B7178">Te avisaremos por aquí cuando tu pedido avance.</p>
       `),
-    });
-  } catch (err) {
-    console.error("[email] confirmation error:", err);
-  }
+  });
 }
 
 /** Confirmación para la compra asistida (sin pago aún, distinto copy al de pago confirmado). */
 export async function sendContactOrderConfirmation(opts: {
   to: string; orderNumber: string; token: string; productTitle: string; customerName?: string;
 }) {
-  const r = getResend();
-  if (!r || !opts.to) return;
-  try {
-    await r.emails.send({
+  if (!opts.to) return false;
+  return deliver("compra-asistida", {
       from: FROM,
       to: opts.to,
       subject: `Solicitud recibida · ${opts.orderNumber}`,
@@ -88,21 +121,16 @@ export async function sendContactOrderConfirmation(opts: {
         <p>${trackButton(opts.token)}</p>
         <p style="font-size:13px;color:#6B7178">Ahí verás el estatus de tu pedido en tiempo real.</p>
       `),
-    });
-  } catch (err) {
-    console.error("[email] contact order confirmation error:", err);
-  }
+  });
 }
 
 /** Confirmación de cotización de flete por ruta fija (precio pactado, no calculado). */
 export async function sendFreightRouteConfirmation(opts: {
   to: string; folio: string; token: string; destino: string; boxType: string; total: number; customerName?: string;
 }) {
-  const r = getResend();
-  if (!r || !opts.to) return;
+  if (!opts.to) return false;
   const pdfUrl = `${SITE_URL}/api/flete/ruta/${opts.token}/pdf`;
-  try {
-    await r.emails.send({
+  return deliver("cotizacion-ruta", {
       from: FROM,
       to: opts.to,
       subject: `Cotización de transporte · ${opts.folio}`,
@@ -116,19 +144,14 @@ export async function sendFreightRouteConfirmation(opts: {
         <p><a href="${pdfUrl}" style="display:inline-block;background:#E4151F;color:#fff;text-decoration:none;font-weight:bold;padding:14px 26px;border-radius:8px;margin:10px 0">Descargar cotización PDF →</a></p>
         <p style="font-size:13px;color:#6B7178">Nuestro equipo comercial te contactará para coordinar fecha y horarios.</p>
       `),
-    });
-  } catch (err) {
-    console.error("[email] freight route confirmation error:", err);
-  }
+  });
 }
 
 export async function sendStatusUpdate(opts: {
   to: string; orderNumber: string; token: string; status: string; statusNote?: string;
 }) {
-  const r = getResend();
-  if (!r || !opts.to) return;
-  try {
-    await r.emails.send({
+  if (!opts.to) return false;
+  return deliver("cambio-de-estatus", {
       from: FROM,
       to: opts.to,
       subject: `Tu pedido ${opts.orderNumber}: ${opts.status}`,
@@ -138,8 +161,5 @@ export async function sendStatusUpdate(opts: {
         ${opts.statusNote ? `<p style="font-style:italic;border-left:3px solid #E4151F;padding-left:12px;color:#333">${escapeHtml(opts.statusNote)}</p>` : ""}
         <p>${trackButton(opts.token)}</p>
       `),
-    });
-  } catch (err) {
-    console.error("[email] status update error:", err);
-  }
+  });
 }
