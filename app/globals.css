@@ -766,6 +766,34 @@ footer.site .wrap{position:relative;z-index:1}
 }
 .pd-media img,.pd-media svg{position:relative;z-index:2}
 .pd-media svg{width:72%}
+
+/* Galería: miniaturas debajo de la foto grande. Solo se pintan cuando el
+   equipo tiene fotos adicionales — si no, esta fila no existe en el DOM. */
+/* Una sola fila que se desliza: con las 5 fotos del tope, envolver dejaba la
+   quinta miniatura sola en un segundo renglón en celular. En desktop caben
+   todas sin scroll, así que esta regla sirve para los dos anchos. */
+/* min-width:0 en los dos: un item de grid/flex trae min-width:auto y se niega
+   a encoger por debajo de su contenido, así que el overflow se le escapaba a
+   la página entera en vez de quedarse en la fila. */
+.pd-gallery{min-width:0}
+.pd-thumbs{
+  display:flex;gap:10px;margin-top:12px;flex-wrap:nowrap;min-width:0;
+  overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;padding-bottom:2px;
+}
+.pd-thumbs::-webkit-scrollbar{display:none}
+.pd-thumb{scroll-snap-align:start}
+.pd-thumb{
+  width:72px;height:72px;flex:none;padding:6px;cursor:pointer;
+  border-radius:12px;border:1px solid rgba(228,21,31,.14);background:#141013;
+  display:grid;place-items:center;overflow:hidden;
+  transition:border-color .2s var(--ease),transform .2s var(--ease),opacity .2s var(--ease);
+  opacity:.62;
+}
+.pd-thumb img{width:100%;height:100%;object-fit:contain}
+.pd-thumb:hover{opacity:1;transform:translateY(-2px);border-color:rgba(228,21,31,.4)}
+.pd-thumb.on{opacity:1;border-color:var(--red)}
+.pd-thumb:focus-visible{outline:2px solid var(--red);outline-offset:2px}
 .pd-info .brand{font-family:var(--display);font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--steel-d);font-size:.85rem}
 .pd-info h1{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(2rem,4vw,3.2rem);color:var(--ink);line-height:.95;margin:6px 0 14px}
 .pd-cond{display:inline-block;font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:.78rem;letter-spacing:.06em;padding:5px 12px;border-radius:30px;background:var(--ink);color:#fff;margin-bottom:18px}

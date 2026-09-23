@@ -54,9 +54,20 @@ export const product = defineType({
     }),
     defineField({
       name: "image",
-      title: "Foto del equipo",
+      title: "Foto principal",
       type: "image",
       options: { hotspot: true },
+      description: "La que se ve en el catálogo y al compartir el equipo en redes.",
+    }),
+    defineField({
+      name: "gallery",
+      title: "Más fotos (opcional)",
+      type: "array",
+      of: [{ type: "image", options: { hotspot: true } }],
+      validation: (r) => r.max(4),
+      description:
+        "Hasta 4 fotos adicionales. Aparecen como miniaturas debajo de la foto principal en la página del equipo; al darles clic se hacen grandes. Si lo dejas vacío, la página se ve igual que siempre.",
+      options: { layout: "grid" },
     }),
     defineField({ name: "featured", title: "Destacado", type: "boolean", initialValue: false }),
     defineField({ name: "available", title: "Disponible", type: "boolean", initialValue: true }),

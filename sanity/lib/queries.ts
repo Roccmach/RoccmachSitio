@@ -11,7 +11,8 @@ const productProjection = groq`{
   condition,
   description,
   specs,
-  "imageUrl": image.asset->url
+  "imageUrl": image.asset->url,
+  "gallery": gallery[].asset->url
 }`;
 
 export const PRODUCTS_QUERY = groq`*[_type == "product" && available == true]

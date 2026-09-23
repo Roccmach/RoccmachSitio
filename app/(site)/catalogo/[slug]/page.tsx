@@ -6,7 +6,7 @@ import { getAllProducts, getProductBySlug, getProductSlugs } from "@/lib/product
 import { isBuyable, formatMXN, SITE_URL } from "@/lib/config";
 import { productJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import JsonLd from "@/components/site/JsonLd";
-import ForkliftIcon from "@/components/site/ForkliftIcon";
+import ProductGallery from "@/components/site/ProductGallery";
 import ProductCard from "@/components/site/ProductCard";
 import BuyButton from "@/components/site/BuyButton";
 import QuoteTrigger from "@/components/site/QuoteTrigger";
@@ -84,19 +84,14 @@ export default async function ProductPage({
           </div>
 
           <div className="pd-grid">
-            <div className="pd-media">
-              <span className={`badge ${buy ? "buy" : "quote"}`}>{buy ? "Compra en línea" : "Disponible"}</span>
-              {p.imageUrl ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={p.imageUrl}
-                  alt={`${p.brand} ${p.model} — ${categoryName(p.category).toLowerCase()} ${p.condition.toLowerCase()} en Guadalajara`}
-                  style={{ width: "82%", objectFit: "contain" }}
-                />
-              ) : (
-                <ForkliftIcon />
-              )}
-            </div>
+            <ProductGallery
+              main={p.imageUrl}
+              gallery={p.gallery}
+              alt={`${p.brand} ${p.model} — ${categoryName(p.category).toLowerCase()} ${p.condition.toLowerCase()} en Guadalajara`}
+              badge={
+                <span className={`badge ${buy ? "buy" : "quote"}`}>{buy ? "Compra en línea" : "Disponible"}</span>
+              }
+            />
 
             <div className="pd-info">
               <span className="brand">{p.brand}</span>

@@ -19,6 +19,7 @@ export interface Product {
   description: string;
   specs: Spec[];
   imageUrl?: string; // presente cuando viene de Sanity
+  gallery?: string[]; // fotos adicionales (máx 4); solo se usan en la página de detalle
 }
 
 export const CATEGORIES: { slug: CategorySlug; name: string; blurb: string }[] = [
