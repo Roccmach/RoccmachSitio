@@ -14,4 +14,8 @@ export const client = createClient({
   token,
   // Con token, useCdn debe ir en false (respuestas autenticadas no se cachean en CDN).
   useCdn: false,
+  // Solo lo publicado. Con token y esta apiVersion, Sanity devuelve también los
+  // borradores: así salió una categoría duplicada en el home y un equipo a medio
+  // capturar tumbó /catalogo (20-oct-2026). Lo que se edita aparece al dar «Publicar».
+  perspective: "published",
 });

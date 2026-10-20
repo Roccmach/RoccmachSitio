@@ -344,14 +344,24 @@ section.block{position:relative;padding:clamp(40px,5vw,75px) 0}
 
 /* ===== CATEGORÍAS ===== */
 .cats{background:var(--concrete-2);color:var(--ink);position:relative}
-.cat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-radius:18px;overflow:hidden;box-shadow:0 30px 70px -30px rgba(0,0,0,.25);border:1px solid var(--line-d)}
-.cat{
-  position:relative;padding:36px 26px 30px;color:#fff;cursor:pointer;overflow:hidden;
-  transition:.5s var(--ease);min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;
-  background:linear-gradient(155deg,#75757a 0%,#68686d 50%,#5c5c61 100%);
+/* --cols lo pone Categories.tsx según cuántas categorías hay (filas parejas, máx. 4).
+   flex-wrap + flex-grow: la fila corta se estira, así nunca queda un hueco.
+   El gap de 1px deja ver el fondo de la franja como línea divisoria entre tarjetas. */
+.cat-strip{
+  --c:var(--cols,4);
+  display:flex;flex-wrap:wrap;gap:1px;background:#6f6f74;
+  border-radius:18px;overflow:hidden;box-shadow:0 30px 70px -30px rgba(0,0,0,.25);border:1px solid var(--line-d);
 }
-.cat:nth-child(even){background:linear-gradient(155deg,#68686d 0%,#5c5c61 50%,#505055 100%)}
-.cat+.cat{border-left:1px solid rgba(255,255,255,.08)}
+.cat{
+  flex:1 1 calc((100% - (var(--c) - 1) * 1px) / var(--c));
+  position:relative;padding:36px 26px 30px;color:#fff;cursor:pointer;overflow:hidden;
+  /* solo lo que anima el hover: con «all», el ancho de columna (flex-basis) también se animaba al cambiar de tamaño */
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease);
+  min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;
+  /* gris un tono más oscuro que antes: la descripción pasa AA (≥4.9:1 en el punto más claro) */
+  background:linear-gradient(155deg,#626267 0%,#5c5c61 50%,#545459 100%);
+}
+.cat:nth-child(even){background:linear-gradient(155deg,#5c5c61 0%,#545459 50%,#4c4c51 100%)}
 /* rayas de señalética diagonal (mismo lenguaje que hero/catálogo); cobran vida al hover */
 .cat::before{
   content:"";position:absolute;inset:-30% -15%;z-index:0;pointer-events:none;
@@ -366,16 +376,18 @@ section.block{position:relative;padding:clamp(40px,5vw,75px) 0}
   -webkit-mask-image:radial-gradient(ellipse 95% 75% at 24% 105%,#000 32%,transparent 82%);
   mask-image:radial-gradient(ellipse 95% 75% at 24% 105%,#000 32%,transparent 82%);
 }
-.cat-idx{position:absolute;top:28px;right:26px;z-index:2;font-family:var(--display);font-weight:800;font-size:.72rem;letter-spacing:.16em;color:rgba(255,255,255,.4)}
 .cat .cic{
   position:relative;z-index:2;display:grid;place-items:center;width:80px;height:80px;margin-bottom:22px;
   border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);transition:.45s var(--ease);
 }
 .cat .cic img{width:52px;height:52px;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,0,.35))}
 .cat-copy{position:relative;z-index:2}
-.cat h4{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:1.7rem;letter-spacing:.01em;margin-bottom:7px}
-.cat-blurb{font-size:.85rem;color:rgba(255,255,255,.65);line-height:1.45;margin-bottom:12px;max-width:24ch}
-.cat .arrow{font-size:.82rem;font-weight:700;letter-spacing:.01em;display:inline-flex;align-items:center;gap:6px;opacity:.7;transform:translateX(-4px);transition:.4s var(--ease)}
+/* El título se ajusta al ancho de su tarjeta: «MONTACARGAS» mide 8.26em y con 4 columnas en
+   una laptop de 1100px no cabía a 1.7rem (se cortaba). 11cqi deja entrar palabras de hasta ~9em. */
+.cat{container-type:inline-size}
+.cat h3{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:min(1.7rem,11cqi);letter-spacing:.01em;margin-bottom:7px;overflow-wrap:break-word}
+.cat-blurb{font-size:.85rem;color:rgba(255,255,255,.85);line-height:1.45;margin-bottom:12px;max-width:24ch}
+.cat .arrow{font-size:.82rem;font-weight:700;letter-spacing:.01em;display:inline-flex;align-items:center;gap:6px;transform:translateX(-4px);transition:.4s var(--ease)}
 .cat:hover{
   transform:translateY(-6px);box-shadow:0 26px 55px -20px rgba(0,0,0,.6);z-index:3;
   background:
@@ -587,7 +599,7 @@ footer.site .wrap{position:relative;z-index:1}
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:1024px){
-  .cat-strip{grid-template-columns:repeat(2,1fr)}
+  .cat-strip{--c:2}
   .prod-grid{grid-template-columns:repeat(3,1fr)}
   .foot-grid{grid-template-columns:1fr 1fr}
   .svc-layout{grid-template-columns:1fr;gap:36px}
@@ -606,7 +618,7 @@ footer.site .wrap{position:relative;z-index:1}
 }
 @media(max-width:480px){
   .prod-grid{grid-template-columns:1fr 1fr;gap:10px}
-  .cat-strip{grid-template-columns:1fr}
+  .cat-strip{--c:1}
   .card .media{padding:10px}
   .card .body{padding:10px 11px 12px}
   .card .brand{font-size:.6rem}
