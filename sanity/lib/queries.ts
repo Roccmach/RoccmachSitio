@@ -10,7 +10,10 @@ const productProjection = groq`{
   price,
   condition,
   description,
-  specs,
+  // Un equipo guardado sin ficha llega como null, no como []. El catálogo
+  // recorre TODOS los equipos con specs.find(), así que uno solo incompleto
+  // tumbaba /catalogo entero (500, 20-oct-2026, Toyota 8FBCU30).
+  "specs": coalesce(specs, []),
   "imageUrl": image.asset->url,
   "gallery": gallery[].asset->url
 }`;
