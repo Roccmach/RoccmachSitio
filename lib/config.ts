@@ -4,8 +4,8 @@
 export const BRAND = {
   name: "ROCCMACH",
   tagline: "Maquinaria Industrial",
-  whatsapp: "523343393126", // formato wa.me (sin +)
-  phone: "+52 33 4339 3126",
+  whatsapp: "523317024727", // formato wa.me (sin +)
+  phone: "+52 33 1702 4727",
   email: "contacto@roccmach.com",
   city: "Guadalajara, Jalisco · MX",
   // Dirección estructurada (para JSON-LD LocalBusiness y datos de contacto formales).
