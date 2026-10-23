@@ -5,6 +5,7 @@ import { categoryName, type Product } from "@/lib/catalog";
 import { getAllProducts, getProductBySlug, getProductSlugs } from "@/lib/products";
 import { isBuyable, formatMXN, SITE_URL } from "@/lib/config";
 import { productJsonLd, breadcrumbJsonLd } from "@/lib/seo";
+import { getContacto } from "@/lib/contacto";
 import JsonLd from "@/components/site/JsonLd";
 import ProductGallery from "@/components/site/ProductGallery";
 import ProductCard from "@/components/site/ProductCard";
@@ -61,7 +62,7 @@ export default async function ProductPage({
   if (!p) notFound();
 
   const buy = isBuyable(p.price);
-  const all = await getAllProducts();
+  const [all, { whatsapp }] = await Promise.all([getAllProducts(), getContacto()]);
   const related = all.filter((x) => x.category === p.category && x.slug !== p.slug).slice(0, 4);
 
   return (
@@ -119,7 +120,7 @@ export default async function ProductPage({
 
               <div className="pd-cta">
                 {buy ? (
-                  <BuyButton slug={p.slug} />
+                  <BuyButton slug={p.slug} whatsapp={whatsapp} />
                 ) : (
                   <QuoteTrigger className="btn btn-green" product={{ slug: p.slug, brand: p.brand, model: p.model, price: p.price }}>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}><circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" /><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6" /></svg>

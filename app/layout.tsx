@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Open_Sans, Poppins } from "next/font/google";
 import { SITE_URL } from "@/lib/config";
 import { organizationJsonLd } from "@/lib/seo";
+import { getContacto } from "@/lib/contacto";
 import JsonLd from "@/components/site/JsonLd";
 import "./globals.css";
 
@@ -63,7 +64,8 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const contacto = await getContacto();
   return (
     <html lang="es-MX" className={`${openSans.variable} ${poppins.variable}`}>
       <head>
@@ -90,7 +92,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
         {/* End Google Tag Manager (noscript) */}
-        <JsonLd data={organizationJsonLd()} />
+        <JsonLd data={organizationJsonLd(contacto)} />
         {children}
       </body>
     </html>

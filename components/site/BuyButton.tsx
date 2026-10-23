@@ -5,9 +5,11 @@ import { waLink } from "@/lib/config";
 
 export default function BuyButton({
   slug,
+  whatsapp,
   label = "Comprar ahora",
 }: {
   slug: string;
+  whatsapp: string;
   label?: string;
 }) {
   const [loading, setLoading] = useState(false);
@@ -31,7 +33,7 @@ export default function BuyButton({
 
       // Sin credenciales aún → fallback a WhatsApp para no perder la venta.
       if (data.reason === "not_configured") {
-        window.open(waLink(`Hola ROCCMACH, quiero comprar el equipo ${slug}`), "_blank");
+        window.open(waLink(`Hola ROCCMACH, quiero comprar el equipo ${slug}`, whatsapp), "_blank");
         return;
       }
 

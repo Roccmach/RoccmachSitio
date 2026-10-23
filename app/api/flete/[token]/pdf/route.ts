@@ -1,4 +1,5 @@
 import { renderToBuffer } from "@react-pdf/renderer";
+import { getContacto } from "@/lib/contacto";
 import { getFreightQuoteByToken } from "@/lib/freight";
 import { FreightPdf } from "@/lib/pdf/FreightPdf";
 
@@ -13,7 +14,7 @@ export async function GET(
     return new Response("Cotización no encontrada", { status: 404 });
   }
 
-  const buffer = await renderToBuffer(FreightPdf({ quote }));
+  const buffer = await renderToBuffer(FreightPdf({ quote, contacto: await getContacto() }));
 
   return new Response(new Uint8Array(buffer), {
     headers: {

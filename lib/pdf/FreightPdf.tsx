@@ -1,6 +1,7 @@
 import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
 import type { TrackedFreightQuote } from "@/lib/freight";
 import { BRAND } from "@/lib/config";
+import type { Contacto } from "@/lib/contacto";
 
 const RED = "#E4151F";
 const INK = "#0B0B0C";
@@ -46,7 +47,7 @@ const fecha = (iso?: string) => {
 };
 const addr = (a: { ciudad: string; cp: string }) => `${a.ciudad}, CP ${a.cp}`;
 
-export function FreightPdf({ quote }: { quote: TrackedFreightQuote }) {
+export function FreightPdf({ quote, contacto }: { quote: TrackedFreightQuote; contacto: Contacto }) {
   return (
     <Document title={`Cotización de transporte ${quote.folio}`}>
       <Page size="A4" style={s.page}>
@@ -153,7 +154,7 @@ export function FreightPdf({ quote }: { quote: TrackedFreightQuote }) {
 
         <View style={s.footer} fixed>
           <Text style={s.footText}>ROCCMACH · {BRAND.city}</Text>
-          <Text style={s.footText}>{BRAND.email} · WhatsApp +{BRAND.whatsapp}</Text>
+          <Text style={s.footText}>{contacto.email} · WhatsApp +{contacto.whatsapp}</Text>
         </View>
       </Page>
     </Document>

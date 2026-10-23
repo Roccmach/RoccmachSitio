@@ -1,10 +1,12 @@
 import { waLink } from "@/lib/config";
+import { getContacto } from "@/lib/contacto";
 
-export default function WhatsAppFab() {
+export default async function WhatsAppFab() {
+  const { whatsapp } = await getContacto();
   return (
     <a
       className="wa-fab"
-      href={waLink("Hola ROCCMACH, quiero comprar maquinaria")}
+      href={waLink("Hola ROCCMACH, quiero comprar maquinaria", whatsapp)}
       aria-label="Contactar por WhatsApp"
       target="_blank"
       rel="noopener"

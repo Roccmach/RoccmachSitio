@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "/nosotros" },
 };
 
+// El pie y el botón de WhatsApp leen el panel de Sanity: se refresca como el catálogo.
+export const revalidate = 60;
+
 const VALUES = [
   {
     title: "Respaldo real",

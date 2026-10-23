@@ -36,8 +36,10 @@ export const isBuyable = (price: number) => price > 0 && price < PRICE_THRESHOLD
 /** Formato de moneda MXN. */
 export const formatMXN = (n: number) => "$" + n.toLocaleString("es-MX");
 
-export const waLink = (text: string) =>
-  `https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent(text)}`;
+/** `numero` viene de getContacto() (lib/contacto.ts), que lo lee del panel de Sanity.
+ * Obligatorio a propósito: con un valor por omisión, olvidarlo usaría el número del código sin avisar. */
+export const waLink = (text: string, numero: string) =>
+  `https://wa.me/${numero}?text=${encodeURIComponent(text)}`;
 
 /** URL base del sitio (para back_urls de Mercado Pago, links de correo/seguimiento, JSON-LD, etc.).
  * Si NEXT_PUBLIC_SITE_URL viene mal configurada apuntando a localhost (ej. copiada por error

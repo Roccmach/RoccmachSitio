@@ -1,6 +1,7 @@
 import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
 import type { TrackedOrder } from "@/lib/products";
 import { BRAND } from "@/lib/config";
+import type { Contacto } from "@/lib/contacto";
 
 const RED = "#E4151F";
 const INK = "#0B0B0C";
@@ -43,7 +44,7 @@ const fecha = (iso?: string) => {
   catch { return "—"; }
 };
 
-export function OrderPdf({ order }: { order: TrackedOrder }) {
+export function OrderPdf({ order, contacto }: { order: TrackedOrder; contacto: Contacto }) {
   return (
     <Document title={`Comprobante ${order.orderNumber}`}>
       <Page size="A4" style={s.page}>
@@ -107,7 +108,7 @@ export function OrderPdf({ order }: { order: TrackedOrder }) {
 
         <View style={s.footer} fixed>
           <Text style={s.footText}>ROCCMACH · {BRAND.city}</Text>
-          <Text style={s.footText}>{BRAND.email} · WhatsApp +{BRAND.whatsapp}</Text>
+          <Text style={s.footText}>{contacto.email} · WhatsApp +{contacto.whatsapp}</Text>
         </View>
       </Page>
     </Document>

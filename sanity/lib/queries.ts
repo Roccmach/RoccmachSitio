@@ -49,7 +49,10 @@ export const BANNER_HOME_QUERY = groq`*[_type == "bannerHome"][0]{
   url
 }`;
 
-export const LEGAL_PAGE_QUERY = groq`*[_type == "legalPage" && kind == $kind][0]{ title, content }`;
+// «Configuración del sitio»: datos de contacto que el cliente edita sin tocar código.
+export const SITE_SETTINGS_QUERY = groq`*[_type == "siteSettings"][0]{ phone, whatsapp, email, instagram, facebook }`;
+
+export const LEGAL_PAGE_QUERY =groq`*[_type == "legalPage" && kind == $kind][0]{ title, content }`;
 
 // Solo campos seguros para el seguimiento público (sin teléfono/correo).
 export const ORDER_BY_NUMBER_QUERY = groq`*[_type == "order" && orderNumber == $n][0]{

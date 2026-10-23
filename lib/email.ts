@@ -1,6 +1,7 @@
 import "server-only";
 import { Resend } from "resend";
 import { BRAND, SITE_URL, formatMXN } from "@/lib/config";
+import { getContacto } from "@/lib/contacto";
 
 export const isEmailConfigured = !!process.env.RESEND_API_KEY;
 
@@ -64,7 +65,8 @@ function escapeHtml(str: string): string {
     .replace(/'/g, "&#39;");
 }
 
-function shell(title: string, bodyHtml: string) {
+async function shell(title: string, bodyHtml: string) {
+  const { whatsapp } = await getContacto();
   return `<div style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto;color:#0B0B0C">
     <div style="background:#0B0B0C;padding:22px 28px">
       <span style="font-size:22px;font-weight:bold;font-style:italic;color:#fff">ROCC<span style="color:#E4151F">MACH</span></span>
@@ -76,7 +78,7 @@ function shell(title: string, bodyHtml: string) {
       ${bodyHtml}
     </div>
     <div style="padding:18px 28px;border-top:1px solid #eee;font-size:12px;color:#6B7178">
-      ROCCMACH · ${BRAND.city} · WhatsApp +${BRAND.whatsapp}
+      ROCCMACH · ${BRAND.city} · WhatsApp +${whatsapp}
     </div>
   </div>`;
 }
@@ -93,7 +95,7 @@ export async function sendOrderConfirmation(opts: {
       from: FROM,
       to: opts.to,
       subject: `Pedido confirmado · ${opts.orderNumber}`,
-      html: shell("¡Gracias por tu compra! 🎉", `
+      html: await shell("¡Gracias por tu compra! 🎉", `
         <p>${opts.customerName ? `Hola ${escapeHtml(opts.customerName)}, ` : ""}recibimos tu pago y estamos preparando tu equipo.</p>
         <p style="font-size:14px;color:#6B7178">Número de pedido</p>
         <p style="font-size:24px;font-weight:bold;color:#E4151F;margin:0 0 6px">${opts.orderNumber}</p>
@@ -113,7 +115,7 @@ export async function sendContactOrderConfirmation(opts: {
       from: FROM,
       to: opts.to,
       subject: `Solicitud recibida · ${opts.orderNumber}`,
-      html: shell("¡Recibimos tu solicitud! 🔧", `
+      html: await shell("¡Recibimos tu solicitud! 🔧", `
         <p>${opts.customerName ? `Hola ${escapeHtml(opts.customerName)}, ` : ""}gracias por tu interés en <b>${escapeHtml(opts.productTitle)}</b>.</p>
         <p style="font-size:14px;color:#6B7178">Número de pedido</p>
         <p style="font-size:24px;font-weight:bold;color:#E4151F;margin:0 0 6px">${opts.orderNumber}</p>
@@ -134,7 +136,7 @@ export async function sendFreightRouteConfirmation(opts: {
       from: FROM,
       to: opts.to,
       subject: `Cotización de transporte · ${opts.folio}`,
-      html: shell("¡Tu cotización de transporte está lista! 🚛", `
+      html: await shell("¡Tu cotización de transporte está lista! 🚛", `
         <p>${opts.customerName ? `Hola ${escapeHtml(opts.customerName)}, ` : ""}gracias por cotizar tu transporte con ROCCMACH.</p>
         <p style="font-size:14px;color:#6B7178">Folio</p>
         <p style="font-size:24px;font-weight:bold;color:#E4151F;margin:0 0 6px">${opts.folio}</p>
@@ -155,7 +157,7 @@ export async function sendStatusUpdate(opts: {
       from: FROM,
       to: opts.to,
       subject: `Tu pedido ${opts.orderNumber}: ${opts.status}`,
-      html: shell(`Tu pedido va: ${escapeHtml(opts.status)}`, `
+      html: await shell(`Tu pedido va: ${escapeHtml(opts.status)}`, `
         <p>Actualizamos el estatus de tu pedido <b>${opts.orderNumber}</b>.</p>
         <p style="font-size:20px;font-weight:bold;color:#E4151F">${escapeHtml(opts.status)}</p>
         ${opts.statusNote ? `<p style="font-style:italic;border-left:3px solid #E4151F;padding-left:12px;color:#333">${escapeHtml(opts.statusNote)}</p>` : ""}

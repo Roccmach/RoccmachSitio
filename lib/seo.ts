@@ -2,10 +2,11 @@
 // la forma del JSON-LD en cada página.
 
 import { BRAND, SITE_URL } from "./config";
+import type { Contacto } from "./contacto";
 import type { Product } from "./catalog";
 
 /** Organization + LocalBusiness combinado — va una sola vez en el layout raíz. */
-export function organizationJsonLd() {
+export function organizationJsonLd(c: Contacto) {
   return {
     "@context": "https://schema.org",
     "@type": "Store",
@@ -15,8 +16,8 @@ export function organizationJsonLd() {
     description:
       "Distribución, venta, renta, refacciones y servicio de maquinaria industrial en Guadalajara, Jalisco, con entrega a toda la República Mexicana.",
     url: SITE_URL,
-    telephone: BRAND.phone,
-    email: BRAND.email,
+    telephone: c.phone,
+    email: c.email,
     image: `${SITE_URL}/nosotros-banner.png`,
     priceRange: "$$",
     address: {
@@ -36,7 +37,7 @@ export function organizationJsonLd() {
       "@type": "Country",
       name: "México",
     },
-    sameAs: [BRAND.socials.instagram, BRAND.socials.facebook].filter(
+    sameAs: [c.instagram, c.facebook].filter(
       (u) => u && !u.endsWith(".com")
     ),
   };

@@ -1,4 +1,5 @@
 import { renderToBuffer } from "@react-pdf/renderer";
+import { getContacto } from "@/lib/contacto";
 import { getOrderByToken } from "@/lib/products";
 import { OrderPdf } from "@/lib/pdf/OrderPdf";
 
@@ -13,7 +14,7 @@ export async function GET(
     return new Response("Pedido no encontrado", { status: 404 });
   }
 
-  const buffer = await renderToBuffer(OrderPdf({ order }));
+  const buffer = await renderToBuffer(OrderPdf({ order, contacto: await getContacto() }));
 
   return new Response(new Uint8Array(buffer), {
     headers: {

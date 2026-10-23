@@ -5,7 +5,7 @@ import { BRAND, waLink } from "@/lib/config";
 
 const CATS = ["Montacargas", "Grúa", "Patín", "Plataforma", "Refacciones", "Servicio"];
 
-export default function ContactForm() {
+export default function ContactForm({ whatsapp }: { whatsapp: string }) {
   const [f, setF] = useState({ nombre: "", empresa: "", tel: "", interes: CATS[0], msg: "" });
 
   const set = (k: keyof typeof f) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
@@ -20,7 +20,7 @@ export default function ContactForm() {
       `📱 ${f.tel}%0A` +
       `🔧 Interés: ${f.interes}%0A` +
       `📝 ${f.msg || "—"}`;
-    window.open(`https://wa.me/${BRAND.whatsapp}?text=${text}`, "_blank");
+    window.open(`https://wa.me/${whatsapp}?text=${text}`, "_blank");
   };
 
   return (
