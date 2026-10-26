@@ -36,7 +36,41 @@ export const product = defineType({
       initialValue: "Nuevo",
     }),
     defineField({ name: "shortSpec", title: "Spec corta (para la card)", type: "string", description: "Ej: 2.5 ton · GLP · 4.7m" }),
-    defineField({ name: "description", title: "Descripción", type: "text", rows: 4 }),
+    // Mini editor: lo que pide una ficha de equipo y nada más (sin enlaces, sin tamaños de título).
+    defineField({
+      name: "descripcion",
+      title: "Descripción",
+      type: "array",
+      description:
+        "Puedes pegar desde Word. Usa «Subtítulo» para separar secciones (ej. CONDICIONES COMERCIALES) y la viñeta para listas.",
+      of: [
+        {
+          type: "block",
+          styles: [
+            { title: "Normal", value: "normal" },
+            { title: "Subtítulo", value: "h3" },
+          ],
+          lists: [{ title: "Viñetas", value: "bullet" }],
+          marks: {
+            decorators: [
+              { title: "Negrita", value: "strong" },
+              { title: "Cursiva", value: "em" },
+            ],
+            annotations: [],
+          },
+        },
+      ],
+    }),
+    // El campo de antes (texto simple). Su contenido se copió a «Descripción» (oct-2026); queda de
+    // solo lectura y se oculta en cuanto está vacío. El sitio lo usa si «Descripción» está vacía.
+    defineField({
+      name: "description",
+      title: "Descripción anterior (texto simple)",
+      type: "text",
+      rows: 4,
+      readOnly: true,
+      hidden: ({ value }) => !value,
+    }),
     defineField({
       name: "specs",
       title: "Especificaciones",

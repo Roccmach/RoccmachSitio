@@ -8,6 +8,7 @@ import { productJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import { getContacto } from "@/lib/contacto";
 import JsonLd from "@/components/site/JsonLd";
 import ProductGallery from "@/components/site/ProductGallery";
+import ProductDescription from "@/components/site/ProductDescription";
 import ProductCard from "@/components/site/ProductCard";
 import BuyButton from "@/components/site/BuyButton";
 import QuoteTrigger from "@/components/site/QuoteTrigger";
@@ -132,7 +133,7 @@ export default async function ProductPage({
             </div>
           </div>
 
-          {p.description && <p className="pd-desc-full">{p.description}</p>}
+          <ProductDescription p={p} />
         </div>
       </section>
 

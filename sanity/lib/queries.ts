@@ -9,7 +9,10 @@ const productProjection = groq`{
   shortSpec,
   price,
   condition,
-  description,
+  // Texto simple (meta, JSON-LD y respaldo de la ficha): el del mini editor si tiene algo,
+  // si no el campo viejo. «descripcion» trae los bloques con formato para la ficha.
+  "description": select(count(descripcion) > 0 => pt::text(descripcion), description),
+  descripcion,
   // Un equipo guardado sin ficha llega como null, no como []. El catálogo
   // recorre TODOS los equipos con specs.find(), así que uno solo incompleto
   // tumbaba /catalogo entero (500, 20-oct-2026, Toyota 8FBCU30).

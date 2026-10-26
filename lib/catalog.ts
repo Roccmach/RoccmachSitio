@@ -1,3 +1,4 @@
+import type { PortableTextBlock } from "@portabletext/types";
 // Catálogo mock (Fase 1). En Fase 2 esto se reemplaza por queries a Sanity,
 // manteniendo la misma forma de datos.
 
@@ -16,7 +17,8 @@ export interface Product {
   shortSpec: string;
   price: number;
   condition: "Nuevo" | "Seminuevo";
-  description: string;
+  description: string; // texto simple: el del mini editor si existe, si no el campo anterior
+  descripcion?: PortableTextBlock[]; // con formato (negritas, subtítulos, viñetas); solo en Sanity
   specs: Spec[];
   imageUrl?: string; // presente cuando viene de Sanity
   gallery?: string[]; // fotos adicionales (máx 4); solo se usan en la página de detalle
