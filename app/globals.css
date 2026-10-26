@@ -812,7 +812,8 @@ footer.site .wrap{position:relative;z-index:1}
 .pd-price{font-family:var(--display);font-weight:900;font-size:2.6rem;color:var(--ink);line-height:1;margin:0 0 12px}
 .pd-price small{display:block;font-family:var(--body);font-size:.8rem;letter-spacing:.06em;color:var(--steel-d);font-weight:600;margin-top:6px}
 .pd-price.q{color:var(--red);font-size:1.7rem}
-.pd-desc-full{color:var(--steel-d);font-size:1.08rem;line-height:1.65;max-width:900px;margin:44px 0 0;padding-top:34px;border-top:1px solid var(--line-d)}
+/* pre-line: respeta los renglones que la clienta pega de Word (sin esto salía todo de corrido) */
+.pd-desc-full{color:var(--steel-d);font-size:1.08rem;line-height:1.65;max-width:900px;margin:44px 0 0;padding-top:34px;border-top:1px solid var(--line-d);white-space:pre-line}
 .pd-specs{width:100%;border-collapse:collapse;margin:0 0 20px;border:1px solid var(--line-d);border-radius:12px;overflow:hidden}
 .pd-specs tr:nth-child(odd){background:var(--concrete-2)}
 .pd-specs td{padding:13px 18px;font-size:.95rem;vertical-align:top;line-height:1.4}
