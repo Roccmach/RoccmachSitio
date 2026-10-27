@@ -813,8 +813,11 @@ footer.site .wrap{position:relative;z-index:1}
 .pd-price small{display:block;font-family:var(--body);font-size:.8rem;letter-spacing:.06em;color:var(--steel-d);font-weight:600;margin-top:6px}
 .pd-price.q{color:var(--red);font-size:1.7rem}
 /* pre-line: respeta los renglones que la clienta pega de Word (sin esto salía todo de corrido) */
-/* margen inferior: sin él, la descripción quedaba pegada a «También te puede servir» */
-.pd-desc-full{color:var(--steel-d);font-size:1.08rem;line-height:1.65;max-width:900px;margin:44px 0 clamp(48px,6vw,72px);padding-top:34px;border-top:1px solid var(--line-d);white-space:pre-line}
+.pd-desc-full{color:var(--steel-d);font-size:1.08rem;line-height:1.65;max-width:900px;margin:44px 0 0;padding-top:34px;border-top:1px solid var(--line-d);white-space:pre-line}
+/* Aire antes de «También te puede servir». Va como RELLENO de la sección y no como margen de la
+   descripción: la sección no tiene relleno abajo, así que un margen se salía de ella y dejaba ver
+   una franja del fondo negro de la página entre las dos secciones. */
+section.pd{padding-bottom:clamp(48px,6vw,72px)}
 /* Formato del mini editor (ProductDescription): párrafos, subtítulos, viñetas, negritas */
 .pd-desc-full p{margin:0 0 .3em}
 .pd-desc-full h3{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:.95rem;color:var(--ink);margin:1.5em 0 .55em}
